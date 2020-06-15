@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAMS", "GAMS\GAMS.csproj", "{FB1C862F-4815-4BD7-9B31-911A0D395B7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchTextBox", "UIControls\SearchBox\SearchTextBox.csproj", "{A3082956-9EE4-4B35-9B4E-B07D0C4C8B56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB1C862F-4815-4BD7-9B31-911A0D395B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1C862F-4815-4BD7-9B31-911A0D395B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1C862F-4815-4BD7-9B31-911A0D395B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1C862F-4815-4BD7-9B31-911A0D395B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3082956-9EE4-4B35-9B4E-B07D0C4C8B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3082956-9EE4-4B35-9B4E-B07D0C4C8B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3082956-9EE4-4B35-9B4E-B07D0C4C8B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3082956-9EE4-4B35-9B4E-B07D0C4C8B56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6E0D02C-DF6F-4AD8-8274-654F21FE06E4}
+	EndGlobalSection
+EndGlobal

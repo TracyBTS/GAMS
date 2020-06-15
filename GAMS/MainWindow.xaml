@@ -1,0 +1,537 @@
+﻿<Window x:Class="GAMS.MainWindow"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+        xmlns:SharedExtendedControl="clr-namespace:GAMS.SharedClasses.SharedExtendedControls"
+        xmlns:SharedCommands="clr-namespace:GAMS.SharedClasses.SharedCommands"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMS"
+        mc:Ignorable="d"
+        Title="BTS - GAMS" Height="450" Width="800">
+    <Window.DataContext>
+        <local:ModelViewContentItems x:Name="ModelViewTabComponents" />
+    </Window.DataContext>
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.WorkOrderViewCmd}"
+            CanExecute="WorkOrderViewCmd_CanExecute"
+            Executed="WorkOrderViewCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.AssetViewCmd}"
+            CanExecute="AssetViewCmd_CanExecute"
+            Executed="AssetViewCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.LogisticsViewCmd}"
+            CanExecute="LogisticsViewCmd_CanExecute"
+            Executed="LogisticsViewCmd_Executed" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="W" Modifiers="Alt" Command="SharedCommands:Commands.WorkOrderViewCmd"/>
+        <KeyBinding Key="A" Modifiers="Alt" Command="SharedCommands:Commands.AssetViewCmd"/>
+        <KeyBinding Key="L" Modifiers="Alt" Command="SharedCommands:Commands.LogisticsViewCmd"/>
+    </Window.InputBindings>
+    <Window.Resources>
+        <ContextMenu x:Key="MainTabbedWindowContext">
+            <MenuItem Header="Close this" Click="rmi_MainTabbedWindow_CloseThis">
+                <MenuItem.Icon>
+                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/CloseThis-40x40.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Close all but this" Click="rmi_MainTabbedWindow_CloseAllButThis">
+                <MenuItem.Icon>
+                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/ClockAllButThis-40x40.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Close all" Click="rmi_MainTabbedWindow_CloseAll">
+                <MenuItem.Icon>
+                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/CloseAll-40x40.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+        <Style x:Key="EditableTabHeaderControl" TargetType="{x:Type SharedExtendedControl:EditableTabHeaderControl}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type SharedExtendedControl:EditableTabHeaderControl}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="PART_TabHeaderIcon" Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Tag}" Grid.Column="0" Height="20" Width="20" />
+                            <TextBox x:Name="PART_TabHeader" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content, Mode=TwoWay}" Grid.Column="1" Visibility="Collapsed" Margin="3,0,0,0" />
+                            <TextBlock x:Name="PART_TextBlock" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content, Mode=TwoWay}" Grid.Column="1" Margin="3,0,0,0" ToolTip="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsInEditMode" Value="True">
+                                <Trigger.Setters>
+                                    <Setter TargetName="PART_TabHeader" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="PART_TextBlock" Property="Visibility" Value="Collapsed" />
+                                </Trigger.Setters>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ItemContainerStyle" TargetType="telerik:RadTabItem">
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Margin" Value="0,3,0,0" />
+            <Setter Property="ContextMenu" Value="{StaticResource MainTabbedWindowContext}" />
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <SharedExtendedControl:EditableTabHeaderControl Style="{StaticResource EditableTabHeaderControl}">
+                            <SharedExtendedControl:EditableTabHeaderControl.Content>
+                                <Binding Path="Header" Mode="TwoWay" />
+                            </SharedExtendedControl:EditableTabHeaderControl.Content>
+                            <SharedExtendedControl:EditableTabHeaderControl.Tag>
+                                <Binding Path="HeaderIcon" Mode="TwoWay" />
+                            </SharedExtendedControl:EditableTabHeaderControl.Tag>
+                        </SharedExtendedControl:EditableTabHeaderControl>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="ContentTemplate">
+            <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ContentControl Content="{Binding Content}"/>
+            </ScrollViewer>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <telerik:RadMenu x:Name="rm_MainMenuLeft" BorderThickness="0">
+            <telerik:RadMenuItem Header="Controls">
+                <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/Controls-40x40.png" Height="26" />
+                </telerik:RadMenuItem.Icon>
+                <telerik:RadMenuItem Header="Dashboard">
+                    <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/Dashboard-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Assets"
+                                     Command="SharedCommands:Commands.AssetViewCmd" InputGestureText="Alt+A">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Asset-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                    <telerik:RadMenuItem Header="PM Management">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/PreventiveMaintenancePlanning-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Contract Management">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/ContractManagement-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Recall Management">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Recall-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Bulk Work" />
+                    <telerik:RadMenuItem Header="View">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/View-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Reports">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Reports-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                        <telerik:RadMenuItem Header="My Reports..." />
+                        <telerik:RadMenuItem Header="PM Overdue" />
+                        <telerik:RadMenuItem Header="Compliance" />
+                        <telerik:RadMenuItem Header="NATA" />
+                        <telerik:RadMenuItem Header="Retirement Pending" />
+                        <telerik:RadMenuItem Header="No Recent Activity" />
+                        <telerik:RadMenuItem Header="Recently Added" />
+                        <telerik:RadMenuItem Header="Recently Retired" />
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="Asset Report By..." />
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="DIAS - Letter Of Attestation" />
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="Custom" />
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Work Order"
+                                     Command="SharedCommands:Commands.WorkOrderViewCmd" InputGestureText="Alt+W">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/WorkOrder-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                    <telerik:RadMenuItem Header="List"
+                                     Command="SharedCommands:Commands.WorkOrderViewCmd" InputGestureText="Alt+W">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/List-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="View">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/View-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Reports">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Reports-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                        <telerik:RadMenuItem Header="My Reports..." />
+                        <telerik:RadMenuItem Header="PM WO Overdue" />
+                        <telerik:RadMenuItem Header="No Recent Activity" />
+                        <telerik:RadMenuItem Header="Recently Added" />
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="Custom" />
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuSeparatorItem />
+                <telerik:RadMenuItem Header="Finance">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Finance-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                    <telerik:RadMenuItem Header="Purchase Approvals">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Approving-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Invoicing">
+                        <telerik:RadMenuItem Header="Client Invoicing">
+                            <telerik:RadMenuItem.Icon>
+                                <Image Source="/SharedImages/Invoice-40x40.png" />
+                            </telerik:RadMenuItem.Icon>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Private Invoicing">
+                            <telerik:RadMenuItem.Icon>
+                                <Image Source="/SharedImages/InvoicingPrivate-40x40.png" />
+                            </telerik:RadMenuItem.Icon>
+                        </telerik:RadMenuItem>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Request Purchase">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/PurchaseRequest-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Quote">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Quote-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    
+                    <telerik:RadMenuSeparatorItem />
+
+                    <telerik:RadMenuItem Header="Cost Recovery">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/CostRecovery-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Logistics"
+                                     Command="SharedCommands:Commands.LogisticsViewCmd" InputGestureText="Alt+L">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Logistics-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuSeparatorItem />
+                
+                <telerik:RadMenuItem Header="Warehouse &amp; Parts">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Warehouse-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                    <telerik:RadMenuItem Header="Part Transfer">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/PartTransfer-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuSeparatorItem />
+                    <telerik:RadMenuItem Header="Impress Stock Management">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/WarehouseImprest-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Warehouse Stock Management">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/WarehouseStockManagement-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Manuals">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Manuals-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+            </telerik:RadMenuItem>
+            <telerik:RadMenuItem Header="QuikLinks">
+                <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/QuickLinks-40x40.png" Height="26" />
+                </telerik:RadMenuItem.Icon>
+                
+                <telerik:RadMenuSeparatorItem />
+
+                <telerik:RadMenuItem Header="Create QuikLink">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/URL-40x40.png" Height="26" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+            </telerik:RadMenuItem>
+            <telerik:RadMenuItem Header="Search">
+                <telerik:RadMenuItem.Icon>
+                <Image Source="/SharedImages/Search-40x40.png" Height="26" />
+                </telerik:RadMenuItem.Icon>
+            </telerik:RadMenuItem>
+            <telerik:RadMenuItem Header="Open Windows">
+                <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/Windows-40x40.png" Height="26" />
+                </telerik:RadMenuItem.Icon>
+            </telerik:RadMenuItem>
+
+            <telerik:RadMenuItem Header="Configuration">
+                <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/Configuration-40x40.png" />
+                </telerik:RadMenuItem.Icon>
+                <telerik:RadMenuItem Header="Dictionaries">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Library-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                    <telerik:RadMenuItem Header="Sites &amp; Service Departments">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Site-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuSeparatorItem />
+                    <telerik:RadMenuItem Header="Accounts">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Accounts-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Facility">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Facility-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Buildings">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Building-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Locations">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Location-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="LSPN Management">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Certification-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuSeparatorItem />
+                    <telerik:RadMenuItem Header="Suppliers">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Vendor-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Manufacturers">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Manufacturer-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Equipment Type">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/DeviceType-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Risk Factor">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Risk-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Device Class">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/DeviceClass-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuSeparatorItem />
+                    <telerik:RadMenuItem Header="Equipment Defaults" >
+                        <telerik:RadMenuItem Header="Condition" />
+                        <telerik:RadMenuItem Header="Status" />
+                        <telerik:RadMenuItem Header="Purchase Intent" />
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Work Order Defaults">
+                        <telerik:RadMenuItem Header="Status">
+                            <telerik:RadMenuItem.Icon>
+                                <Image Source="/SharedImages/Status-40x40.png" />
+                            </telerik:RadMenuItem.Icon>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Failure Codes">
+                            <telerik:RadMenuItem.Icon>
+                                <Image Source="/SharedImages/Failure-40x40.png" />
+                            </telerik:RadMenuItem.Icon>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Priority">
+                            <telerik:RadMenuItem.Icon>
+                                <Image Source="/SharedImages/Priority-40x40.png" />
+                            </telerik:RadMenuItem.Icon>
+                        </telerik:RadMenuItem>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Financial Defaults" >
+
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Contract Defaults">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/ContractManagement-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                        <telerik:RadMenuItem Header="Contract Type" />
+                        <telerik:RadMenuItem Header="Contract Limit Type" />
+                        <telerik:RadMenuItem Header="Contract Status" />
+                        <telerik:RadMenuItem Header="Contract Intent" />
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuSeparatorItem />
+                    <telerik:RadMenuItem Header="Procedures">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Workflow-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Labour Response">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/LabourResponse-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+
+                    <telerik:RadMenuSeparatorItem />
+
+                    <telerik:RadMenuItem Header="Decontamination">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Warning-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+
+                    <telerik:RadMenuSeparatorItem />
+
+                    <telerik:RadMenuItem Header="Expertice Defaults">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/Expertice-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                        <telerik:RadMenuItem Header="Licenses" />
+                        <telerik:RadMenuItem Header="Compentency" />
+                        <telerik:RadMenuItem Header="Objectives" />
+                        <telerik:RadMenuItem Header="Training" />
+                        <telerik:RadMenuItem Header="Inoculations" />
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+
+                <telerik:RadMenuSeparatorItem />
+                <telerik:RadMenuItem Header="Model &amp; Manufacturer">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/ModelManufacturer-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuSeparatorItem />
+                <telerik:RadMenuItem Header="Employee">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Employee-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                    <telerik:RadMenuItem Header="Reports">
+                        <telerik:RadMenuItem Header="Toil" />
+                        <telerik:RadMenuItem Header="Competency" />
+                        <telerik:RadMenuItem Header="License" />
+                        <telerik:RadMenuSeparatorItem />
+                        <telerik:RadMenuItem Header="Exceptions" />
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="Setup">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/SharedImages/EmployeeSetup-40x40.png" />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Organisational Management">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Relationships-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Security">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Security-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="User Roles">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/UserRoles-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuSeparatorItem />
+                <telerik:RadMenuItem Header="Systems">
+                    <telerik:RadMenuItem Header="Control Presentation">
+                        <telerik:RadMenuItem Header="Presentation Group" />
+                    </telerik:RadMenuItem>
+                </telerik:RadMenuItem>
+            </telerik:RadMenuItem>
+
+            <telerik:RadMenuItem Header="Help">
+                <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/Help-40x40.png" Height="26" />
+                </telerik:RadMenuItem.Icon>
+                <telerik:RadMenuItem Header="Manuals">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Manuals-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="About">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Info-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+            </telerik:RadMenuItem>
+        </telerik:RadMenu>
+        
+        <telerik:RadMenu x:Name="rm_MainMenuRight" Grid.Column="2" BorderThickness="0">
+            <telerik:RadMenuItem Header="Session">
+                <telerik:RadMenuItem.Icon>
+                    <Image Source="/SharedImages/Session-40x40.png" Height="26" />
+                </telerik:RadMenuItem.Icon>
+                <telerik:RadMenuItem Header="Logout">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Logout-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuSeparatorItem />
+                <telerik:RadMenuItem Header="Preferences">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Preference-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem Header="Profile">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/SharedImages/Profile-40x40.png" />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+            </telerik:RadMenuItem>
+        </telerik:RadMenu>
+
+        <telerik:RadTabbedWindow x:Name="rtw_MainContentView" Grid.Row="1" Grid.ColumnSpan="4" BorderThickness="0" Margin="0,3,0,0"
+                                 ItemsSource="{Binding ModelViewItems}" 
+                                 ItemContainerStyle="{StaticResource ItemContainerStyle}" 
+                                 ContentTemplate="{StaticResource ContentTemplate}"
+                                 SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                                 AddButtonVisibility="{Binding AddButtonVisibility}"
+                                 AddingNewTab="rtw_MainContentView_AddingNewTab"
+                                 SelectionChanged="rtw_MainContentView_SelectionChanged">
+            <telerik:RadTabbedWindow.Resources>
+                <Style TargetType="telerik:RadTabbedWindow">
+                    <Setter Property="CanClose" Value="False" />
+                    <Setter Property="HideMinimizeButton" Value="True" />
+                    <Setter Property="HideMaximizeButton" Value="True" />
+                </Style>
+            </telerik:RadTabbedWindow.Resources>
+        </telerik:RadTabbedWindow>
+    </Grid>
+</Window>
+         

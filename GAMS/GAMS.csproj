@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.props" Condition="Exists('..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.props')" />
+  <Import Project="..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.props" Condition="Exists('..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.props')" />
+  <Import Project="..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.props" Condition="Exists('..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.props')" />
+  <Import Project="..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.props" Condition="Exists('..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB1C862F-4815-4BD7-9B31-911A0D395B7B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GAMS</RootNamespace>
+    <AssemblyName>GAMS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Toolkit.Win32.UI.XamlHost.Managed, Version=6.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\lib\net462\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Toolkit.Wpf.UI.Controls, Version=6.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.Wpf.UI.Controls.6.1.0-preview1\lib\net462\Microsoft.Toolkit.Wpf.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Toolkit.Wpf.UI.XamlHost, Version=6.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.Wpf.UI.XamlHost.6.1.0-preview1\lib\net462\Microsoft.Toolkit.Wpf.UI.XamlHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Data, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceAudit.xaml.cs">
+      <DependentUpon>DeliveryAdviceAudit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceQuickReceipt.xaml.cs">
+      <DependentUpon>DeliveryAdviceQuickReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderAudit.xaml.cs">
+      <DependentUpon>WorkOrderAudit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderFinance.xaml.cs">
+      <DependentUpon>WorkOrderFinance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderItem.xaml.cs">
+      <DependentUpon>WorkOrderItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\WorkOrder\WorkOrderListView.xaml.cs">
+      <DependentUpon>WorkOrderListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\WorkOrder\WorkOrderSingleView.xaml.cs">
+      <DependentUpon>WorkOrderSingleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_Address.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_BusinessArea.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_BusinessAreaDistrict.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_BusinessAreaDistrictCostCentre.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ChargeRateTier.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_Customer.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_CustomerBusinessAreaMapping.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_CustomerReporting.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_CustomerReportingCostCentreMapping.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_Employee.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeAccounts.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeCompetency.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeCompetencyRegistration.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeLicense.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeLicenseRegistration.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeLicenseUnit.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeReportingExceptions.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeRole.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EmployeeServiceDepartments.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EventResponse.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_EventResponseRate.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_Manufacturer.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModel.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelCoverage.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelFiles.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelPart.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelProcedure.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelProcedureGuide.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelProcedurePart.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ManufacturerModelVersion.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_Part.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_PartSupplier.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_PartWarehouse.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ServiceSite.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_ServiceSiteServiceDepartment.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_Vendor.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_VendorAddress.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_VendorContact.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog_VendorPurchasingRules.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ActorRole.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ActorRoleAccountManager.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ActorRoleSecurity.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ActorRoleSecurityElement.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ActorRoleServiceDepartment.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_Control.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ControlItem.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ElectronicForm.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ElectronicFormTask.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_ElectronicFormTaskRule.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BNALocalDatabase.cs" />
+    <Compile Include="Dictioanry_DataType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_BSQConfiguration.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_BTSCalibrationType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_CompetencyType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ContactType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ContractLimitType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ContractStatus.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ContractType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_CoverageType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Decontamination.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Discipline.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ElectronicFormControlType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ElectronicFormGrouping.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ElectronicFormOperationType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ElectronicFormRuleTarget.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ElectronicFormValueType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ElectronicFormValueUnit.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_EquipmentCondition.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_EquipmentContractIntent.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_EquipmentStatus.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_EquipmentType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Facility.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_FacilityBuilding.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_FacilityBuildingLocation.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_FileType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_LicenseType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_OperatingSystem.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_OperatingSystemPatch.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Ownership.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PartCatagory.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Period.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PowerType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Presentation.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PresentationGroup.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PresentationGroupPanel.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PresentationUserInputControlType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PresentationUserInputValue.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Priority.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Procedure.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_PurchaseStatus.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_ReportElement.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Risk.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_UnitOfMeasure.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_Warehouse.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_WorkOrderFailure.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_WorkOrderStatus.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary_WorkOrderType.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAMSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_Asset.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_AssetControlItemValue.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_AssetCoverage.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_AssetFile.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_AssetHistory.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_AssetProcedure.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_AssetProcedurePart.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_Contract.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_ContractAsset.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_ContractControlItemValue.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_ContractFile.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_ContractLimit.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_ContractRates.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_DeliveryAdvice.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_DeliveryAdviceItem.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_PurchaseOrder.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_PurchaseOrderControlItemValue.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_PurchaseOrderHistory.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_PurchaseOrderInvoice.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_PurchaseOrderNotes.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_PurchaseOrderRequest.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrder.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderAsset.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderControlItemValue.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderEvent.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderEventControlItemValue.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderEventInvoice.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderEventWarehouseTransaction.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderFile.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_WorkOrderHistory.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BNAModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNAModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BNAModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNAModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BNAModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNAModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryAdvice_item1.cs">
+      <DependentUpon>BNAModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryAdvice_Shipping.cs">
+      <DependentUpon>BNAModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShareControls\AddressBookWindow.xaml.cs">
+      <DependentUpon>AddressBookWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShareControls\FloatingWindow.xaml.cs">
+      <DependentUpon>FloatingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShareControls\ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedClasses\SharedCommands\Commands.cs" />
+    <Compile Include="SharedClasses\SharedConverters\Converter_BoolToVisibility.cs" />
+    <Compile Include="SharedClasses\SharedConverters\Converter_VisibilityInverter.cs" />
+    <Compile Include="SharedClasses\SharedConverters\DebugConverter.cs" />
+    <Compile Include="SharedClasses\SharedExtendedControls\EditableTabHeaderControl.cs" />
+    <Compile Include="SharedClasses\SharedOverriders\RadGridView_ButtonColumn.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DictionaryViewModels.cs" />
+    <Compile Include="ViewModel\IView.cs" />
+    <Compile Include="ViewModel\LogisticsViewModel.cs" />
+    <Compile Include="ViewModel\WorkOrderViewModel.cs" />
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xxItem_AssetLegacy.cs">
+      <DependentUpon>GAMSModel.tt</DependentUpon>
+    </Compile>
+    <Page Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceAudit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceQuickReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceSingleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\Logistics\Logistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderAudit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderFinance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\WorkOrder\WorkOrderListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\WorkOrder\WorkOrderSingleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceSingleView.xaml.cs">
+      <DependentUpon>DeliveryAdviceSingleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Logistics\Logistics.xaml.cs">
+      <DependentUpon>Logistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GAMSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAMSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAMSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAMSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ShareControls\AddressBookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShareControls\FloatingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShareControls\ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="GAMSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GAMSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GAMSModel.edmx.diagram">
+      <DependentUpon>GAMSModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Models\BNAModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BNAModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\BNAModel.edmx.diagram">
+      <DependentUpon>BNAModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UIControls\SearchBox\SearchTextBox.csproj">
+      <Project>{a3082956-9ee4-4b35-9b4e-b07d0c4c8b56}</Project>
+      <Name>SearchTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GAMSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GAMSModel.Context.cs</LastGenOutput>
+      <DependentUpon>GAMSModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="GAMSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GAMSModel.edmx</DependentUpon>
+      <LastGenOutput>GAMSModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BNAModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BNAModel.edmx</DependentUpon>
+      <LastGenOutput>BNAModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BNAModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BNAModel.edmx</DependentUpon>
+      <LastGenOutput>BNAModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="SharedImages\Open-16x16.png" />
+    <Resource Include="SharedImages\Receive-40x40.png" />
+    <Resource Include="SharedImages\Email-40x40.png" />
+    <Resource Include="SharedImages\WorkOrderNew-40x40.png" />
+    <Resource Include="SharedImages\List-40x40.png" />
+    <Resource Include="SharedImages\Preference-40x40.png" />
+    <Resource Include="SharedImages\Cancel-40x40.png" />
+    <Resource Include="SharedImages\LogisticsNew-40x40.png" />
+    <Resource Include="SharedImages\CloseAll-40x40.png" />
+    <Resource Include="SharedImages\CloseAllButThis-40x40.png" />
+    <Resource Include="SharedImages\CloseThis-40x40.png" />
+    <Resource Include="SharedImages\Logout-40x40.png" />
+    <Resource Include="SharedImages\Profile-40x40.png" />
+    <Resource Include="SharedImages\UserRoles-40x40.png" />
+    <Resource Include="SharedImages\Print-40x40.png" />
+    <Resource Include="SharedImages\Info-40x40.png" />
+    <Resource Include="SharedImages\Library-40x40.png" />
+    <Resource Include="SharedImages\Site-40x40.png" />
+    <Resource Include="SharedImages\URL-40x40.png" />
+    <Resource Include="SharedImages\ModelManufacturer-40x40.png" />
+    <Resource Include="SharedImages\DeviceClass-40x40.png" />
+    <Resource Include="SharedImages\Status-40x40.png" />
+    <Resource Include="SharedImages\Workflow-40x40.png" />
+    <Resource Include="SharedImages\Certification-40x40.png" />
+    <Resource Include="SharedImages\Asset-40x40.png" />
+    <Resource Include="SharedImages\DeviceType-40x40.png" />
+    <Resource Include="SharedImages\Heart-40x40.png" />
+    <Resource Include="SharedImages\Manufacturer-40x40.png" />
+    <Resource Include="SharedImages\Master-40x40.png" />
+    <Resource Include="SharedImages\Save-40x40.png" />
+    <Resource Include="SharedImages\SaveAs-40x40.png" />
+    <Resource Include="SharedImages\SaveClose-40x40.png" />
+    <Resource Include="SharedImages\SaveCopy-40x40.png" />
+    <Resource Include="SharedImages\Add-40x40.png" />
+    <Resource Include="SharedImages\Edit-40x40.png" />
+    <Resource Include="SharedImages\Delete-40x40.png" />
+    <Resource Include="SharedImages\Help-40x40.png" />
+    <Resource Include="SharedImages\History-40x40.png" />
+    <Resource Include="SharedImages\Information-40x40.png" />
+    <Resource Include="SharedImages\Open-40x40.png" />
+    <Resource Include="SharedImages\Export-40x40.png" />
+    <Resource Include="SharedImages\Configuration-40x40.png" />
+    <Resource Include="SharedImages\Security-40x40.png" />
+    <Resource Include="SharedImages\PartTransfer-40x40.png" />
+    <Resource Include="SharedImages\Warehouse-40x40.png" />
+    <Resource Include="SharedImages\WarehouseImprest-40x40.png" />
+    <Resource Include="SharedImages\WarehouseStockManagement-40x40.png" />
+    <Resource Include="SharedImages\Manuals-40x40.png" />
+    <Resource Include="SharedImages\Search-40x40.png" />
+    <Resource Include="SharedImages\Session-40x40.png" />
+    <Resource Include="SharedImages\EmployeeSetup-40x40.png" />
+    <Resource Include="SharedImages\Windows-40x40.png" />
+    <Resource Include="SharedImages\Controls-40x40.png" />
+    <Resource Include="SharedImages\QuickLinks-40x40.png" />
+    <Resource Include="SharedImages\Risk-40x40.png" />
+    <Resource Include="SharedImages\Failure-40x40.png" />
+    <Resource Include="SharedImages\Priority-40x40.png" />
+    <Resource Include="SharedImages\Procedure-40x40.png" />
+    <Resource Include="SharedImages\PreventiveMaintenancePlanning-40x40.png" />
+    <Resource Include="SharedImages\Warning-40x40.png" />
+    <Resource Include="SharedImages\Decontaimination-40x40.png" />
+    <Resource Include="SharedImages\Expertice-40x40.png" />
+    <Resource Include="SharedImages\LabourResponse-40x40.png" />
+    <Resource Include="SharedImages\CostRecovery-40x40.png" />
+    <Resource Include="SharedImages\PreventiveMaintenance-40x40.png" />
+    <Resource Include="SharedImages\Recall-40x40.png" />
+    <Resource Include="SharedImages\ContractManagement-40x40.png" />
+    <Resource Include="SharedImages\PurchaseRequest-40x40.png" />
+    <Resource Include="SharedImages\InvoicingPrivate-40x40.png" />
+    <Resource Include="SharedImages\Invoice-40x40.png" />
+    <Resource Include="SharedImages\Vendor-40x40.png" />
+    <Resource Include="SharedImages\Location-40x40.png" />
+    <Resource Include="SharedImages\Accounts-40x40.png" />
+    <Resource Include="SharedImages\AddressBook-40x40.png" />
+    <Resource Include="SharedImages\Approvals-40x40.png" />
+    <Resource Include="SharedImages\Approving-40x40.png" />
+    <Resource Include="SharedImages\Badge-40x40.png" />
+    <Resource Include="SharedImages\Building-40x40.png" />
+    <Resource Include="SharedImages\Documents-40x40.png" />
+    <Resource Include="SharedImages\Employee-40x40.png" />
+    <Resource Include="SharedImages\Facility-40x40.png" />
+    <Resource Include="SharedImages\Finance-40x40.png" />
+    <Resource Include="SharedImages\Logistics-40x40.png" />
+    <Resource Include="SharedImages\Notification-40x40.png" />
+    <Resource Include="SharedImages\NoView-40x40.png" />
+    <Resource Include="SharedImages\Phone-40x40.png" />
+    <Resource Include="SharedImages\Quote-40x40.png" />
+    <Resource Include="SharedImages\Refresh-40x40.png" />
+    <Resource Include="SharedImages\Relationships-40x40.png" />
+    <Resource Include="SharedImages\Reports-40x40.png" />
+    <Resource Include="SharedImages\SafetyTester-40x40.png" />
+    <Resource Include="SharedImages\Sign-40x40.png" />
+    <Resource Include="SharedImages\View-40x40.png" />
+    <Resource Include="SharedImages\WorkOrder-40x40.png" />
+    <Resource Include="SharedImages\Dashboard-40x40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>5.0.0-preview.4.20220.10</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.113.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Runtime.WindowsRuntime.UI.Xaml.4.6.0\build\net461\System.Runtime.WindowsRuntime.UI.Xaml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Runtime.WindowsRuntime.UI.Xaml.4.6.0\build\net461\System.Runtime.WindowsRuntime.UI.Xaml.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.targets" Condition="Exists('..\packages\Microsoft.Toolkit.Win32.UI.SDK.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.SDK.targets')" />
+  <Import Project="..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.targets" Condition="Exists('..\packages\Microsoft.Toolkit.Win32.UI.XamlApplication.6.1.0-preview1\build\Microsoft.Toolkit.Win32.UI.XamlApplication.targets')" />
+  <Import Project="..\packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets" Condition="Exists('..\packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets')" />
+  <Import Project="..\packages\System.Runtime.WindowsRuntime.UI.Xaml.4.6.0\build\net461\System.Runtime.WindowsRuntime.UI.Xaml.targets" Condition="Exists('..\packages\System.Runtime.WindowsRuntime.UI.Xaml.4.6.0\build\net461\System.Runtime.WindowsRuntime.UI.Xaml.targets')" />
+  <Import Project="..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.targets" Condition="Exists('..\packages\Microsoft.Windows.SDK.Contracts.10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.targets')" />
+  <Import Project="..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.targets" Condition="Exists('..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\build\Microsoft.Toolkit.UI.XamlHost.targets')" />
+</Project>

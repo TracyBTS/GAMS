@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9351ec13a962450e858f02d3ffc9dc14" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="GAMSModel.Catalog_Address" Width="1.5" PointX="11.75" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_BusinessArea" Width="1.5" PointX="11.75" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_BusinessAreaDistrict" Width="1.5" PointX="11.75" PointY="65.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_BusinessAreaDistrictCostCentre" Width="1.5" PointX="14" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ChargeRateTier" Width="1.5" PointX="3" PointY="78.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_Customer" Width="1.5" PointX="8.75" PointY="62.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_CustomerBusinessAreaMapping" Width="1.5" PointX="14" PointY="66.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_CustomerReporting" Width="1.5" PointX="17" PointY="66" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_CustomerReportingCostCentreMapping" Width="1.5" PointX="16.25" PointY="62.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_Employee" Width="1.5" PointX="16.25" PointY="80.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeAccounts" Width="1.5" PointX="18.5" PointY="90.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeCompetency" Width="1.5" PointX="21.5" PointY="81.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeCompetencyRegistration" Width="1.5" PointX="23.75" PointY="72.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeLicense" Width="1.5" PointX="21.5" PointY="90.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeLicenseRegistration" Width="1.5" PointX="26.75" PointY="96.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeLicenseUnit" Width="1.5" PointX="23.75" PointY="98.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeReportingExceptions" Width="1.5" PointX="18.5" PointY="96.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeRole" Width="1.5" PointX="24.5" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EmployeeServiceDepartments" Width="1.5" PointX="24.5" PointY="81.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EventResponse" Width="1.5" PointX="3" PointY="86.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_EventResponseRate" Width="1.5" PointX="5.25" PointY="94.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_Manufacturer" Width="1.5" PointX="22.75" PointY="113.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModel" Width="1.5" PointX="25" PointY="115.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelCoverage" Width="1.5" PointX="32.5" PointY="99.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelFiles" Width="1.5" PointX="27.25" PointY="112.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelPart" Width="1.5" PointX="30.25" PointY="111.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelProcedure" Width="1.5" PointX="27.25" PointY="106" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelProcedureGuide" Width="1.5" PointX="29.5" PointY="107" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelProcedurePart" Width="1.5" PointX="29.5" PointY="103" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ManufacturerModelVersion" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_Part" Width="1.5" PointX="3" PointY="98.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_PartSupplier" Width="1.5" PointX="3" PointY="82.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_PartWarehouse" Width="1.5" PointX="5.25" PointY="101.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ServiceSite" Width="1.5" PointX="14" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_ServiceSiteServiceDepartment" Width="1.5" PointX="14" PointY="95" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_Vendor" Width="1.5" PointX="0.75" PointY="79.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_VendorAddress" Width="1.5" PointX="8" PointY="81.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_VendorContact" Width="1.5" PointX="8" PointY="76.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Catalog_VendorPurchasingRules" Width="1.5" PointX="3" PointY="93.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ActorRole" Width="1.5" PointX="22.25" PointY="101.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ActorRoleAccountManager" Width="1.5" PointX="30.5" PointY="78.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ActorRoleSecurity" Width="1.5" PointX="24.5" PointY="89.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ActorRoleSecurityElement" Width="1.5" PointX="29.75" PointY="90.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ActorRoleServiceDepartment" Width="1.5" PointX="29.5" PointY="98.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_Control" Width="1.5" PointX="5.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ControlItem" Width="1.5" PointX="3" PointY="63.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ElectronicForm" Width="1.5" PointX="25.25" PointY="101.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ElectronicFormTask" Width="1.5" PointX="27.5" PointY="84.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Configuration_ElectronicFormTaskRule" Width="1.5" PointX="29.75" PointY="85.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictioanry_DataType" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_BSQConfiguration" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_BTSCalibrationType" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_CompetencyType" Width="1.5" PointX="19.25" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ContactType" Width="1.5" PointX="0.75" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ContractLimitType" Width="1.5" PointX="19.25" PointY="69.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ContractStatus" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ContractType" Width="1.5" PointX="8" PointY="115.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_CoverageType" Width="1.5" PointX="30.25" PointY="81" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Decontamination" Width="1.5" PointX="8.75" PointY="59.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Discipline" Width="1.5" PointX="11.75" PointY="96.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ElectronicFormControlType" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ElectronicFormGrouping" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ElectronicFormOperationType" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ElectronicFormRuleTarget" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ElectronicFormValueType" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ElectronicFormValueUnit" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_EquipmentCondition" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_EquipmentContractIntent" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_EquipmentType" Width="1.5" PointX="22.75" PointY="117.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Facility" Width="1.5" PointX="11.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_FacilityBuilding" Width="1.5" PointX="8.75" PointY="93.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_FacilityBuildingLocation" Width="1.5" PointX="8.75" PointY="96.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_FileType" Width="1.5" PointX="24.5" PointY="106.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_LicenseType" Width="1.5" PointX="19.25" PointY="100.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_OperatingSystem" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_OperatingSystemPatch" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Ownership" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PartCatagory" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Period" Width="1.5" PointX="20" PointY="106.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PowerType" Width="1.5" PointX="22.75" PointY="121.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Presentation" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PresentationGroup" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PresentationGroupPanel" Width="1.5" PointX="0.75" PointY="62.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PresentationUserInputControlType" Width="1.5" PointX="0.75" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PresentationUserInputValue" Width="1.5" PointX="0.75" PointY="68.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Priority" Width="1.5" PointX="20" PointY="109.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Procedure" Width="1.5" PointX="8.75" PointY="100.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_PurchaseStatus" Width="1.5" PointX="0.75" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_ReportElement" Width="1.5" PointX="14.75" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Risk" Width="1.5" PointX="11.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_UnitOfMeasure" Width="1.5" PointX="11" PointY="93" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_Warehouse" Width="1.5" PointX="3" PointY="104.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_WorkOrderFailure" Width="1.5" PointX="8.75" PointY="104.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_WorkOrderStatus" Width="1.5" PointX="8.75" PointY="107.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_WorkOrderType" Width="1.5" PointX="8.75" PointY="111.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_Asset" Width="1.5" PointX="25.25" PointY="68.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_AssetControlItemValue" Width="1.5" PointX="21.5" PointY="77.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_AssetCoverage" Width="1.5" PointX="32.5" PointY="86.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_AssetFile" Width="1.5" PointX="32.5" PointY="91.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_AssetHistory" Width="1.5" PointX="24.5" PointY="77.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_AssetProcedure" Width="1.5" PointX="22.25" PointY="106.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_AssetProcedurePart" Width="1.5" PointX="24.5" PointY="93.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_Contract" Width="1.5" PointX="8" PointY="85" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_ContractAsset" Width="1.5" PointX="10.25" PointY="88.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_ContractControlItemValue" Width="1.5" PointX="13.25" PointY="91" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_ContractFile" Width="1.5" PointX="18.5" PointY="85.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_ContractLimit" Width="1.5" PointX="21.5" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_ContractRates" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_DeliveryAdvice" Width="1.5" PointX="18.5" PointY="129.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_DeliveryAdviceItem" Width="1.5" PointX="13.25" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_PurchaseOrder" Width="1.5" PointX="3" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_PurchaseOrderControlItemValue" Width="1.5" PointX="5.25" PointY="72" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_PurchaseOrderHistory" Width="1.5" PointX="8.25" PointY="72.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_PurchaseOrderInvoice" Width="1.5" PointX="5.25" PointY="88.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_PurchaseOrderNotes" Width="1.5" PointX="8.25" PointY="69" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_PurchaseOrderRequest" Width="1.5" PointX="11.25" PointY="69.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrder" Width="1.5" PointX="11" PointY="76.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderAsset" Width="1.5" PointX="27.5" PointY="75.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderControlItemValue" Width="1.5" PointX="19.25" PointY="81" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderEvent" Width="1.5" PointX="5.25" PointY="75.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderEventControlItemValue" Width="1.5" PointX="13.5" PointY="75.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderEventInvoice" Width="1.5" PointX="16.5" PointY="74.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderEventWarehouseTransaction" Width="1.5" PointX="13.5" PointY="85.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderFile" Width="1.5" PointX="27.5" PointY="91.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Item_WorkOrderHistory" Width="1.5" PointX="19.5" PointY="72.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.xxItem_AssetLegacy" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel.Dictionary_EquipmentStatus" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_BusinessAreaDistrictCostCentre_Catalog_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSite_Catalog_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSiteServiceDepartment_Catalog_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_VendorAddress_Catalog_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderRequest_Catalog_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_BusinessAreaDistrict_Catalog_BusinessArea" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_BusinessAreaDistrictCostCentre_Catalog_BusinessArea" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_CustomerBusinessAreaMapping_Catalog_BusinessArea" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_BusinessAreaDistrict_Catalog_BusinessAreaDistrict" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_BusinessAreaDistrictCostCentre_Catalog_BusinessAreaDistrict" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_CustomerReportingCostCentreMapping_Catalog_BusinessAreaDistrictCostCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_Employee_Catalog_BusinessAreaDistrictCostCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeAccounts_Catalog_BusinessAreaDistrictCostCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSite_Catalog_BusinessAreaDistrictCostCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSiteServiceDepartment_Catalog_BusinessAreaDistrictCostCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSiteServiceDepartment_Catalog_BusinessAreaDistrictCostCentre_RecoverTo" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleAccountManager_Catalog_BusinessAreaDistrictCostCentre" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ChargeRateTier_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Catalog_ChargeRateTier" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_CustomerBusinessAreaMapping_Catalog_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_CustomerReporting_Catalog_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_CustomerReportingCostCentreMapping_Catalog_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Catalog_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_CustomerReporting_Dictionary_ReportElement" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_Employee_Catalog_ServiceSite" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_Employee_Catalog_ServiceSiteServiceDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_Employee_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeAccounts_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeAccounts_Catalog_LastEditEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeCompetency_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeLicense_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeReportingExceptions_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeRole_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeServiceDepartments_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleSecurity_Catalog_LastEditEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleSecurityElement_Catalog_LastEditEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ElectronicFormTask_Catalog_LastEditEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetFieldValue_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetHistory_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedurePart_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_Contract_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_Contract_Catalog_EmployeeLastEdit" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractFile_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractLimit_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdvice_Catalog_EmployeeLastEdit" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdvice_Catalog_EmployeeLastPrinted" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdvice_Catalog_EmployeeRaised" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdvice_Catalog_EmployeeReceipted" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdviceItem_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrder_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderHistory_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderNotes_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderRequest_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderRequest_Catalog_Employee1" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventInvoice_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventWarehouseTransaction_Catalog_EmployeeSending" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventWarehouseTransaction_Catalog_EmployeeSentTo" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderFile_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderHistory_Catalog_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeCompetency_Dictionary_CompetencyType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeCompetencyRegistration_Catalog_EmployeeCompetency" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeLicense_Dictionary_LicenseType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeLicenseRegistration_Catalog_EmployeeLicense" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeLicenseUnit_Catalog_EmployeeLicense" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeLicenseRegistration_Dictionary_FileType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeRole_Configuration_ActorRole" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EmployeeServiceDepartments_Catalog_ServiceSiteServiceDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_EventResponseRate_Catalog_EventResponse" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Catalog_EventResponse" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModel_Catalog_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModel_Dictionary_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModel_Dictionary_EquipmentType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModel_Dictionary_PowerType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelCoverage_Catalog_ManufacturerModel" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelFiles_Catalog_ManufacturerModel" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelPart_Catalog_ManufacturerModel" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedure_Catalog_ManufacturerModel" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelCoverage_Dictionary_CoverageType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelFiles_Dictionary_FileType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelPart_Catalog_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedure_Dictionary_Period" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedure_Dictionary_Period_Offset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedure_Dictionary_Priority" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedure_Dictionary_Priority1" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedure_Dictionary_Procedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedureGuide_Catalog_ManufacturerModelProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedurePart_Catalog_ManufacturerModelProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ManufacturerModelProcedurePart_Catalog_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_PartSupplier_Catalog_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_PartWarehouse_Catalog_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedurePart_Catalog_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Catalog_Part" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_PartSupplier_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_PartWarehouse_Dictionary_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSite_Dictionary_Facility" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSiteServiceDepartment_Catalog_ServiceSite" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_ServiceSiteServiceDepartment_Dictionary_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleServiceDepartment_Catalog_ServiceSiteServiceDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedure_Catalog_ServiceSiteServiceDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_Contract_Catalog_ServiceSiteServiceDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Catalog_ServiceSiteServiceDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_VendorAddress_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_VendorContact_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_VendorPurchasingRules_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_Contract_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrder_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderRequest_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Catalog_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Catalog_VendorContact_Dictionary_ContactType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleAccountManager_Configuration_ActorRole" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleSecurity_Configuration_ActorRole" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleServiceDepartment_Configuration_ActorRole" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleSecurityElement_Configuration_ActorRoleSecurity" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ActorRoleSecurityElement_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ControlItem_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ControlItem_Dictionary_PresentationGroupPanel" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ControlItem_Dictionary_PresentationUserInputControlType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ControlItem_Dictionary_PresentationUserInputValue" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetFieldValue_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetHistory_Item_AssetHistory" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractControlItemValue_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderControlItemValue_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderControlItemValue_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Configuration_ControlItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ElectronicFormTask_Configuration_ElectronicForm" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ElectronicFormTask_Dictionary_PresentationGroupPanel" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Configuration_ElectronicFormTaskRule_Configuration_ElectronicFormTask" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrder_Dictionary_ContactType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractLimit_Dictionary_ContractLimitType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractAsset_Dictionary_ContractType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetCoverage_Dictionary_CoverageType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdviceItem_Dictionary_Decontamination" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_Decontamination" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_Facility" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_FacilityBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_FacilityBuildingLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetFile_Dictionary_FileType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Dictionary_OperatingSystemPatch_Dictionary_OperatingSystem" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetCoverage_Dictionary_Period" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedure_Dictionary_Period" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Dictionary_PresentationGroup_Dictionary_Presentation" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedure_Dictionary_Priority" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedure_Dictionary_Procedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_Procedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Dictionary_Procedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrder_Dictionary_PurchaseStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderRequest_Dictionary_PurchaseStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdviceItem_Dictionary_UnitOfMeasure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Dictionary_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_WorkOrderFailure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Dictionary_WorkOrderFailure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_WorkOrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Dictionary_WorkOrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Dictionary_WorkOrderType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Dictionary_WorkOrderType" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetCoverage_Item_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetFieldValue_Item_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetFile_Item_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetHistory_Item_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedure_Item_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Item_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_AssetProcedurePart_Item_AssetProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractAsset_Item_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractControlItemValue_Item_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractFile_Item_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractLimit_Item_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_ContractAsset_Item_ContractAsset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventWarehouseTransaction_Item_DeliveryAdvice" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdviceItem_Item_DeliveryAdvice" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdviceItem_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_DeliveryAdviceItem_Item_WorkOrderEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderHistory_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderNotes_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_PurchaseOrderRequest_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventInvoice_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Item_PurchaseOrderRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventInvoice_Item_PurchaseOrderRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrder_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderAsset_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderControlItemValue_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderFile_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderHistory_Item_WorkOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Item_WorkOrderAsset" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEvent_Item_WorkOrderEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventControlItemValue_Item_WorkOrderEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventInvoice_Item_WorkOrderEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel.FK_Item_WorkOrderEventWarehouseTransaction_Item_WorkOrderEvent" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

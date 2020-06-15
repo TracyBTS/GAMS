@@ -1,0 +1,168 @@
+﻿<UserControl 
+    x:Class="GAMS.Applications.WorkOrder.WorkOrderSingleView"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  
+    xmlns:SharedCommands="clr-namespace:GAMS.SharedClasses.SharedCommands"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:GAMS.Applications.WorkOrder"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800"
+    Margin="3">
+    <UserControl.CommandBindings>
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.EmailUnitCmd}"
+            CanExecute="EmailUnitCmd_CanExecute"
+            Executed="EmailUnitCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.PrintUnitCmd}"
+            CanExecute="PrintUnitCmd_CanExecute"
+            Executed="PrintUnitCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.SaveAsCmd}"
+            CanExecute="SaveAsCmd_CanExecute"
+            Executed="SaveAsCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.SaveCloseCmd}"
+            CanExecute="SaveCloseCmd_CanExecute"
+            Executed="SaveCloseCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.SavePrintCmd}"
+            CanExecute="SavePrintCmd_CanExecute"
+            Executed="SavePrintCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.AdvancedViewCmd}"
+            CanExecute="AdvancedViewCmd_CanExecute"
+            Executed="AdvancedViewCmd_Executed" />
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.ShowAuditWindowCmd}"
+            CanExecute="ShowAuditWindowCmd_CanExecute"
+            Executed="ShowAuditWindowCmd_Executed" />
+    </UserControl.CommandBindings>
+    <UserControl.InputBindings>
+        <KeyBinding Key="E" Modifiers="Alt" Command="SharedCommands:Commands.EmailUnitCmd" />
+        <KeyBinding Key="P" Modifiers="Alt" Command="SharedCommands:Commands.PrintUnitCmd" />
+        <KeyBinding Key="S" Modifiers="Alt" Command="SharedCommands:Commands.SaveAsCmd" />
+        <KeyBinding Key="Q" Modifiers="Alt" Command="SharedCommands:Commands.SaveCloseCmd" />
+        <KeyBinding Key="R" Modifiers="Alt" Command="SharedCommands:Commands.SavePrintCmd" />
+        <KeyBinding Key="W" Modifiers="Alt" Command="SharedCommands:Commands.AdvancedViewCmd" />
+        <KeyBinding Key="A" Modifiers="Alt" Command="SharedCommands:Commands.ShowAuditWindowCmd" />
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <telerik:RadButton x:Name="btn_Help"  Margin="0,0,3,0" ToolTip="Goto help page"
+                               Click="btn_Help_Click">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Help-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_Preferences"  Margin="0,0,3,0" ToolTip="Configure preferences"
+                               Click="btn_Preference_Click">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Preference-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                    <telerik:RadButton.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="View">
+                                <MenuItem.Icon>
+                                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/View-40x40.png" />
+                                </MenuItem.Icon>
+                                <MenuItem Header="Basic" IsCheckable="True" 
+                                          Command="SharedCommands:Commands.AdvancedViewCmd" InputGestureText="Alt+W"/>
+                            </MenuItem>
+                        </ContextMenu>
+                    </telerik:RadButton.ContextMenu>
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_Audit"  Margin="0,0,3,0" ToolTip="Audit (Alt+A)"
+                               Command="SharedCommands:Commands.ShowAuditWindowCmd">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/History-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+
+                <telerik:RadButton x:Name="btn_ShowReportWindow"  Margin="0,0,3,0" ToolTip="Show report window"
+                               Click="btn_ShowReportWindow_Click">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Reports-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_Edit"  Margin="0,0,3,0" ToolTip="Edit this delivery advice"
+                               Click="btn_Edit_Click">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Edit-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_Export"  Margin="0,0,3,0" ToolTip="Send this via email (Alt+E) or right click for options"
+                               Command="SharedCommands:Commands.PrintUnitCmd">
+                    <telerik:RadButton.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Email" 
+                                      Command="SharedCommands:Commands.EmailUnitCmd" InputGestureText="Alt+E">
+                                <MenuItem.Icon>
+                                    <Image Source="/SharedImages/Email-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="PDF" 
+                                      Command="SharedCommands:Commands.PrintUnitCmd" InputGestureText="Alt+P">
+                                <MenuItem.Icon>
+                                    <Image Source="/SharedImages/Print-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </telerik:RadButton.ContextMenu>
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Export-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_SaveClose"  Margin="0,0,0,0" ToolTip="Save &amp; close work order (Alt+Q) or right click for options"
+                               Command="SharedCommands:Commands.SaveCloseCmd">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/SaveClose-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                    <telerik:RadButton.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Save &amp; Close" 
+                                      Command="SharedCommands:Commands.SaveCloseCmd" InputGestureText="Alt+Q">
+                                <MenuItem.Icon>
+                                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/Save-40x40.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Save &amp; Print" 
+                                      Command="SharedCommands:Commands.SavePrintCmd" InputGestureText="Alt+R">
+                                <MenuItem.Icon>
+                                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/Print-40x40.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Save" 
+                                      Command="SharedCommands:Commands.SaveAsCmd" InputGestureText="Ctrl+S">
+                                <MenuItem.Icon>
+                                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/Save-40x40.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </telerik:RadButton.ContextMenu>
+                </telerik:RadButton>
+            </StackPanel>
+
+            <Border BorderBrush="LightGray" Background="White" BorderThickness="1" Width="228" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,3,0,0">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas x:Name="barcodeCanvas" Grid.Row="1" Width="130" Height="25" Margin="0,2,0,0" />
+                    <TextBox Text="Work Order" BorderThickness="0" Background="White" Height="20" x:Name="txtblk_DispatchNumber" HorizontalAlignment="Center" Margin="0,-10,0,0" ToolTipService.ToolTip="Delivery Advice Number" />
+                    <Border Width="158" Height="1" Background="Black" HorizontalAlignment="Center" Margin="2" />
+                    <TextBlock Text="Priority" FontSize="10" HorizontalAlignment="Center" Margin="2,0,0,0" />
+                    <telerik:RadComboBox x:Name="cmbbx_WOPriority" FontSize="14" Height="24" HorizontalAlignment="Center" IsEnabled="False" Width="160" Margin="3,0,3,3"
+                                  SelectionChanged="cmbbx_WOPriority_SelectionChanged"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

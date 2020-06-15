@@ -1,0 +1,66 @@
+﻿<UserControl 
+    x:Class="GAMS.Applications.WorkOrder.WorkOrderListView"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+    xmlns:SearchControl="clr-namespace:UIControls;assembly=SearchTextBox" 
+    xmlns:SharedCommands="clr-namespace:GAMS.SharedClasses.SharedCommands"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:GAMS.Applications.WorkOrder"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800"
+    Loaded="UserControl_Loaded"
+    Margin="3">
+    <UserControl.CommandBindings>
+        <CommandBinding
+            Command="{x:Static SharedCommands:Commands.WorkOrderCreateCmd}"
+            CanExecute="WorkOrderCreateCmd_CanExecute"
+            Executed="WorkOrderCreateCmd_Executed" />
+    </UserControl.CommandBindings>
+    <UserControl.InputBindings>
+        <KeyBinding Key="N" Modifiers="Alt" Command="SharedCommands:Commands.WorkOrderCreateCmd" />
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <telerik:RadComboBox Width="210" HorizontalAlignment="Left"  Margin="0,0,3,0">
+                <telerik:RadComboBoxItem Content="Net Request waiting" IsSelected="True" />
+                <telerik:RadComboBoxItem Content="Turn around time soon to elapse" />
+                <telerik:RadComboBoxItem Content="Overdue" />
+                <telerik:RadComboBoxItem Content="Held" />
+                <telerik:RadComboBoxItem Content="Waiting for RFA approval" />
+                <telerik:RadComboBoxItem Content="All open" />
+                <telerik:RadComboBoxItem Content="All closed in last 60 days" />
+            </telerik:RadComboBox>
+            <telerik:RadComboBox Width="210" HorizontalAlignment="Left"  Margin="0,0,3,0">
+                <telerik:RadComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding WorkOrderFilterTypeIsChecked}" Content="{Binding WorkOrderFilterTypeDescription}"/>
+                    </DataTemplate>
+                </telerik:RadComboBox.ItemTemplate>
+            </telerik:RadComboBox>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <telerik:RadButton x:Name="btn_CreateNewWO"  Margin="0,0,3,0" ToolTip="Create new WO (Alt+N)"
+                               Command="SharedCommands:Commands.WorkOrderCreateCmd">
+                <telerik:RadButton.Content>
+                    <Image Source="/SharedImages/WorkOrderNew-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                </telerik:RadButton.Content>
+            </telerik:RadButton>
+            <SearchControl:SearchTextBox x:Name="stb_SearchLogistics" Width="140" HorizontalAlignment="Right" />
+        </StackPanel>
+
+        <telerik:RadBusyIndicator x:Name="rbi_MainItem" Grid.Row="1" Margin="0,3,0,0" IsBusy="{Binding IsLoading}">
+            <telerik:RadGridView x:Name="rgv_MainItems"  AutoGenerateColumns="True"
+                                 ItemsSource="{Binding DeliveryAdvices}" 
+                                 SelectedItem="{Binding SelectedDeliveryAdvice}" />
+        </telerik:RadBusyIndicator>
+    </Grid>
+</UserControl>
