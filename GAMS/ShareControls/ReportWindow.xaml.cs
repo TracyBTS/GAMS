@@ -33,6 +33,7 @@ namespace GAMS.ShareControls
             {
                 //use a webform from BNA
                 wb_ReportView.Source = new Uri("http://bna.health.qld.gov.au/WebForm/WebForm_DAforExternal.aspx?id=178304");
+                wb_ReportView.Source = new Uri("http://bna.health.qld.gov.au/WebForm/WebForm_DAforExternal.aspx?id=178304");
             }
         }
 
