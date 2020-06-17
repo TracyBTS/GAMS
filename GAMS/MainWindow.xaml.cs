@@ -28,6 +28,7 @@ namespace GAMS
     {
         public Data.BNALocalDatabase LocalDatabase;
         string testingGitHub;
+        string testingGitHubJun17;
 
         public MainWindow()
         {
