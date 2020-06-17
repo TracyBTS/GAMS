@@ -27,6 +27,7 @@ namespace GAMS
     public partial class MainWindow : Window
     {
         public Data.BNALocalDatabase LocalDatabase;
+        string testingGitHub;
 
         public MainWindow()
         {
@@ -39,6 +40,8 @@ namespace GAMS
 
             rtw_MainContentView.HideMaximizeButton = true;
             rtw_MainContentView.HideMinimizeButton = true;
+
+            
         }
 
         public void RadTabbedWindow_CreateNewTab(UserControl control, string title)
