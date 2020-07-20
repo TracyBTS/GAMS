@@ -23,6 +23,7 @@ namespace GAMS
         {
             InitializeComponent();
             int x = 3;
+            int y;
           
         }
     }
