@@ -22,8 +22,8 @@ namespace GAMS
         public Window1()
         {
             InitializeComponent();
-            int x = 2;
-            int y = 10;
+            int x = 3;
+          
         }
     }
 }
