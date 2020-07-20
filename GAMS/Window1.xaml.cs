@@ -23,6 +23,7 @@ namespace GAMS
         {
             InitializeComponent();
             string st1 = "";
+            string stTracy = "";
           
         }
     }
