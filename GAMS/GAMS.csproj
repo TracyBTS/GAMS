@@ -795,7 +795,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
-      <Version>6.2.0</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite">
       <Version>5.0.0-preview.4.20220.10</Version>
