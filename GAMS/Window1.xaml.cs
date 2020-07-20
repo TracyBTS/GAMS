@@ -22,7 +22,7 @@ namespace GAMS
         public Window1()
         {
             InitializeComponent();
-            int x = 3;
+            string st1 = "";
           
         }
     }
