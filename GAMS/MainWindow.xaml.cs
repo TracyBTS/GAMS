@@ -42,7 +42,7 @@ namespace GAMS
             rtw_MainContentView.HideMaximizeButton = true;
             rtw_MainContentView.HideMinimizeButton = true;
 
-            
+            string Tracy = "";
         }
 
         public void RadTabbedWindow_CreateNewTab(UserControl control, string title)

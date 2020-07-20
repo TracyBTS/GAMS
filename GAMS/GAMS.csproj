@@ -538,9 +538,6 @@
     <Compile Include="ViewModel\IView.cs" />
     <Compile Include="ViewModel\LogisticsViewModel.cs" />
     <Compile Include="ViewModel\WorkOrderViewModel.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="xxItem_AssetLegacy.cs">
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
@@ -617,10 +614,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ShareControls\ReportWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
