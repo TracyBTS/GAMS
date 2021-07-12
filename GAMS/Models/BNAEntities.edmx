@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RPT_SYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APP_AUDIT">
+          <Key>
+            <PropertyRef Name="APP_TYPE" />
+            <PropertyRef Name="KEY1" />
+            <PropertyRef Name="KEY2" />
+            <PropertyRef Name="SEQUENCE" />
+          </Key>
+          <Property Name="APP_TYPE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="KEY1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KEY2" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SEQUENCE" Type="int" Nullable="false" />
+          <Property Name="AUDIT_DATE" Type="datetime" />
+          <Property Name="AUDITOR" Type="varchar" MaxLength="50" />
+          <Property Name="NOTES" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="DeliveryAdvice_item1">
+          <Key>
+            <PropertyRef Name="DeliveryNum" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DATE" />
+          </Key>
+          <Property Name="DeliveryNum" Type="int" Nullable="false" />
+          <Property Name="powo" Type="varchar" MaxLength="30" />
+          <Property Name="item_num" Type="varchar" MaxLength="30" />
+          <Property Name="FACILITY" Type="varchar" MaxLength="10" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="qty" Type="int" />
+          <Property Name="UOM" Type="varchar" MaxLength="15" />
+          <Property Name="DECONTIMINATED" Type="nvarchar" MaxLength="5" />
+          <Property Name="RTN_ADVIC_NUM" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE" Type="datetime" Nullable="false" />
+          <Property Name="IsWo1" Type="bit" />
+          <Property Name="IsReason" Type="varchar" MaxLength="30" />
+          <Property Name="IsVendorInstructions" Type="varchar" MaxLength="400" />
+          <Property Name="TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="QTY_RECV" Type="int" />
+          <Property Name="Qty_LastRecv" Type="int" />
+        </EntityType>
+        <EntityType Name="DeliveryAdvice_Shipping">
+          <Key>
+            <PropertyRef Name="DeliveryNo" />
+          </Key>
+          <Property Name="DeliveryNo" Type="int" Nullable="false" />
+          <Property Name="FromName" Type="varchar" MaxLength="50" />
+          <Property Name="FromAddress" Type="varchar" MaxLength="400" />
+          <Property Name="ToName" Type="varchar" MaxLength="50" />
+          <Property Name="ToAddress" Type="varchar" MaxLength="400" />
+          <Property Name="ConnoteNum" Type="varchar" MaxLength="100" />
+          <Property Name="Courier" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="varchar" MaxLength="10" />
+          <Property Name="DeliveryReasonNum" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="EMPCode" Type="varchar" MaxLength="10" />
+          <Property Name="EMPName" Type="varchar" MaxLength="50" />
+          <Property Name="RECV_DATE" Type="varchar" MaxLength="10" />
+          <Property Name="ACCESORIES" Type="nvarchar(max)" />
+          <Property Name="FACILITY" Type="nvarchar" MaxLength="6" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="1" />
+          <Property Name="ISEDITABLE" Type="bit" />
+          <Property Name="REAL_CC" Type="varchar" MaxLength="50" />
+          <Property Name="RECEIVED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="LAST_PRINTED" Type="date" Nullable="false" />
+          <Property Name="LAST_PRINTED_BY" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User_Settings">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Password" Type="nchar" MaxLength="70" Nullable="false" />
+          <Property Name="Code" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="_env_Animations" Type="bit" />
+          <Property Name="_env_AutoHide_BaseBar" Type="bit" />
+          <Property Name="_env_Background_Color" Type="varchar" MaxLength="20" />
+          <Property Name="_env_Menu_Transparent" Type="bit" />
+          <Property Name="_env_Widget_AirportScreen" Type="bit" />
+          <Property Name="_env_Widget_Calender" Type="bit" />
+          <Property Name="_env_Widget_MSG" Type="bit" />
+          <Property Name="_env_Widget_Wiki" Type="bit" />
+          <Property Name="_env_Widget_Notebook" Type="bit" />
+          <Property Name="_app_WAO_Begin" Type="datetime" />
+          <Property Name="_app_WAO_End" Type="datetime" />
+          <Property Name="_app_WAO_Max" Type="int" />
+          <Property Name="_app_EAO_Begin" Type="datetime" />
+          <Property Name="_app_EAO_End" Type="datetime" />
+          <Property Name="_app_EAO_Max" Type="int" />
+          <Property Name="_app_PAO_Begin" Type="datetime" />
+          <Property Name="_app_PAO_End" Type="datetime" />
+          <Property Name="_app_PAO_Max" Type="int" />
+          <Property Name="_app_INV_Begin" Type="datetime" />
+          <Property Name="_app_INV_End" Type="datetime" />
+          <Property Name="_app_INV_Max" Type="int" />
+          <Property Name="_app_LI_Begin" Type="datetime" />
+          <Property Name="_app_LI_End" Type="datetime" />
+          <Property Name="_app_ClientInvoicing_Begin" Type="datetime" />
+          <Property Name="_app_ClientInvoicing_End" Type="datetime" />
+          <Property Name="_app_access_DA" Type="bit" />
+          <Property Name="_app_access_PT" Type="bit" />
+          <Property Name="_app_access_EOM" Type="bit" />
+          <Property Name="_app_access_SCH" Type="bit" />
+          <Property Name="_app_access_TRVL" Type="varchar" MaxLength="4" />
+          <Property Name="_app_isNotesPanelOpen" Type="nchar" MaxLength="40" />
+          <Property Name="NovellUserName" Type="nchar" MaxLength="40" />
+          <Property Name="_env_Widget_Clock" Type="bit" />
+          <Property Name="_env_Widget_QisScreen" Type="bit" />
+          <Property Name="_env_VirtualKeyboard" Type="bit" />
+          <Property Name="_env_MenuTransparency" Type="bit" />
+          <Property Name="_env_ApplicationTransparency" Type="bit" />
+          <Property Name="_env_AnimationsOn" Type="bit" />
+          <Property Name="_app_access_CPaP" Type="bit" />
+          <Property Name="_app_access_DDS" Type="bit" />
+          <Property Name="_app_access_TRNS" Type="bit" />
+          <Property Name="_app_access_SafetyTester" Type="bit" />
+          <Property Name="_app_access_DMTool" Type="bit" />
+          <Property Name="QH_ID" Type="varchar" MaxLength="10" />
+          <Property Name="_app_access_ConsoleMngr" Type="bit" />
+          <Property Name="C_Phone" Type="varchar" MaxLength="50" />
+          <Property Name="C_Fax" Type="varchar" MaxLength="14" />
+          <Property Name="C_Email" Type="varchar" MaxLength="50" />
+          <Property Name="C_ProfileImage" Type="varchar" MaxLength="200" />
+          <Property Name="C_Code" Type="varchar" MaxLength="6" />
+          <Property Name="_app_SS_Max" Type="int" />
+          <Property Name="EMP_StartTime" Type="datetime" />
+          <Property Name="EMP_FinishTime" Type="datetime" />
+          <Property Name="EMP_Role" Type="int" />
+          <Property Name="EMP_PayRole" Type="varchar" MaxLength="3" />
+          <Property Name="EMP_PayGrade" Type="numeric" Precision="1" Scale="1" />
+          <Property Name="EMP_Avail_1_Monday" Type="bit" />
+          <Property Name="EMP_Avail_1_Tuesday" Type="bit" />
+          <Property Name="EMP_Avail_1_Wednesday" Type="bit" />
+          <Property Name="EMP_Avail_1_Thursday" Type="bit" />
+          <Property Name="EMP_Avail_1_Friday" Type="bit" />
+          <Property Name="EMP_Avai_1_Saturday" Type="bit" />
+          <Property Name="EMP_Avail_1_Sunday" Type="bit" />
+          <Property Name="EMP_Avail_2_Monday" Type="bit" />
+          <Property Name="EMP_Avail_2_Tuesday" Type="bit" />
+          <Property Name="EMP_Avail_2_Wednesday" Type="bit" />
+          <Property Name="EMP_Avail_2_Thursday" Type="bit" />
+          <Property Name="EMP_Avail_2_Friday" Type="bit" />
+          <Property Name="EMP_Avail_2_Saturday" Type="bit" />
+          <Property Name="EMP_Avail_2_Sunday" Type="bit" />
+          <Property Name="VENDOR_Number" Type="varchar" MaxLength="50" />
+          <Property Name="DDSUniqueIDDigitalSignaturePAO" Type="uniqueidentifier" />
+          <Property Name="KPIDefaults" Type="varchar(max)" />
+          <Property Name="_app_PrivateInvc_Role" Type="varchar" MaxLength="3" />
+          <Property Name="IS_BAN1_ENABLED" Type="bit" />
+          <Property Name="_app_access_Unpost" Type="bit" />
+          <Property Name="_FileMaker_Apps_Access" Type="varchar" MaxLength="100" />
+          <Property Name="_app_ImprestStock" Type="bit" />
+          <Property Name="NovellPhone" Type="varchar" MaxLength="50" />
+          <Property Name="NovellLocation" Type="varchar" MaxLength="200" />
+          <Property Name="NovellPosition" Type="varchar" MaxLength="100" />
+          <Property Name="NovelMobile" Type="varchar" MaxLength="20" />
+          <Property Name="RecoveryCCTR" Type="varchar" MaxLength="10" />
+          <Property Name="ExceptionDefaults" Type="varchar(max)" />
+          <Property Name="ExceptionDisplayAcknowledgedItems" Type="bit" />
+          <Property Name="FSRVendorSupplierNumberOld" Type="varchar" MaxLength="40" />
+          <Property Name="FSRVendorSupplierNumberNew" Type="varchar" MaxLength="40" />
+          <Property Name="NovellDisplayName" Type="varchar" MaxLength="60" />
+          <Property Name="NovellCompany" Type="varchar" MaxLength="60" />
+          <Property Name="NovellDepartment" Type="varchar" MaxLength="60" />
+          <Property Name="NovellOffice" Type="varchar" MaxLength="60" />
+          <Property Name="NovellZip" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityContainer Name="RPT_SYSModelStoreContainer">
+          <EntitySet Name="APP_AUDIT" EntityType="Self.APP_AUDIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryAdvice_item1" EntityType="Self.DeliveryAdvice_item1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryAdvice_Shipping" EntityType="Self.DeliveryAdvice_Shipping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Settings" EntityType="Self.User_Settings" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RPT_SYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DeliveryAdvice_item1">
+          <Key>
+            <PropertyRef Name="DeliveryNum" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DATE" />
+          </Key>
+          <Property Name="DeliveryNum" Type="Int32" Nullable="false" />
+          <Property Name="powo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="item_num" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FACILITY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="UOM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DECONTIMINATED" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="RTN_ADVIC_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsWo1" Type="Boolean" />
+          <Property Name="IsReason" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsVendorInstructions" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="QTY_RECV" Type="Int32" />
+          <Property Name="Qty_LastRecv" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DeliveryAdvice_Shipping">
+          <Key>
+            <PropertyRef Name="DeliveryNo" />
+          </Key>
+          <Property Name="DeliveryNo" Type="Int32" Nullable="false" />
+          <Property Name="FromName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ToName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ConnoteNum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Courier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryReasonNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMPCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMPName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECV_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ACCESORIES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FACILITY" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ISEDITABLE" Type="Boolean" />
+          <Property Name="REAL_CC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_PRINTED" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LAST_PRINTED_BY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DeliveryAdvice_item1" Relationship="RPT_SYSModel.DeliveryAdvice_item1DeliveryAdvice_Shipping" FromRole="DeliveryAdvice_Shipping" ToRole="DeliveryAdvice_item1" />
+        </EntityType>
+        <EntityContainer Name="RPT_SYSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DeliveryAdvice_item1" EntityType="Self.DeliveryAdvice_item1" />
+          <EntitySet Name="DeliveryAdvice_Shipping" EntityType="Self.DeliveryAdvice_Shipping" />
+          <AssociationSet Name="DeliveryAdvice_item1DeliveryAdvice_Shipping" Association="RPT_SYSModel.DeliveryAdvice_item1DeliveryAdvice_Shipping">
+            <End Role="DeliveryAdvice_item1" EntitySet="DeliveryAdvice_item1" />
+            <End Role="DeliveryAdvice_Shipping" EntitySet="DeliveryAdvice_Shipping" />
+          </AssociationSet>
+          <EntitySet Name="APP_AUDIT" EntityType="RPT_SYSModel.APP_AUDIT" />
+          <EntitySet Name="User_Settings" EntityType="RPT_SYSModel.User_Settings" />
+        </EntityContainer>
+        <Association Name="DeliveryAdvice_item1DeliveryAdvice_Shipping">
+          <End Type="RPT_SYSModel.DeliveryAdvice_item1" Role="DeliveryAdvice_item1" Multiplicity="*" />
+          <End Type="RPT_SYSModel.DeliveryAdvice_Shipping" Role="DeliveryAdvice_Shipping" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryAdvice_Shipping">
+              <PropertyRef Name="DeliveryNo" />
+            </Principal>
+            <Dependent Role="DeliveryAdvice_item1">
+              <PropertyRef Name="DeliveryNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="APP_AUDIT">
+          <Key>
+            <PropertyRef Name="APP_TYPE" />
+            <PropertyRef Name="KEY1" />
+            <PropertyRef Name="KEY2" />
+            <PropertyRef Name="SEQUENCE" />
+          </Key>
+          <Property Name="APP_TYPE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KEY1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KEY2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SEQUENCE" Type="Int32" Nullable="false" />
+          <Property Name="AUDIT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AUDITOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User_Settings">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="70" FixedLength="true" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="C_env_Animations" Type="Boolean" />
+          <Property Name="C_env_AutoHide_BaseBar" Type="Boolean" />
+          <Property Name="C_env_Background_Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="C_env_Menu_Transparent" Type="Boolean" />
+          <Property Name="C_env_Widget_AirportScreen" Type="Boolean" />
+          <Property Name="C_env_Widget_Calender" Type="Boolean" />
+          <Property Name="C_env_Widget_MSG" Type="Boolean" />
+          <Property Name="C_env_Widget_Wiki" Type="Boolean" />
+          <Property Name="C_env_Widget_Notebook" Type="Boolean" />
+          <Property Name="C_app_WAO_Begin" Type="DateTime" Precision="3" />
+          <Property Name="C_app_WAO_End" Type="DateTime" Precision="3" />
+          <Property Name="C_app_WAO_Max" Type="Int32" />
+          <Property Name="C_app_EAO_Begin" Type="DateTime" Precision="3" />
+          <Property Name="C_app_EAO_End" Type="DateTime" Precision="3" />
+          <Property Name="C_app_EAO_Max" Type="Int32" />
+          <Property Name="C_app_PAO_Begin" Type="DateTime" Precision="3" />
+          <Property Name="C_app_PAO_End" Type="DateTime" Precision="3" />
+          <Property Name="C_app_PAO_Max" Type="Int32" />
+          <Property Name="C_app_INV_Begin" Type="DateTime" Precision="3" />
+          <Property Name="C_app_INV_End" Type="DateTime" Precision="3" />
+          <Property Name="C_app_INV_Max" Type="Int32" />
+          <Property Name="C_app_LI_Begin" Type="DateTime" Precision="3" />
+          <Property Name="C_app_LI_End" Type="DateTime" Precision="3" />
+          <Property Name="C_app_ClientInvoicing_Begin" Type="DateTime" Precision="3" />
+          <Property Name="C_app_ClientInvoicing_End" Type="DateTime" Precision="3" />
+          <Property Name="C_app_access_DA" Type="Boolean" />
+          <Property Name="C_app_access_PT" Type="Boolean" />
+          <Property Name="C_app_access_EOM" Type="Boolean" />
+          <Property Name="C_app_access_SCH" Type="Boolean" />
+          <Property Name="C_app_access_TRVL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="C_app_isNotesPanelOpen" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="NovellUserName" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="C_env_Widget_Clock" Type="Boolean" />
+          <Property Name="C_env_Widget_QisScreen" Type="Boolean" />
+          <Property Name="C_env_VirtualKeyboard" Type="Boolean" />
+          <Property Name="C_env_MenuTransparency" Type="Boolean" />
+          <Property Name="C_env_ApplicationTransparency" Type="Boolean" />
+          <Property Name="C_env_AnimationsOn" Type="Boolean" />
+          <Property Name="C_app_access_CPaP" Type="Boolean" />
+          <Property Name="C_app_access_DDS" Type="Boolean" />
+          <Property Name="C_app_access_TRNS" Type="Boolean" />
+          <Property Name="C_app_access_SafetyTester" Type="Boolean" />
+          <Property Name="C_app_access_DMTool" Type="Boolean" />
+          <Property Name="QH_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="C_app_access_ConsoleMngr" Type="Boolean" />
+          <Property Name="C_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_Fax" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="C_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_ProfileImage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="C_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="C_app_SS_Max" Type="Int32" />
+          <Property Name="EMP_StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EMP_FinishTime" Type="DateTime" Precision="3" />
+          <Property Name="EMP_Role" Type="Int32" />
+          <Property Name="EMP_PayRole" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_PayGrade" Type="Decimal" Precision="1" Scale="1" />
+          <Property Name="EMP_Avail_1_Monday" Type="Boolean" />
+          <Property Name="EMP_Avail_1_Tuesday" Type="Boolean" />
+          <Property Name="EMP_Avail_1_Wednesday" Type="Boolean" />
+          <Property Name="EMP_Avail_1_Thursday" Type="Boolean" />
+          <Property Name="EMP_Avail_1_Friday" Type="Boolean" />
+          <Property Name="EMP_Avai_1_Saturday" Type="Boolean" />
+          <Property Name="EMP_Avail_1_Sunday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Monday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Tuesday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Wednesday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Thursday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Friday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Saturday" Type="Boolean" />
+          <Property Name="EMP_Avail_2_Sunday" Type="Boolean" />
+          <Property Name="VENDOR_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DDSUniqueIDDigitalSignaturePAO" Type="Guid" />
+          <Property Name="KPIDefaults" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_app_PrivateInvc_Role" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="IS_BAN1_ENABLED" Type="Boolean" />
+          <Property Name="C_app_access_Unpost" Type="Boolean" />
+          <Property Name="C_FileMaker_Apps_Access" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="C_app_ImprestStock" Type="Boolean" />
+          <Property Name="NovellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NovellLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NovellPosition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NovelMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RecoveryCCTR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionDefaults" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionDisplayAcknowledgedItems" Type="Boolean" />
+          <Property Name="FSRVendorSupplierNumberOld" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="FSRVendorSupplierNumberNew" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NovellDisplayName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NovellCompany" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NovellDepartment" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NovellOffice" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NovellZip" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RPT_SYSModelStoreContainer" CdmEntityContainer="RPT_SYSEntities">
+          <EntitySetMapping Name="DeliveryAdvice_item1">
+            <EntityTypeMapping TypeName="RPT_SYSModel.DeliveryAdvice_item1">
+              <MappingFragment StoreEntitySet="DeliveryAdvice_item1">
+                <ScalarProperty Name="DeliveryNum" ColumnName="DeliveryNum" />
+                <ScalarProperty Name="powo" ColumnName="powo" />
+                <ScalarProperty Name="item_num" ColumnName="item_num" />
+                <ScalarProperty Name="FACILITY" ColumnName="FACILITY" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="DECONTIMINATED" ColumnName="DECONTIMINATED" />
+                <ScalarProperty Name="RTN_ADVIC_NUM" ColumnName="RTN_ADVIC_NUM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="IsWo1" ColumnName="IsWo1" />
+                <ScalarProperty Name="IsReason" ColumnName="IsReason" />
+                <ScalarProperty Name="IsVendorInstructions" ColumnName="IsVendorInstructions" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="QTY_RECV" ColumnName="QTY_RECV" />
+                <ScalarProperty Name="Qty_LastRecv" ColumnName="Qty_LastRecv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryAdvice_Shipping">
+            <EntityTypeMapping TypeName="RPT_SYSModel.DeliveryAdvice_Shipping">
+              <MappingFragment StoreEntitySet="DeliveryAdvice_Shipping">
+                <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+                <ScalarProperty Name="FromName" ColumnName="FromName" />
+                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+                <ScalarProperty Name="ConnoteNum" ColumnName="ConnoteNum" />
+                <ScalarProperty Name="Courier" ColumnName="Courier" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="DeliveryReasonNum" ColumnName="DeliveryReasonNum" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="EMPCode" ColumnName="EMPCode" />
+                <ScalarProperty Name="EMPName" ColumnName="EMPName" />
+                <ScalarProperty Name="RECV_DATE" ColumnName="RECV_DATE" />
+                <ScalarProperty Name="ACCESORIES" ColumnName="ACCESORIES" />
+                <ScalarProperty Name="FACILITY" ColumnName="FACILITY" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="ISEDITABLE" ColumnName="ISEDITABLE" />
+                <ScalarProperty Name="REAL_CC" ColumnName="REAL_CC" />
+                <ScalarProperty Name="RECEIVED_BY" ColumnName="RECEIVED_BY" />
+                <ScalarProperty Name="LAST_PRINTED" ColumnName="LAST_PRINTED" />
+                <ScalarProperty Name="LAST_PRINTED_BY" ColumnName="LAST_PRINTED_BY" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_AUDIT">
+            <EntityTypeMapping TypeName="RPT_SYSModel.APP_AUDIT">
+              <MappingFragment StoreEntitySet="APP_AUDIT">
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="AUDITOR" ColumnName="AUDITOR" />
+                <ScalarProperty Name="AUDIT_DATE" ColumnName="AUDIT_DATE" />
+                <ScalarProperty Name="SEQUENCE" ColumnName="SEQUENCE" />
+                <ScalarProperty Name="KEY2" ColumnName="KEY2" />
+                <ScalarProperty Name="KEY1" ColumnName="KEY1" />
+                <ScalarProperty Name="APP_TYPE" ColumnName="APP_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Settings">
+            <EntityTypeMapping TypeName="RPT_SYSModel.User_Settings">
+              <MappingFragment StoreEntitySet="User_Settings">
+                <ScalarProperty Name="NovellZip" ColumnName="NovellZip" />
+                <ScalarProperty Name="NovellOffice" ColumnName="NovellOffice" />
+                <ScalarProperty Name="NovellDepartment" ColumnName="NovellDepartment" />
+                <ScalarProperty Name="NovellCompany" ColumnName="NovellCompany" />
+                <ScalarProperty Name="NovellDisplayName" ColumnName="NovellDisplayName" />
+                <ScalarProperty Name="FSRVendorSupplierNumberNew" ColumnName="FSRVendorSupplierNumberNew" />
+                <ScalarProperty Name="FSRVendorSupplierNumberOld" ColumnName="FSRVendorSupplierNumberOld" />
+                <ScalarProperty Name="ExceptionDisplayAcknowledgedItems" ColumnName="ExceptionDisplayAcknowledgedItems" />
+                <ScalarProperty Name="ExceptionDefaults" ColumnName="ExceptionDefaults" />
+                <ScalarProperty Name="RecoveryCCTR" ColumnName="RecoveryCCTR" />
+                <ScalarProperty Name="NovelMobile" ColumnName="NovelMobile" />
+                <ScalarProperty Name="NovellPosition" ColumnName="NovellPosition" />
+                <ScalarProperty Name="NovellLocation" ColumnName="NovellLocation" />
+                <ScalarProperty Name="NovellPhone" ColumnName="NovellPhone" />
+                <ScalarProperty Name="C_app_ImprestStock" ColumnName="_app_ImprestStock" />
+                <ScalarProperty Name="C_FileMaker_Apps_Access" ColumnName="_FileMaker_Apps_Access" />
+                <ScalarProperty Name="C_app_access_Unpost" ColumnName="_app_access_Unpost" />
+                <ScalarProperty Name="IS_BAN1_ENABLED" ColumnName="IS_BAN1_ENABLED" />
+                <ScalarProperty Name="C_app_PrivateInvc_Role" ColumnName="_app_PrivateInvc_Role" />
+                <ScalarProperty Name="KPIDefaults" ColumnName="KPIDefaults" />
+                <ScalarProperty Name="DDSUniqueIDDigitalSignaturePAO" ColumnName="DDSUniqueIDDigitalSignaturePAO" />
+                <ScalarProperty Name="VENDOR_Number" ColumnName="VENDOR_Number" />
+                <ScalarProperty Name="EMP_Avail_2_Sunday" ColumnName="EMP_Avail_2_Sunday" />
+                <ScalarProperty Name="EMP_Avail_2_Saturday" ColumnName="EMP_Avail_2_Saturday" />
+                <ScalarProperty Name="EMP_Avail_2_Friday" ColumnName="EMP_Avail_2_Friday" />
+                <ScalarProperty Name="EMP_Avail_2_Thursday" ColumnName="EMP_Avail_2_Thursday" />
+                <ScalarProperty Name="EMP_Avail_2_Wednesday" ColumnName="EMP_Avail_2_Wednesday" />
+                <ScalarProperty Name="EMP_Avail_2_Tuesday" ColumnName="EMP_Avail_2_Tuesday" />
+                <ScalarProperty Name="EMP_Avail_2_Monday" ColumnName="EMP_Avail_2_Monday" />
+                <ScalarProperty Name="EMP_Avail_1_Sunday" ColumnName="EMP_Avail_1_Sunday" />
+                <ScalarProperty Name="EMP_Avai_1_Saturday" ColumnName="EMP_Avai_1_Saturday" />
+                <ScalarProperty Name="EMP_Avail_1_Friday" ColumnName="EMP_Avail_1_Friday" />
+                <ScalarProperty Name="EMP_Avail_1_Thursday" ColumnName="EMP_Avail_1_Thursday" />
+                <ScalarProperty Name="EMP_Avail_1_Wednesday" ColumnName="EMP_Avail_1_Wednesday" />
+                <ScalarProperty Name="EMP_Avail_1_Tuesday" ColumnName="EMP_Avail_1_Tuesday" />
+                <ScalarProperty Name="EMP_Avail_1_Monday" ColumnName="EMP_Avail_1_Monday" />
+                <ScalarProperty Name="EMP_PayGrade" ColumnName="EMP_PayGrade" />
+                <ScalarProperty Name="EMP_PayRole" ColumnName="EMP_PayRole" />
+                <ScalarProperty Name="EMP_Role" ColumnName="EMP_Role" />
+                <ScalarProperty Name="EMP_FinishTime" ColumnName="EMP_FinishTime" />
+                <ScalarProperty Name="EMP_StartTime" ColumnName="EMP_StartTime" />
+                <ScalarProperty Name="C_app_SS_Max" ColumnName="_app_SS_Max" />
+                <ScalarProperty Name="C_Code" ColumnName="C_Code" />
+                <ScalarProperty Name="C_ProfileImage" ColumnName="C_ProfileImage" />
+                <ScalarProperty Name="C_Email" ColumnName="C_Email" />
+                <ScalarProperty Name="C_Fax" ColumnName="C_Fax" />
+                <ScalarProperty Name="C_Phone" ColumnName="C_Phone" />
+                <ScalarProperty Name="C_app_access_ConsoleMngr" ColumnName="_app_access_ConsoleMngr" />
+                <ScalarProperty Name="QH_ID" ColumnName="QH_ID" />
+                <ScalarProperty Name="C_app_access_DMTool" ColumnName="_app_access_DMTool" />
+                <ScalarProperty Name="C_app_access_SafetyTester" ColumnName="_app_access_SafetyTester" />
+                <ScalarProperty Name="C_app_access_TRNS" ColumnName="_app_access_TRNS" />
+                <ScalarProperty Name="C_app_access_DDS" ColumnName="_app_access_DDS" />
+                <ScalarProperty Name="C_app_access_CPaP" ColumnName="_app_access_CPaP" />
+                <ScalarProperty Name="C_env_AnimationsOn" ColumnName="_env_AnimationsOn" />
+                <ScalarProperty Name="C_env_ApplicationTransparency" ColumnName="_env_ApplicationTransparency" />
+                <ScalarProperty Name="C_env_MenuTransparency" ColumnName="_env_MenuTransparency" />
+                <ScalarProperty Name="C_env_VirtualKeyboard" ColumnName="_env_VirtualKeyboard" />
+                <ScalarProperty Name="C_env_Widget_QisScreen" ColumnName="_env_Widget_QisScreen" />
+                <ScalarProperty Name="C_env_Widget_Clock" ColumnName="_env_Widget_Clock" />
+                <ScalarProperty Name="NovellUserName" ColumnName="NovellUserName" />
+                <ScalarProperty Name="C_app_isNotesPanelOpen" ColumnName="_app_isNotesPanelOpen" />
+                <ScalarProperty Name="C_app_access_TRVL" ColumnName="_app_access_TRVL" />
+                <ScalarProperty Name="C_app_access_SCH" ColumnName="_app_access_SCH" />
+                <ScalarProperty Name="C_app_access_EOM" ColumnName="_app_access_EOM" />
+                <ScalarProperty Name="C_app_access_PT" ColumnName="_app_access_PT" />
+                <ScalarProperty Name="C_app_access_DA" ColumnName="_app_access_DA" />
+                <ScalarProperty Name="C_app_ClientInvoicing_End" ColumnName="_app_ClientInvoicing_End" />
+                <ScalarProperty Name="C_app_ClientInvoicing_Begin" ColumnName="_app_ClientInvoicing_Begin" />
+                <ScalarProperty Name="C_app_LI_End" ColumnName="_app_LI_End" />
+                <ScalarProperty Name="C_app_LI_Begin" ColumnName="_app_LI_Begin" />
+                <ScalarProperty Name="C_app_INV_Max" ColumnName="_app_INV_Max" />
+                <ScalarProperty Name="C_app_INV_End" ColumnName="_app_INV_End" />
+                <ScalarProperty Name="C_app_INV_Begin" ColumnName="_app_INV_Begin" />
+                <ScalarProperty Name="C_app_PAO_Max" ColumnName="_app_PAO_Max" />
+                <ScalarProperty Name="C_app_PAO_End" ColumnName="_app_PAO_End" />
+                <ScalarProperty Name="C_app_PAO_Begin" ColumnName="_app_PAO_Begin" />
+                <ScalarProperty Name="C_app_EAO_Max" ColumnName="_app_EAO_Max" />
+                <ScalarProperty Name="C_app_EAO_End" ColumnName="_app_EAO_End" />
+                <ScalarProperty Name="C_app_EAO_Begin" ColumnName="_app_EAO_Begin" />
+                <ScalarProperty Name="C_app_WAO_Max" ColumnName="_app_WAO_Max" />
+                <ScalarProperty Name="C_app_WAO_End" ColumnName="_app_WAO_End" />
+                <ScalarProperty Name="C_app_WAO_Begin" ColumnName="_app_WAO_Begin" />
+                <ScalarProperty Name="C_env_Widget_Notebook" ColumnName="_env_Widget_Notebook" />
+                <ScalarProperty Name="C_env_Widget_Wiki" ColumnName="_env_Widget_Wiki" />
+                <ScalarProperty Name="C_env_Widget_MSG" ColumnName="_env_Widget_MSG" />
+                <ScalarProperty Name="C_env_Widget_Calender" ColumnName="_env_Widget_Calender" />
+                <ScalarProperty Name="C_env_Widget_AirportScreen" ColumnName="_env_Widget_AirportScreen" />
+                <ScalarProperty Name="C_env_Menu_Transparent" ColumnName="_env_Menu_Transparent" />
+                <ScalarProperty Name="C_env_Background_Color" ColumnName="_env_Background_Color" />
+                <ScalarProperty Name="C_env_AutoHide_BaseBar" ColumnName="_env_AutoHide_BaseBar" />
+                <ScalarProperty Name="C_env_Animations" ColumnName="_env_Animations" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

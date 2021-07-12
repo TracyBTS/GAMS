@@ -1,0 +1,2016 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WBS_User" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" />
+      <xsd:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWBS_User_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__getUserfacility_InputMessage">
+    <wsdl:part name="parameters" element="tns:_getUserfacility" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__getUserfacility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_getUserfacilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__createNewAims_InputMessage">
+    <wsdl:part name="parameters" element="tns:_createNewAims" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__createNewAims_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_createNewAimsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_GetBTSSite_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBTSSite" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_GetBTSSite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBTSSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserActing_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserActing" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserActing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserActingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_storeUserSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:storeUserSettings" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_storeUserSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:storeUserSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_appGetWindowSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:appGetWindowSettings" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_appGetWindowSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:appGetWindowSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_appSetWindowSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:appSetWindowSettings" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_appSetWindowSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:appSetWindowSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getBNAUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBNAUsers" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getBNAUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBNAUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_storePostIt_InputMessage">
+    <wsdl:part name="parameters" element="tns:storePostIt" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_storePostIt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:storePostItResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getPostIt_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPostIt" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getPostIt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPostItResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_removePostIt_InputMessage">
+    <wsdl:part name="parameters" element="tns:removePostIt" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_removePostIt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removePostItResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:logout" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:logoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserList" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getActingRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:getActingRoles" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getActingRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getActingRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserApprovalWrkGrps_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserApprovalWrkGrps" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserApprovalWrkGrps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserApprovalWrkGrpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getApprovalWrkGrps_InputMessage">
+    <wsdl:part name="parameters" element="tns:getApprovalWrkGrps" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getApprovalWrkGrps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getApprovalWrkGrpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get788CCTR_InputMessage">
+    <wsdl:part name="parameters" element="tns:get788CCTR" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get788CCTR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get788CCTRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserApprovalWrkGrps_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserApprovalWrkGrps" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserApprovalWrkGrps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserApprovalWrkGrpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserSessionOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserSessionOptions" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserSessionOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserSessionOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_createUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:createUser" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_createUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getNextUserNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNextUserNumber" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getNextUserNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNextUserNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getSrvcDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSrvcDept" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getSrvcDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSrvcDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getActivityDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getActivityDetails" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getActivityDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getActivityDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getWorkGroupNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWorkGroupNames" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getWorkGroupNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWorkGroupNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getCostCentersAssigned_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCostCentersAssigned" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getCostCentersAssigned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCostCentersAssignedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setNewWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:setNewWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setNewWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setNewWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_deleteWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_deleteWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_addRemoveCCtoWG_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRemoveCCtoWG" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_addRemoveCCtoWG_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRemoveCCtoWGResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_removeCCfromWG_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeCCfromWG" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_removeCCfromWG_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeCCfromWGResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserResponceSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserResponceSummary" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserResponceSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserResponceSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:getActivity" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getBillableActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBillableActivity" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getBillableActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBillableActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getNonBillableActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNonBillableActivity" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getNonBillableActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNonBillableActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getPurchasingHistoryDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPurchasingHistoryDetails" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getPurchasingHistoryDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPurchasingHistoryDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getEmployeeSite_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeeSite" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getEmployeeSite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEmployeeSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getMyReportSubscription_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMyReportSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getMyReportSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMyReportSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_saveReportSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveReportSchedule" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_saveReportSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:saveReportScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_removeReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeReport" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_removeReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getHistorySchedule_OverDue_InputMessage">
+    <wsdl:part name="parameters" element="tns:getHistorySchedule_OverDue" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getHistorySchedule_OverDue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getHistorySchedule_OverDueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getHistorySchedule_NextRun_InputMessage">
+    <wsdl:part name="parameters" element="tns:getHistorySchedule_NextRun" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getHistorySchedule_NextRun_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getHistorySchedule_NextRunResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__userRanReportGUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:_userRanReportGUID" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__userRanReportGUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_userRanReportGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__utilisationSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:_utilisationSet" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__utilisationSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_utilisationSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__utilisationGet_InputMessage">
+    <wsdl:part name="parameters" element="tns:_utilisationGet" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__utilisationGet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_utilisationGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__getUserAuditTrail_InputMessage">
+    <wsdl:part name="parameters" element="tns:_getUserAuditTrail" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__getUserAuditTrail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_getUserAuditTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__getEAUserPrimServiceDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:_getEAUserPrimServiceDept" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__getEAUserPrimServiceDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_getEAUserPrimServiceDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__setEAUserPrimServiceDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:_setEAUserPrimServiceDept" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User__setEAUserPrimServiceDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_setEAUserPrimServiceDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_User_Vendor_Details_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_User_Vendor_Details" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_User_Vendor_Details_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_User_Vendor_DetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelForUser" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelForFSR_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelForFSR" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelForFSR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelForFSRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_del_PurchaseTravel_InputMessage">
+    <wsdl:part name="parameters" element="tns:del_PurchaseTravel" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_del_PurchaseTravel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:del_PurchaseTravelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelFSRs_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelFSRs" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelFSRs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelFSRsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelApprovalDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelApprovalDetails" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_PurchaseTravelApprovalDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_PurchaseTravelApprovalDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_set_PurchaseTravel_InputMessage">
+    <wsdl:part name="parameters" element="tns:set_PurchaseTravel" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_set_PurchaseTravel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:set_PurchaseTravelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_WOConfirm_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_WOConfirm" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_WOConfirm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_WOConfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_process_FSR_InputMessage">
+    <wsdl:part name="parameters" element="tns:process_FSR" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_process_FSR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:process_FSRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getFSRApprovalSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFSRApprovalSummary" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getFSRApprovalSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFSRApprovalSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUpdateServiceDepartmentOnFSR_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUpdateServiceDepartmentOnFSR" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUpdateServiceDepartmentOnFSR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUpdateServiceDepartmentOnFSRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_TravelTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_TravelTypes" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_TravelTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_TravelTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_TravelDatasets_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_TravelDatasets" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_TravelDatasets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_TravelDatasetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_savePurchaseType_InputMessage">
+    <wsdl:part name="parameters" element="tns:savePurchaseType" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_savePurchaseType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:savePurchaseTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getStdFeeOnTravelType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStdFeeOnTravelType" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getStdFeeOnTravelType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStdFeeOnTravelTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_delete_TravelType_InputMessage">
+    <wsdl:part name="parameters" element="tns:delete_TravelType" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_delete_TravelType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:delete_TravelTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_set_User_CustomLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:set_User_CustomLink" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_set_User_CustomLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:set_User_CustomLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_User_CustomQuickLinks_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_User_CustomQuickLinks" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_User_CustomQuickLinks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_User_CustomQuickLinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_FSR_Summary_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_FSR_Summary" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_FSR_Summary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_FSR_SummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_FSR_Travel_Summary_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_FSR_Travel_Summary" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_get_FSR_Travel_Summary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_FSR_Travel_SummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getFSRRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFSRRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getFSRRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFSRRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setFSRRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:setFSRRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setFSRRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setFSRRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_mergeFSRs_InputMessage">
+    <wsdl:part name="parameters" element="tns:mergeFSRs" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_mergeFSRs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:mergeFSRsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getAccountCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountCodes" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getAccountCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserApprovalAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserApprovalAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserApprovalAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserApprovalAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserAccountCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAccountCodes" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserAccountCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAccountCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserToil_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserToil" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserToil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserToilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserToil_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserToil" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserToil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserToilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_markAsDeleted_InputMessage">
+    <wsdl:part name="parameters" element="tns:markAsDeleted" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_markAsDeleted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:markAsDeletedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getToilSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:getToilSummary" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getToilSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getToilSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getRoleBasedOnID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRoleBasedOnID" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getRoleBasedOnID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRoleBasedOnIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setRoleWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:setRoleWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setRoleWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setRoleWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setRoleServiceDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:setRoleServiceDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setRoleServiceDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setRoleServiceDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserRole" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:setRole" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserPrivateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserPrivateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserPrivateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserPrivateInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getPrivateCostCentres_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPrivateCostCentres" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getPrivateCostCentres_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPrivateCostCentresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getApprovalGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:getApprovalGroups" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getApprovalGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getApprovalGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getSystemRolesOnUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSystemRolesOnUsername" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getSystemRolesOnUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSystemRolesOnUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getTravelFilesOnTravelID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTravelFilesOnTravelID" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getTravelFilesOnTravelID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTravelFilesOnTravelIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_deleteTravelFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteTravelFile" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_deleteTravelFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteTravelFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionOnUserWorkGroupbyEMP_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionOnUserWorkGroupbyEMP" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionOnUserWorkGroupbyEMP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionOnUserWorkGroupbyEMPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionOnUniqueID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionOnUniqueID" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionOnUniqueID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionOnUniqueIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionNotesOnID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionNotesOnID" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionNotesOnID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionNotesOnIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionNote" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionFlag_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionFlag" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionFlag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionAcknoledge_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionAcknoledge" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionAcknoledge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionAcknoledgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setDataManagerExceptionWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDataManagerExceptionWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionWorkGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionWorkGroups" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getDataManagerExceptionWorkGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataManagerExceptionWorkGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserFavouriteDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUserFavouriteDocument" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setUserFavouriteDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUserFavouriteDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserFavouriteDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserFavouriteDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserFavouriteDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserFavouriteDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserApplicationAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserApplicationAccess" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getUserApplicationAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserApplicationAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getExceptionTypesByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:getExceptionTypesByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getExceptionTypesByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getExceptionTypesByUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setExceptionTypePerUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:setExceptionTypePerUser" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_setExceptionTypePerUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setExceptionTypePerUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getExceptionTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:getExceptionTypes" />
+  </wsdl:message>
+  <wsdl:message name="IWBS_User_getExceptionTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getExceptionTypesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWBS_User">
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/GetUser" message="tns:IWBS_User_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/GetUserResponse" message="tns:IWBS_User_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_getUserfacility">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_getUserfacility" message="tns:IWBS_User__getUserfacility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_getUserfacilityResponse" message="tns:IWBS_User__getUserfacility_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_createNewAims">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_createNewAims" message="tns:IWBS_User__createNewAims_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_createNewAimsResponse" message="tns:IWBS_User__createNewAims_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBTSSite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/GetBTSSite" message="tns:IWBS_User_GetBTSSite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/GetBTSSiteResponse" message="tns:IWBS_User_GetBTSSite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserActing">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserActing" message="tns:IWBS_User_setUserActing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserActingResponse" message="tns:IWBS_User_setUserActing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="storeUserSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/storeUserSettings" message="tns:IWBS_User_storeUserSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/storeUserSettingsResponse" message="tns:IWBS_User_storeUserSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="appGetWindowSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/appGetWindowSettings" message="tns:IWBS_User_appGetWindowSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/appGetWindowSettingsResponse" message="tns:IWBS_User_appGetWindowSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="appSetWindowSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/appSetWindowSettings" message="tns:IWBS_User_appSetWindowSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/appSetWindowSettingsResponse" message="tns:IWBS_User_appSetWindowSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBNAUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getBNAUsers" message="tns:IWBS_User_getBNAUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getBNAUsersResponse" message="tns:IWBS_User_getBNAUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="storePostIt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/storePostIt" message="tns:IWBS_User_storePostIt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/storePostItResponse" message="tns:IWBS_User_storePostIt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPostIt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getPostIt" message="tns:IWBS_User_getPostIt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getPostItResponse" message="tns:IWBS_User_getPostIt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removePostIt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/removePostIt" message="tns:IWBS_User_removePostIt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/removePostItResponse" message="tns:IWBS_User_removePostIt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/logout" message="tns:IWBS_User_logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/logoutResponse" message="tns:IWBS_User_logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserList" message="tns:IWBS_User_getUserList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserListResponse" message="tns:IWBS_User_getUserList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserDetails" message="tns:IWBS_User_getUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserDetailsResponse" message="tns:IWBS_User_getUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserDetails" message="tns:IWBS_User_setUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserDetailsResponse" message="tns:IWBS_User_setUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getActingRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getActingRoles" message="tns:IWBS_User_getActingRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getActingRolesResponse" message="tns:IWBS_User_getActingRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserApprovalWrkGrps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserApprovalWrkGrps" message="tns:IWBS_User_getUserApprovalWrkGrps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserApprovalWrkGrpsResponse" message="tns:IWBS_User_getUserApprovalWrkGrps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getApprovalWrkGrps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getApprovalWrkGrps" message="tns:IWBS_User_getApprovalWrkGrps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getApprovalWrkGrpsResponse" message="tns:IWBS_User_getApprovalWrkGrps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get788CCTR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get788CCTR" message="tns:IWBS_User_get788CCTR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get788CCTRResponse" message="tns:IWBS_User_get788CCTR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserApprovalWrkGrps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserApprovalWrkGrps" message="tns:IWBS_User_setUserApprovalWrkGrps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserApprovalWrkGrpsResponse" message="tns:IWBS_User_setUserApprovalWrkGrps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserSessionOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserSessionOptions" message="tns:IWBS_User_setUserSessionOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserSessionOptionsResponse" message="tns:IWBS_User_setUserSessionOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/createUser" message="tns:IWBS_User_createUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/createUserResponse" message="tns:IWBS_User_createUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNextUserNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getNextUserNumber" message="tns:IWBS_User_getNextUserNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getNextUserNumberResponse" message="tns:IWBS_User_getNextUserNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSrvcDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getSrvcDept" message="tns:IWBS_User_getSrvcDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getSrvcDeptResponse" message="tns:IWBS_User_getSrvcDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivityDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getActivityDetails" message="tns:IWBS_User_getActivityDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getActivityDetailsResponse" message="tns:IWBS_User_getActivityDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWorkGroupNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getWorkGroupNames" message="tns:IWBS_User_getWorkGroupNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getWorkGroupNamesResponse" message="tns:IWBS_User_getWorkGroupNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCostCentersAssigned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getCostCentersAssigned" message="tns:IWBS_User_getCostCentersAssigned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getCostCentersAssignedResponse" message="tns:IWBS_User_getCostCentersAssigned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setNewWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setNewWorkGroup" message="tns:IWBS_User_setNewWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setNewWorkGroupResponse" message="tns:IWBS_User_setNewWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/deleteWorkGroup" message="tns:IWBS_User_deleteWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/deleteWorkGroupResponse" message="tns:IWBS_User_deleteWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRemoveCCtoWG">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/addRemoveCCtoWG" message="tns:IWBS_User_addRemoveCCtoWG_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/addRemoveCCtoWGResponse" message="tns:IWBS_User_addRemoveCCtoWG_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCCfromWG">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/removeCCfromWG" message="tns:IWBS_User_removeCCfromWG_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/removeCCfromWGResponse" message="tns:IWBS_User_removeCCfromWG_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserResponceSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserResponceSummary" message="tns:IWBS_User_getUserResponceSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserResponceSummaryResponse" message="tns:IWBS_User_getUserResponceSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getActivity" message="tns:IWBS_User_getActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getActivityResponse" message="tns:IWBS_User_getActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillableActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getBillableActivity" message="tns:IWBS_User_getBillableActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getBillableActivityResponse" message="tns:IWBS_User_getBillableActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNonBillableActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getNonBillableActivity" message="tns:IWBS_User_getNonBillableActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getNonBillableActivityResponse" message="tns:IWBS_User_getNonBillableActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPurchasingHistoryDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getPurchasingHistoryDetails" message="tns:IWBS_User_getPurchasingHistoryDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getPurchasingHistoryDetailsResponse" message="tns:IWBS_User_getPurchasingHistoryDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeSite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getEmployeeSite" message="tns:IWBS_User_getEmployeeSite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getEmployeeSiteResponse" message="tns:IWBS_User_getEmployeeSite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMyReportSubscription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getMyReportSubscription" message="tns:IWBS_User_getMyReportSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getMyReportSubscriptionResponse" message="tns:IWBS_User_getMyReportSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveReportSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/saveReportSchedule" message="tns:IWBS_User_saveReportSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/saveReportScheduleResponse" message="tns:IWBS_User_saveReportSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/removeReport" message="tns:IWBS_User_removeReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/removeReportResponse" message="tns:IWBS_User_removeReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getHistorySchedule_OverDue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getHistorySchedule_OverDue" message="tns:IWBS_User_getHistorySchedule_OverDue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getHistorySchedule_OverDueResponse" message="tns:IWBS_User_getHistorySchedule_OverDue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getHistorySchedule_NextRun">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getHistorySchedule_NextRun" message="tns:IWBS_User_getHistorySchedule_NextRun_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getHistorySchedule_NextRunResponse" message="tns:IWBS_User_getHistorySchedule_NextRun_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_userRanReportGUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_userRanReportGUID" message="tns:IWBS_User__userRanReportGUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_userRanReportGUIDResponse" message="tns:IWBS_User__userRanReportGUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_utilisationSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_utilisationSet" message="tns:IWBS_User__utilisationSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_utilisationSetResponse" message="tns:IWBS_User__utilisationSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_utilisationGet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_utilisationGet" message="tns:IWBS_User__utilisationGet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_utilisationGetResponse" message="tns:IWBS_User__utilisationGet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_getUserAuditTrail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_getUserAuditTrail" message="tns:IWBS_User__getUserAuditTrail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_getUserAuditTrailResponse" message="tns:IWBS_User__getUserAuditTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_getEAUserPrimServiceDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_getEAUserPrimServiceDept" message="tns:IWBS_User__getEAUserPrimServiceDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_getEAUserPrimServiceDeptResponse" message="tns:IWBS_User__getEAUserPrimServiceDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="_setEAUserPrimServiceDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/_setEAUserPrimServiceDept" message="tns:IWBS_User__setEAUserPrimServiceDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/_setEAUserPrimServiceDeptResponse" message="tns:IWBS_User__setEAUserPrimServiceDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_User_Vendor_Details">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_User_Vendor_Details" message="tns:IWBS_User_get_User_Vendor_Details_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_User_Vendor_DetailsResponse" message="tns:IWBS_User_get_User_Vendor_Details_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelForUser" message="tns:IWBS_User_get_PurchaseTravelForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelForUserResponse" message="tns:IWBS_User_get_PurchaseTravelForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelForFSR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelForFSR" message="tns:IWBS_User_get_PurchaseTravelForFSR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelForFSRResponse" message="tns:IWBS_User_get_PurchaseTravelForFSR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="del_PurchaseTravel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/del_PurchaseTravel" message="tns:IWBS_User_del_PurchaseTravel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/del_PurchaseTravelResponse" message="tns:IWBS_User_del_PurchaseTravel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelFSRs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelFSRs" message="tns:IWBS_User_get_PurchaseTravelFSRs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelFSRsResponse" message="tns:IWBS_User_get_PurchaseTravelFSRs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelApprovalDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelApprovalDetails" message="tns:IWBS_User_get_PurchaseTravelApprovalDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_PurchaseTravelApprovalDetailsResponse" message="tns:IWBS_User_get_PurchaseTravelApprovalDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="set_PurchaseTravel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/set_PurchaseTravel" message="tns:IWBS_User_set_PurchaseTravel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/set_PurchaseTravelResponse" message="tns:IWBS_User_set_PurchaseTravel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_WOConfirm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_WOConfirm" message="tns:IWBS_User_get_WOConfirm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_WOConfirmResponse" message="tns:IWBS_User_get_WOConfirm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="process_FSR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/process_FSR" message="tns:IWBS_User_process_FSR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/process_FSRResponse" message="tns:IWBS_User_process_FSR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFSRApprovalSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getFSRApprovalSummary" message="tns:IWBS_User_getFSRApprovalSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getFSRApprovalSummaryResponse" message="tns:IWBS_User_getFSRApprovalSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateServiceDepartmentOnFSR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUpdateServiceDepartmentOnFSR" message="tns:IWBS_User_setUpdateServiceDepartmentOnFSR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUpdateServiceDepartmentOnFSRResponse" message="tns:IWBS_User_setUpdateServiceDepartmentOnFSR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_TravelTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_TravelTypes" message="tns:IWBS_User_get_TravelTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_TravelTypesResponse" message="tns:IWBS_User_get_TravelTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_TravelDatasets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_TravelDatasets" message="tns:IWBS_User_get_TravelDatasets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_TravelDatasetsResponse" message="tns:IWBS_User_get_TravelDatasets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="savePurchaseType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/savePurchaseType" message="tns:IWBS_User_savePurchaseType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/savePurchaseTypeResponse" message="tns:IWBS_User_savePurchaseType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStdFeeOnTravelType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getStdFeeOnTravelType" message="tns:IWBS_User_getStdFeeOnTravelType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getStdFeeOnTravelTypeResponse" message="tns:IWBS_User_getStdFeeOnTravelType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="delete_TravelType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/delete_TravelType" message="tns:IWBS_User_delete_TravelType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/delete_TravelTypeResponse" message="tns:IWBS_User_delete_TravelType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="set_User_CustomLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/set_User_CustomLink" message="tns:IWBS_User_set_User_CustomLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/set_User_CustomLinkResponse" message="tns:IWBS_User_set_User_CustomLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_User_CustomQuickLinks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_User_CustomQuickLinks" message="tns:IWBS_User_get_User_CustomQuickLinks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_User_CustomQuickLinksResponse" message="tns:IWBS_User_get_User_CustomQuickLinks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_FSR_Summary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_FSR_Summary" message="tns:IWBS_User_get_FSR_Summary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_FSR_SummaryResponse" message="tns:IWBS_User_get_FSR_Summary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_FSR_Travel_Summary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/get_FSR_Travel_Summary" message="tns:IWBS_User_get_FSR_Travel_Summary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/get_FSR_Travel_SummaryResponse" message="tns:IWBS_User_get_FSR_Travel_Summary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFSRRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getFSRRegistration" message="tns:IWBS_User_getFSRRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getFSRRegistrationResponse" message="tns:IWBS_User_getFSRRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setFSRRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setFSRRegistration" message="tns:IWBS_User_setFSRRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setFSRRegistrationResponse" message="tns:IWBS_User_setFSRRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="mergeFSRs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/mergeFSRs" message="tns:IWBS_User_mergeFSRs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/mergeFSRsResponse" message="tns:IWBS_User_mergeFSRs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getAccountCodes" message="tns:IWBS_User_getAccountCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getAccountCodesResponse" message="tns:IWBS_User_getAccountCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserApprovalAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserApprovalAccounts" message="tns:IWBS_User_setUserApprovalAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserApprovalAccountsResponse" message="tns:IWBS_User_setUserApprovalAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserAccountCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserAccountCodes" message="tns:IWBS_User_getUserAccountCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserAccountCodesResponse" message="tns:IWBS_User_getUserAccountCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserToil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserToil" message="tns:IWBS_User_getUserToil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserToilResponse" message="tns:IWBS_User_getUserToil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserToil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserToil" message="tns:IWBS_User_setUserToil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserToilResponse" message="tns:IWBS_User_setUserToil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="markAsDeleted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/markAsDeleted" message="tns:IWBS_User_markAsDeleted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/markAsDeletedResponse" message="tns:IWBS_User_markAsDeleted_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getToilSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getToilSummary" message="tns:IWBS_User_getToilSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getToilSummaryResponse" message="tns:IWBS_User_getToilSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getAllRoles" message="tns:IWBS_User_getAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getAllRolesResponse" message="tns:IWBS_User_getAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRoleBasedOnID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getRoleBasedOnID" message="tns:IWBS_User_getRoleBasedOnID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getRoleBasedOnIDResponse" message="tns:IWBS_User_getRoleBasedOnID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setRoleWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setRoleWorkGroup" message="tns:IWBS_User_setRoleWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setRoleWorkGroupResponse" message="tns:IWBS_User_setRoleWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setRoleServiceDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setRoleServiceDepartment" message="tns:IWBS_User_setRoleServiceDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setRoleServiceDepartmentResponse" message="tns:IWBS_User_setRoleServiceDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserRole" message="tns:IWBS_User_setUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserRoleResponse" message="tns:IWBS_User_setUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setRole" message="tns:IWBS_User_setRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setRoleResponse" message="tns:IWBS_User_setRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserPrivateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserPrivateInvoice" message="tns:IWBS_User_setUserPrivateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserPrivateInvoiceResponse" message="tns:IWBS_User_setUserPrivateInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrivateCostCentres">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getPrivateCostCentres" message="tns:IWBS_User_getPrivateCostCentres_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getPrivateCostCentresResponse" message="tns:IWBS_User_getPrivateCostCentres_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getApprovalGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getApprovalGroups" message="tns:IWBS_User_getApprovalGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getApprovalGroupsResponse" message="tns:IWBS_User_getApprovalGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSystemRolesOnUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getSystemRolesOnUsername" message="tns:IWBS_User_getSystemRolesOnUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getSystemRolesOnUsernameResponse" message="tns:IWBS_User_getSystemRolesOnUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTravelFilesOnTravelID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getTravelFilesOnTravelID" message="tns:IWBS_User_getTravelFilesOnTravelID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getTravelFilesOnTravelIDResponse" message="tns:IWBS_User_getTravelFilesOnTravelID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTravelFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/deleteTravelFile" message="tns:IWBS_User_deleteTravelFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/deleteTravelFileResponse" message="tns:IWBS_User_deleteTravelFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionOnUserWorkGroupbyEMP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionOnUserWorkGroupbyEMP" message="tns:IWBS_User_getDataManagerExceptionOnUserWorkGroupbyEMP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionOnUserWorkGroupbyEMPResponse" message="tns:IWBS_User_getDataManagerExceptionOnUserWorkGroupbyEMP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionOnUniqueID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionOnUniqueID" message="tns:IWBS_User_getDataManagerExceptionOnUniqueID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionOnUniqueIDResponse" message="tns:IWBS_User_getDataManagerExceptionOnUniqueID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionNotesOnID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionNotesOnID" message="tns:IWBS_User_getDataManagerExceptionNotesOnID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionNotesOnIDResponse" message="tns:IWBS_User_getDataManagerExceptionNotesOnID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionNote" message="tns:IWBS_User_setDataManagerExceptionNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionNoteResponse" message="tns:IWBS_User_setDataManagerExceptionNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionFlag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionFlag" message="tns:IWBS_User_setDataManagerExceptionFlag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionFlagResponse" message="tns:IWBS_User_setDataManagerExceptionFlag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionAcknoledge">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionAcknoledge" message="tns:IWBS_User_setDataManagerExceptionAcknoledge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionAcknoledgeResponse" message="tns:IWBS_User_setDataManagerExceptionAcknoledge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionWorkGroup" message="tns:IWBS_User_setDataManagerExceptionWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setDataManagerExceptionWorkGroupResponse" message="tns:IWBS_User_setDataManagerExceptionWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionWorkGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionWorkGroups" message="tns:IWBS_User_getDataManagerExceptionWorkGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getDataManagerExceptionWorkGroupsResponse" message="tns:IWBS_User_getDataManagerExceptionWorkGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUserFavouriteDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setUserFavouriteDocument" message="tns:IWBS_User_setUserFavouriteDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setUserFavouriteDocumentResponse" message="tns:IWBS_User_setUserFavouriteDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserFavouriteDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserFavouriteDocuments" message="tns:IWBS_User_getUserFavouriteDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserFavouriteDocumentsResponse" message="tns:IWBS_User_getUserFavouriteDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserApplicationAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getUserApplicationAccess" message="tns:IWBS_User_getUserApplicationAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getUserApplicationAccessResponse" message="tns:IWBS_User_getUserApplicationAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getExceptionTypesByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getExceptionTypesByUsername" message="tns:IWBS_User_getExceptionTypesByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getExceptionTypesByUsernameResponse" message="tns:IWBS_User_getExceptionTypesByUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setExceptionTypePerUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/setExceptionTypePerUser" message="tns:IWBS_User_setExceptionTypePerUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/setExceptionTypePerUserResponse" message="tns:IWBS_User_setExceptionTypePerUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getExceptionTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWBS_User/getExceptionTypes" message="tns:IWBS_User_getExceptionTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWBS_User/getExceptionTypesResponse" message="tns:IWBS_User_getExceptionTypes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWBS_User" type="tns:IWBS_User">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_getUserfacility">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_getUserfacility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_createNewAims">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_createNewAims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBTSSite">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/GetBTSSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserActing">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserActing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeUserSettings">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/storeUserSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="appGetWindowSettings">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/appGetWindowSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="appSetWindowSettings">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/appSetWindowSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBNAUsers">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getBNAUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storePostIt">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/storePostIt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPostIt">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getPostIt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePostIt">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/removePostIt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActingRoles">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getActingRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserApprovalWrkGrps">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserApprovalWrkGrps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApprovalWrkGrps">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getApprovalWrkGrps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get788CCTR">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get788CCTR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserApprovalWrkGrps">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserApprovalWrkGrps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserSessionOptions">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserSessionOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/createUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextUserNumber">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getNextUserNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSrvcDept">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getSrvcDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivityDetails">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getActivityDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWorkGroupNames">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getWorkGroupNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCostCentersAssigned">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getCostCentersAssigned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setNewWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setNewWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/deleteWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRemoveCCtoWG">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/addRemoveCCtoWG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCCfromWG">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/removeCCfromWG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserResponceSummary">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserResponceSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivity">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillableActivity">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getBillableActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNonBillableActivity">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getNonBillableActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPurchasingHistoryDetails">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getPurchasingHistoryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeSite">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getEmployeeSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMyReportSubscription">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getMyReportSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveReportSchedule">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/saveReportSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeReport">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/removeReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHistorySchedule_OverDue">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getHistorySchedule_OverDue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHistorySchedule_NextRun">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getHistorySchedule_NextRun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_userRanReportGUID">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_userRanReportGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_utilisationSet">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_utilisationSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_utilisationGet">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_utilisationGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_getUserAuditTrail">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_getUserAuditTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_getEAUserPrimServiceDept">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_getEAUserPrimServiceDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_setEAUserPrimServiceDept">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/_setEAUserPrimServiceDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_User_Vendor_Details">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_User_Vendor_Details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelForUser">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_PurchaseTravelForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelForFSR">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_PurchaseTravelForFSR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="del_PurchaseTravel">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/del_PurchaseTravel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelFSRs">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_PurchaseTravelFSRs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_PurchaseTravelApprovalDetails">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_PurchaseTravelApprovalDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set_PurchaseTravel">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/set_PurchaseTravel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_WOConfirm">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_WOConfirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="process_FSR">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/process_FSR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFSRApprovalSummary">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getFSRApprovalSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUpdateServiceDepartmentOnFSR">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUpdateServiceDepartmentOnFSR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_TravelTypes">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_TravelTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_TravelDatasets">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_TravelDatasets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savePurchaseType">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/savePurchaseType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStdFeeOnTravelType">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getStdFeeOnTravelType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_TravelType">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/delete_TravelType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set_User_CustomLink">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/set_User_CustomLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_User_CustomQuickLinks">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_User_CustomQuickLinks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_FSR_Summary">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_FSR_Summary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_FSR_Travel_Summary">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/get_FSR_Travel_Summary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFSRRegistration">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getFSRRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setFSRRegistration">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setFSRRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mergeFSRs">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/mergeFSRs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountCodes">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getAccountCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserApprovalAccounts">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserApprovalAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAccountCodes">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserAccountCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserToil">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserToil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserToil">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserToil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="markAsDeleted">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/markAsDeleted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getToilSummary">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getToilSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRoles">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getAllRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoleBasedOnID">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getRoleBasedOnID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRoleWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setRoleWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRoleServiceDepartment">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setRoleServiceDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserRole">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRole">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserPrivateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserPrivateInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrivateCostCentres">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getPrivateCostCentres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApprovalGroups">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getApprovalGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemRolesOnUsername">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getSystemRolesOnUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTravelFilesOnTravelID">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getTravelFilesOnTravelID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTravelFile">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/deleteTravelFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionOnUserWorkGroupbyEMP">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getDataManagerExceptionOnUserWorkGroupbyEMP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionOnUniqueID">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getDataManagerExceptionOnUniqueID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionNotesOnID">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getDataManagerExceptionNotesOnID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionNote">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setDataManagerExceptionNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionFlag">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setDataManagerExceptionFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionAcknoledge">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setDataManagerExceptionAcknoledge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDataManagerExceptionWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setDataManagerExceptionWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataManagerExceptionWorkGroups">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getDataManagerExceptionWorkGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserFavouriteDocument">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setUserFavouriteDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserFavouriteDocuments">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserFavouriteDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserApplicationAccess">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getUserApplicationAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExceptionTypesByUsername">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getExceptionTypesByUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setExceptionTypePerUser">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/setExceptionTypePerUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExceptionTypes">
+      <soap:operation soapAction="http://tempuri.org/IWBS_User/getExceptionTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WBS_User">
+    <wsdl:port name="BasicHttpBinding_IWBS_User" binding="tns:BasicHttpBinding_IWBS_User">
+      <soap:address location="http://bna.health.qld.gov.au/WebServices/WBS_User.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,2324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AIMS3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="_Address">
+          <Key>
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Type" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="150" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" />
+          <Property Name="Suburb" Type="nvarchar" MaxLength="20" />
+          <Property Name="State" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="varchar" MaxLength="10" />
+          <Property Name="PostCode" Type="varchar" MaxLength="10" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Contact_Phone1" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="_Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_Audit">
+          <Key>
+            <PropertyRef Name="AuditID" />
+          </Key>
+          <Property Name="AuditID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Key1" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Key2" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Key3" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Notes" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_DeliveryAdviceItems">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceItemID" />
+          </Key>
+          <Property Name="DeliveryAdviceItemID" Type="bigint" Nullable="false" />
+          <Property Name="DeliveryAdviceNumber" Type="int" Nullable="false" />
+          <Property Name="WorkOrderNumber" Type="varchar" MaxLength="30" />
+          <Property Name="PurchaseOrderNumber" Type="varchar" MaxLength="30" />
+          <Property Name="ItemNumber" Type="varchar" MaxLength="30" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="100" />
+          <Property Name="Facility" Type="int" Nullable="false" />
+          <Property Name="QuantitySent" Type="int" />
+          <Property Name="QuantityReceivedTotal" Type="int" Nullable="false" />
+          <Property Name="UnitOfMeasure" Type="varchar" MaxLength="15" />
+          <Property Name="DecontaminationStatus" Type="nvarchar" MaxLength="5" />
+          <Property Name="ReturnAdviceNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+          <Property Name="VendorInstructions" Type="varchar" MaxLength="400" />
+          <Property Name="IsReturn" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_DeliveryAdviceItemsReceipt">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceItemReceiptID" />
+          </Key>
+          <Property Name="DeliveryAdviceItemReceiptID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeliveryAdviceItemID" Type="bigint" Nullable="false" />
+          <Property Name="QuantityPreviouslyReceived" Type="int" />
+          <Property Name="QuantityReceivingNow" Type="int" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="IsExceptionRaised" Type="bit" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="IsExceptionAddressed" Type="bit" />
+          <Property Name="ExceptionAddressedByEmployeeID" Type="int" />
+          <Property Name="ExceptionAddressedNotes" Type="text" />
+          <Property Name="ExceptionCorrectionDeliveryAdviceNumber" Type="int" />
+          <Property Name="DateModified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="_DeliveryAdvices">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceNumber" />
+          </Key>
+          <Property Name="DeliveryAdviceNumber" Type="int" Nullable="false" />
+          <Property Name="FromName" Type="varchar" MaxLength="50" />
+          <Property Name="FromAddress" Type="varchar" MaxLength="400" />
+          <Property Name="ToName" Type="varchar" MaxLength="50" />
+          <Property Name="ToAddress" Type="varchar" MaxLength="400" />
+          <Property Name="ConNoteNumber" Type="varchar" MaxLength="100" />
+          <Property Name="CourierID" Type="bigint" />
+          <Property Name="DeliveryAdviceReasonCode" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="DateReceived" Type="varchar" MaxLength="10" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="varchar" MaxLength="10" />
+          <Property Name="AccessoriesSent" Type="nvarchar(max)" />
+          <Property Name="FacilityID" Type="int" />
+          <Property Name="DeliveryAdviceTypeCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="IsEditable" Type="bit" />
+          <Property Name="LastReceivedByEmployeeCode" Type="varchar" MaxLength="50" />
+          <Property Name="LastPrintedDate" Type="date" Nullable="false" />
+          <Property Name="LastPrintedEmployeeCode" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="_Dictionary_Couriers">
+          <Key>
+            <PropertyRef Name="CourierID" />
+          </Key>
+          <Property Name="CourierID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourierName" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="BTSClientNumber" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CostCenter">
+          <Key>
+            <PropertyRef Name="CostCenterID" />
+          </Key>
+          <Property Name="CostCenterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="IsCostCenter" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="IsResponsibleCenter" Type="bit" Nullable="false" />
+          <Property Name="FridayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="FridayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="FridayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="MondayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="MondayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="MondayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="SaturdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="SaturdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="SaturdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="SundayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="SundayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="SundayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="ThursdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="ThursdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="ThursdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="tuesdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="TuesdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="TuesdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="WednesdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="WednesdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="WednesdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="AssignAllFacility" Type="bit" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar(max)" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="PhoneExt" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="Zip" Type="nvarchar(max)" />
+          <Property Name="_HHSName" Type="nvarchar(max)" />
+          <Property Name="_IsBTS" Type="bit" />
+          <Property Name="_IsPathology" Type="bit" />
+          <Property Name="_IsForensicScience" Type="bit" />
+          <Property Name="_IsEHealth" Type="bit" />
+          <Property Name="_ProfitCostCentreCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="_RevenueCostCentreCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="_DateCreated" Type="datetime" />
+          <Property Name="_DateModified" Type="datetime" />
+          <Property Name="_ServiceSiteCode" Type="nvarchar" MaxLength="1" />
+          <Property Name="DefaultBillableLabor" Type="bit" Nullable="false" />
+          <Property Name="DefaultBillableMaterial" Type="bit" Nullable="false" />
+          <Property Name="PMBaseDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Administrator" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecLevelID" Type="int" />
+          <Property Name="SelectedEquipmentFields" Type="nvarchar(max)" />
+          <Property Name="SelectedWorkOrderFields" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="DefaultEmployeeRateID" Type="int" />
+          <Property Name="AutoAssignAll" Type="bit" Nullable="false" />
+          <Property Name="AssignAllFacility" Type="bit" Nullable="false" />
+          <Property Name="AssignAllServiceDept" Type="bit" Nullable="false" />
+          <Property Name="IsManager" Type="bit" Nullable="false" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="EmailFormat" Type="nvarchar(max)" />
+          <Property Name="AllowEquipmentFieldsOnWO" Type="bit" Nullable="false" />
+          <Property Name="_SAPPayrolePositionID" Type="nvarchar(max)" />
+          <Property Name="_SAPPayroleEmployeeID" Type="nvarchar(max)" />
+          <Property Name="AssignmentProfileID" Type="int" />
+          <Property Name="IsTeam" Type="bit" Nullable="false" />
+          <Property Name="EmployeeOptionsID" Type="int" />
+          <Property Name="DefaultEmployeeDeviceID" Type="int" />
+          <Property Name="AssignAllBuildings" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeLabor">
+          <Key>
+            <PropertyRef Name="EmployeeLaborID" />
+          </Key>
+          <Property Name="EmployeeLaborID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Action" Type="nvarchar(max)" />
+          <Property Name="Billable" Type="bit" Nullable="false" />
+          <Property Name="Charge" Type="float" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="EmployeeRateID" Type="int" />
+          <Property Name="EndDateTime" Type="datetime2" Precision="7" />
+          <Property Name="Hours" Type="float" Nullable="false" />
+          <Property Name="RateType" Type="nvarchar(max)" />
+          <Property Name="ResponseID" Type="int" />
+          <Property Name="StartDateTime" Type="datetime2" Precision="7" />
+          <Property Name="WorkOrderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeRate">
+          <Key>
+            <PropertyRef Name="EmployeeRateID" />
+          </Key>
+          <Property Name="EmployeeRateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Billable" Type="bit" Nullable="false" />
+          <Property Name="Charge" Type="float" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="RateType" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="EquipmentID" />
+          </Key>
+          <Property Name="EquipmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssignedVendorID" Type="int" />
+          <Property Name="BuildingID" Type="int" />
+          <Property Name="ConditionDateTime" Type="datetime2" Precision="7" />
+          <Property Name="CostCenterID" Type="int" />
+          <Property Name="Critical" Type="bit" />
+          <Property Name="DefaultAttachmentID" Type="int" />
+          <Property Name="DefaultAttachmentTable" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EquipmentConditionID" Type="int" />
+          <Property Name="EquipmentStatusID" Type="int" />
+          <Property Name="EquipmentTypeID" Type="int" />
+          <Property Name="FacilityID" Type="int" />
+          <Property Name="InServiceDate" Type="date" />
+          <Property Name="Location1ID" Type="int" />
+          <Property Name="Location2ID" Type="int" />
+          <Property Name="Location3ID" Type="int" />
+          <Property Name="Location4ID" Type="int" />
+          <Property Name="Location5ID" Type="int" />
+          <Property Name="LocationDateTime" Type="datetime2" Precision="7" />
+          <Property Name="LocationDetails" Type="nvarchar(max)" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ModelName" Type="nvarchar(max)" />
+          <Property Name="NameplateVendorID" Type="int" />
+          <Property Name="OwnershipID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="ResponsibleCenterID" Type="int" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="100" />
+          <Property Name="SiteID" Type="nvarchar(max)" />
+          <Property Name="StatusDateTime" Type="datetime2" Precision="7" />
+          <Property Name="TagNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="VendorID" Type="int" />
+          <Property Name="FridayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="FridayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="FridayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="MondayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="MondayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="MondayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="SaturdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="SaturdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="SaturdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="SundayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="SundayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="SundayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="ThursdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="ThursdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="ThursdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="TuesdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="TuesdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="TuesdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="WednesdayCloseTime" Type="datetime2" Precision="7" />
+          <Property Name="WednesdayOpenAllDay" Type="bit" Nullable="false" />
+          <Property Name="WednesdayOpenTime" Type="datetime2" Precision="7" />
+          <Property Name="DepreciatedLife" Type="int" />
+          <Property Name="ManufacturedDate" Type="date" />
+          <Property Name="PurchaseCost" Type="float" />
+          <Property Name="PurchaseDate" Type="date" />
+          <Property Name="ReplacementCost" Type="float" />
+          <Property Name="ReplacementDate" Type="date" />
+          <Property Name="SalvageDate" Type="date" />
+          <Property Name="SalvageValue" Type="float" />
+          <Property Name="UsefulLife" Type="int" />
+          <Property Name="AssetNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="RiskClassificationID" Type="int" />
+          <Property Name="ParentEquipmentID" Type="int" />
+          <Property Name="EstimatedPurchaseCost" Type="bit" />
+          <Property Name="PONumber" Type="nvarchar(max)" />
+          <Property Name="RiskTypeID" Type="int" />
+          <Property Name="TotalRisk" Type="int" />
+        </EntityType>
+        <EntityType Name="InHouseMaterial">
+          <Key>
+            <PropertyRef Name="InHouseMaterialID" />
+          </Key>
+          <Property Name="InHouseMaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Billable" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PartDateTime" Type="datetime2" Precision="7" />
+          <Property Name="PartID" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="WorkOrderID" Type="int" Nullable="false" />
+          <Property Name="WarehouseID" Type="int" />
+          <Property Name="BatchNumber" Type="nvarchar(max)" />
+          <Property Name="PartSerialNumber" Type="nvarchar(max)" />
+          <Property Name="PurchaseRequestLineItemID" Type="int" />
+        </EntityType>
+        <EntityType Name="Part">
+          <Key>
+            <PropertyRef Name="PartID" />
+          </Key>
+          <Property Name="PartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="PartNumber" Type="nvarchar(max)" />
+          <Property Name="Price" Type="float" />
+          <Property Name="DefaultAttachmentID" Type="int" />
+          <Property Name="AncillaryDesc" Type="nvarchar(max)" />
+          <Property Name="OEMNumber" Type="nvarchar(max)" />
+          <Property Name="PartCategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="Response">
+          <Key>
+            <PropertyRef Name="ResponseID" />
+          </Key>
+          <Property Name="ResponseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="PMType" Type="nvarchar(max)" />
+          <Property Name="WorkType" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ServiceDepartment">
+          <Key>
+            <PropertyRef Name="ServiceDepartmentID" />
+          </Key>
+          <Property Name="ServiceDepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="LastGeneratedDate" Type="date" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="areaPriority1" Type="nvarchar(max)" />
+          <Property Name="areaPriority2" Type="nvarchar(max)" />
+          <Property Name="areaPriority3" Type="nvarchar(max)" />
+          <Property Name="areaPriority4" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="EquipmentSupplier" Type="bit" Nullable="false" />
+          <Property Name="Manufacturer" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="PartSupplier" Type="bit" Nullable="false" />
+          <Property Name="ServiceProvider" Type="bit" Nullable="false" />
+          <Property Name="DefaultVendorRateID" Type="int" />
+          <Property Name="NameplateManufacturer" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VendorAddress">
+          <Key>
+            <PropertyRef Name="VendorAddressID" />
+          </Key>
+          <Property Name="VendorAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar(max)" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="Address3" Type="nvarchar(max)" />
+          <Property Name="AddressDescription" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="DefaultAddress" Type="bit" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="Zip" Type="nvarchar(max)" />
+          <Property Name="Country" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WorkOrder">
+          <Key>
+            <PropertyRef Name="WorkOrderID" />
+          </Key>
+          <Property Name="WorkOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssignedVendorID" Type="int" />
+          <Property Name="BuildingID" Type="int" />
+          <Property Name="CostCenterID" Type="int" />
+          <Property Name="DefaultAttachmentID" Type="int" />
+          <Property Name="DefaultAttachmentTable" Type="nvarchar(max)" />
+          <Property Name="TotalDowntimeHours" Type="float" />
+          <Property Name="DueDateTime" Type="datetime2" Precision="7" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="EquipmentID" Type="int" />
+          <Property Name="EstimatedTime" Type="float" />
+          <Property Name="FSR" Type="nvarchar(max)" />
+          <Property Name="FacilityID" Type="int" />
+          <Property Name="FailureID" Type="int" />
+          <Property Name="JobTypeID" Type="int" />
+          <Property Name="Location1ID" Type="int" />
+          <Property Name="Location2ID" Type="int" />
+          <Property Name="Location3ID" Type="int" />
+          <Property Name="Location4ID" Type="int" />
+          <Property Name="Location5ID" Type="int" />
+          <Property Name="LocationDateTime" Type="datetime2" Precision="7" />
+          <Property Name="LocationDetails" Type="nvarchar(max)" />
+          <Property Name="PatientInjury" Type="bit" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PmPreventable" Type="nvarchar(max)" />
+          <Property Name="PriorityID" Type="int" />
+          <Property Name="Problem" Type="nvarchar(max)" />
+          <Property Name="ProcedureID" Type="int" />
+          <Property Name="ProcedureVersionID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="RequestDateTime" Type="datetime2" Precision="7" />
+          <Property Name="Requester" Type="nvarchar(max)" />
+          <Property Name="ResponsibleCenterID" Type="int" />
+          <Property Name="StatusDateTime" Type="datetime2" Precision="7" />
+          <Property Name="WoNumber" Type="int" Nullable="false" />
+          <Property Name="WorkOrderStatusID" Type="int" />
+          <Property Name="WorkOrderTypeID" Type="int" />
+          <Property Name="EquipmentDownDateTime" Type="datetime2" Precision="7" />
+          <Property Name="EquipmentOnlineDateTime" Type="datetime2" Precision="7" />
+          <Property Name="EquipmentTypeID" Type="int" />
+          <Property Name="ParentWorkOrderID" Type="int" />
+          <Property Name="EasyNet" Type="bit" Nullable="false" />
+          <Property Name="PMResult" Type="nvarchar(max)" />
+          <Property Name="DecontaminateBy" Type="nvarchar(max)" />
+          <Property Name="DecontaminateDateTime" Type="datetime2" Precision="7" />
+          <Property Name="DecontaminateHow" Type="nvarchar(max)" />
+          <Property Name="Decontaminated" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AIMS3.dbo.View_DeliveryAdviceLastReceive' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_DeliveryAdviceLastReceive">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceItemReceiptID" />
+            <PropertyRef Name="DeliveryAdviceItemID" />
+            <PropertyRef Name="DateCreated" />
+          </Key>
+          <Property Name="DeliveryAdviceItemReceiptID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeliveryAdviceItemID" Type="bigint" Nullable="false" />
+          <Property Name="QuantityPreviouslyReceived" Type="int" />
+          <Property Name="QuantityReceivingNow" Type="int" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="IsExceptionRaised" Type="bit" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="IsExceptionAddressed" Type="bit" />
+          <Property Name="ExceptionAddressedByEmployeeID" Type="int" />
+          <Property Name="ExceptionAddressedNotes" Type="text" />
+          <Property Name="ExceptionCorrectionDeliveryAdviceNumber" Type="int" />
+          <Property Name="DateModified" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Audit__Application">
+          <End Role="_Application" Type="Self._Application" Multiplicity="1" />
+          <End Role="_Audit" Type="Self._Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="_Audit">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Audit_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="_Audit" Type="Self._Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="_Audit">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DeliveryAdviceItems__DeliveryAdvice">
+          <End Role="_DeliveryAdvices" Type="Self._DeliveryAdvices" Multiplicity="1" />
+          <End Role="_DeliveryAdviceItems" Type="Self._DeliveryAdviceItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_DeliveryAdvices">
+              <PropertyRef Name="DeliveryAdviceNumber" />
+            </Principal>
+            <Dependent Role="_DeliveryAdviceItems">
+              <PropertyRef Name="DeliveryAdviceNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems">
+          <End Role="_DeliveryAdviceItems" Type="Self._DeliveryAdviceItems" Multiplicity="1" />
+          <End Role="_DeliveryAdviceItemsReceipt" Type="Self._DeliveryAdviceItemsReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_DeliveryAdviceItems">
+              <PropertyRef Name="DeliveryAdviceItemID" />
+            </Principal>
+            <Dependent Role="_DeliveryAdviceItemsReceipt">
+              <PropertyRef Name="DeliveryAdviceItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLabor_Employee_EmployeeID">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="EmployeeLabor" Type="Self.EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLabor_EmployeeRate_EmployeeRateID">
+          <End Role="EmployeeRate" Type="Self.EmployeeRate" Multiplicity="0..1" />
+          <End Role="EmployeeLabor" Type="Self.EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeRate">
+              <PropertyRef Name="EmployeeRateID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="EmployeeRateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLabor_Response_ResponseID">
+          <End Role="Response" Type="Self.Response" Multiplicity="0..1" />
+          <End Role="EmployeeLabor" Type="Self.EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Response">
+              <PropertyRef Name="ResponseID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="ResponseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLabor_WorkOrder_WorkOrderID">
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EmployeeLabor" Type="Self.EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="WorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeRate_Employee_EmployeeID">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="EmployeeRate" Type="Self.EmployeeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeRate">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_CostCenter_CostCenterID">
+          <End Role="CostCenter" Type="Self.CostCenter" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="CostCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_CostCenter_ResponsibleCenterID">
+          <End Role="CostCenter" Type="Self.CostCenter" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="ResponsibleCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Equipment_ParentEquipmentID">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Equipment1" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="EquipmentID" />
+            </Principal>
+            <Dependent Role="Equipment1">
+              <PropertyRef Name="ParentEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Vendor_AssignedVendorID">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="AssignedVendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Vendor_NameplateVendorID">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="NameplateVendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Vendor_VendorID">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InHouseMaterial_Part_PartID">
+          <End Role="Part" Type="Self.Part" Multiplicity="0..1" />
+          <End Role="InHouseMaterial" Type="Self.InHouseMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="InHouseMaterial">
+              <PropertyRef Name="PartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InHouseMaterial_WorkOrder_WorkOrderID">
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InHouseMaterial" Type="Self.InHouseMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="InHouseMaterial">
+              <PropertyRef Name="WorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorAddress_Vendor_VendorID">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VendorAddress" Type="Self.VendorAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="VendorAddress">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_CostCenter_CostCenterID">
+          <End Role="CostCenter" Type="Self.CostCenter" Multiplicity="0..1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="CostCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_CostCenter_ResponsibleCenterID">
+          <End Role="CostCenter" Type="Self.CostCenter" Multiplicity="0..1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="ResponsibleCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_Equipment_EquipmentID">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="EquipmentID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_Vendor_AssignedVendorID">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="AssignedVendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_WorkOrder_ParentWorkOrderID">
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="0..1" />
+          <End Role="WorkOrder1" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="WorkOrder1">
+              <PropertyRef Name="ParentWorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AIMS3ModelStoreContainer">
+          <EntitySet Name="_Address" EntityType="Self._Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Application" EntityType="Self._Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Audit" EntityType="Self._Audit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_DeliveryAdviceItems" EntityType="Self._DeliveryAdviceItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_DeliveryAdviceItemsReceipt" EntityType="Self._DeliveryAdviceItemsReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_DeliveryAdvices" EntityType="Self._DeliveryAdvices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="_Dictionary_Couriers" EntityType="Self._Dictionary_Couriers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CostCenter" EntityType="Self.CostCenter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeLabor" EntityType="Self.EmployeeLabor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeRate" EntityType="Self.EmployeeRate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InHouseMaterial" EntityType="Self.InHouseMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Part" EntityType="Self.Part" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Response" EntityType="Self.Response" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceDepartment" EntityType="Self.ServiceDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorAddress" EntityType="Self.VendorAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkOrder" EntityType="Self.WorkOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_DeliveryAdviceLastReceive" EntityType="Self.View_DeliveryAdviceLastReceive" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_DeliveryAdviceLastReceive].[DeliveryAdviceItemReceiptID] AS [DeliveryAdviceItemReceiptID], 
+    [View_DeliveryAdviceLastReceive].[DeliveryAdviceItemID] AS [DeliveryAdviceItemID], 
+    [View_DeliveryAdviceLastReceive].[QuantityPreviouslyReceived] AS [QuantityPreviouslyReceived], 
+    [View_DeliveryAdviceLastReceive].[QuantityReceivingNow] AS [QuantityReceivingNow], 
+    [View_DeliveryAdviceLastReceive].[DateCreated] AS [DateCreated], 
+    [View_DeliveryAdviceLastReceive].[EmployeeID] AS [EmployeeID], 
+    [View_DeliveryAdviceLastReceive].[IsExceptionRaised] AS [IsExceptionRaised], 
+    [View_DeliveryAdviceLastReceive].[Notes] AS [Notes], 
+    [View_DeliveryAdviceLastReceive].[IsExceptionAddressed] AS [IsExceptionAddressed], 
+    [View_DeliveryAdviceLastReceive].[ExceptionAddressedByEmployeeID] AS [ExceptionAddressedByEmployeeID], 
+    [View_DeliveryAdviceLastReceive].[ExceptionAddressedNotes] AS [ExceptionAddressedNotes], 
+    [View_DeliveryAdviceLastReceive].[ExceptionCorrectionDeliveryAdviceNumber] AS [ExceptionCorrectionDeliveryAdviceNumber], 
+    [View_DeliveryAdviceLastReceive].[DateModified] AS [DateModified]
+    FROM [dbo].[View_DeliveryAdviceLastReceive] AS [View_DeliveryAdviceLastReceive]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Audit__Application" Association="Self.FK__Audit__Application">
+            <End Role="_Application" EntitySet="_Application" />
+            <End Role="_Audit" EntitySet="_Audit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Audit_Employee" Association="Self.FK__Audit_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="_Audit" EntitySet="_Audit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DeliveryAdviceItems__DeliveryAdvice" Association="Self.FK__DeliveryAdviceItems__DeliveryAdvice">
+            <End Role="_DeliveryAdvices" EntitySet="_DeliveryAdvices" />
+            <End Role="_DeliveryAdviceItems" EntitySet="_DeliveryAdviceItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems" Association="Self.FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems">
+            <End Role="_DeliveryAdviceItems" EntitySet="_DeliveryAdviceItems" />
+            <End Role="_DeliveryAdviceItemsReceipt" EntitySet="_DeliveryAdviceItemsReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLabor_Employee_EmployeeID" Association="Self.FK_EmployeeLabor_Employee_EmployeeID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLabor_EmployeeRate_EmployeeRateID" Association="Self.FK_EmployeeLabor_EmployeeRate_EmployeeRateID">
+            <End Role="EmployeeRate" EntitySet="EmployeeRate" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLabor_Response_ResponseID" Association="Self.FK_EmployeeLabor_Response_ResponseID">
+            <End Role="Response" EntitySet="Response" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLabor_WorkOrder_WorkOrderID" Association="Self.FK_EmployeeLabor_WorkOrder_WorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeRate_Employee_EmployeeID" Association="Self.FK_EmployeeRate_Employee_EmployeeID">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeRate" EntitySet="EmployeeRate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_CostCenter_CostCenterID" Association="Self.FK_Equipment_CostCenter_CostCenterID">
+            <End Role="CostCenter" EntitySet="CostCenter" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_CostCenter_ResponsibleCenterID" Association="Self.FK_Equipment_CostCenter_ResponsibleCenterID">
+            <End Role="CostCenter" EntitySet="CostCenter" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Equipment_ParentEquipmentID" Association="Self.FK_Equipment_Equipment_ParentEquipmentID">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Equipment1" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Vendor_AssignedVendorID" Association="Self.FK_Equipment_Vendor_AssignedVendorID">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Vendor_NameplateVendorID" Association="Self.FK_Equipment_Vendor_NameplateVendorID">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Vendor_VendorID" Association="Self.FK_Equipment_Vendor_VendorID">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InHouseMaterial_Part_PartID" Association="Self.FK_InHouseMaterial_Part_PartID">
+            <End Role="Part" EntitySet="Part" />
+            <End Role="InHouseMaterial" EntitySet="InHouseMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InHouseMaterial_WorkOrder_WorkOrderID" Association="Self.FK_InHouseMaterial_WorkOrder_WorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+            <End Role="InHouseMaterial" EntitySet="InHouseMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorAddress_Vendor_VendorID" Association="Self.FK_VendorAddress_Vendor_VendorID">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="VendorAddress" EntitySet="VendorAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_CostCenter_CostCenterID" Association="Self.FK_WorkOrder_CostCenter_CostCenterID">
+            <End Role="CostCenter" EntitySet="CostCenter" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_CostCenter_ResponsibleCenterID" Association="Self.FK_WorkOrder_CostCenter_ResponsibleCenterID">
+            <End Role="CostCenter" EntitySet="CostCenter" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_Equipment_EquipmentID" Association="Self.FK_WorkOrder_Equipment_EquipmentID">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_Vendor_AssignedVendorID" Association="Self.FK_WorkOrder_Vendor_AssignedVendorID">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_WorkOrder_ParentWorkOrderID" Association="Self.FK_WorkOrder_WorkOrder_ParentWorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+            <End Role="WorkOrder1" EntitySet="WorkOrder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AIMS3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AIMS3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C_Application" EntityType="AIMS3Model.C_Application" />
+          <EntitySet Name="CostCenters" EntityType="AIMS3Model.CostCenter" />
+          <EntitySet Name="ServiceDepartments" EntityType="AIMS3Model.ServiceDepartment" />
+          <EntitySet Name="Vendors" EntityType="AIMS3Model.Vendor" />
+          <EntitySet Name="EmployeeLabors" EntityType="AIMS3Model.EmployeeLabor" />
+          <EntitySet Name="WorkOrders" EntityType="AIMS3Model.WorkOrder" />
+          <AssociationSet Name="FK_WorkOrder_CostCenter_CostCenterID" Association="AIMS3Model.FK_WorkOrder_CostCenter_CostCenterID">
+            <End Role="CostCenter" EntitySet="CostCenters" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_CostCenter_ResponsibleCenterID" Association="AIMS3Model.FK_WorkOrder_CostCenter_ResponsibleCenterID">
+            <End Role="CostCenter" EntitySet="CostCenters" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLabor_WorkOrder_WorkOrderID" Association="AIMS3Model.FK_EmployeeLabor_WorkOrder_WorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_Vendor_AssignedVendorID" Association="AIMS3Model.FK_WorkOrder_Vendor_AssignedVendorID">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_WorkOrder_ParentWorkOrderID" Association="AIMS3Model.FK_WorkOrder_WorkOrder_ParentWorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+            <End Role="WorkOrder1" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <EntitySet Name="C_DeliveryAdviceItems" EntityType="AIMS3Model.C_DeliveryAdviceItems" />
+          <EntitySet Name="InHouseMaterials" EntityType="AIMS3Model.InHouseMaterial" />
+          <AssociationSet Name="FK_InHouseMaterial_WorkOrder_WorkOrderID" Association="AIMS3Model.FK_InHouseMaterial_WorkOrder_WorkOrderID">
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+            <End Role="InHouseMaterial" EntitySet="InHouseMaterials" />
+          </AssociationSet>
+          <EntitySet Name="C_Audit" EntityType="AIMS3Model.C_Audit" />
+          <AssociationSet Name="FK__Audit__Application" Association="AIMS3Model.FK__Audit__Application">
+            <End Role="C_Application" EntitySet="C_Application" />
+            <End Role="C_Audit" EntitySet="C_Audit" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeRates" EntityType="AIMS3Model.EmployeeRate" />
+          <AssociationSet Name="FK_EmployeeLabor_EmployeeRate_EmployeeRateID" Association="AIMS3Model.FK_EmployeeLabor_EmployeeRate_EmployeeRateID">
+            <End Role="EmployeeRate" EntitySet="EmployeeRates" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabors" />
+          </AssociationSet>
+          <EntitySet Name="Responses" EntityType="AIMS3Model.Response" />
+          <AssociationSet Name="FK_EmployeeLabor_Response_ResponseID" Association="AIMS3Model.FK_EmployeeLabor_Response_ResponseID">
+            <End Role="Response" EntitySet="Responses" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabors" />
+          </AssociationSet>
+          <EntitySet Name="Parts" EntityType="AIMS3Model.Part" />
+          <AssociationSet Name="FK_InHouseMaterial_Part_PartID" Association="AIMS3Model.FK_InHouseMaterial_Part_PartID">
+            <End Role="Part" EntitySet="Parts" />
+            <End Role="InHouseMaterial" EntitySet="InHouseMaterials" />
+          </AssociationSet>
+          <EntitySet Name="C_DeliveryAdviceItemsReceipt" EntityType="AIMS3Model.C_DeliveryAdviceItemsReceipt" />
+          <AssociationSet Name="FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems" Association="AIMS3Model.FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems">
+            <End Role="C_DeliveryAdviceItems" EntitySet="C_DeliveryAdviceItems" />
+            <End Role="C_DeliveryAdviceItemsReceipt" EntitySet="C_DeliveryAdviceItemsReceipt" />
+          </AssociationSet>
+          <EntitySet Name="Employees" EntityType="AIMS3Model.Employee" />
+          <AssociationSet Name="FK__Audit_Employee" Association="AIMS3Model.FK__Audit_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="C_Audit" EntitySet="C_Audit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLabor_Employee_EmployeeID" Association="AIMS3Model.FK_EmployeeLabor_Employee_EmployeeID">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeLabor" EntitySet="EmployeeLabors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeRate_Employee_EmployeeID" Association="AIMS3Model.FK_EmployeeRate_Employee_EmployeeID">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeRate" EntitySet="EmployeeRates" />
+          </AssociationSet>
+          <EntitySet Name="Equipments" EntityType="AIMS3Model.Equipment" />
+          <AssociationSet Name="FK_Equipment_CostCenter_CostCenterID" Association="AIMS3Model.FK_Equipment_CostCenter_CostCenterID">
+            <End Role="CostCenter" EntitySet="CostCenters" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_CostCenter_ResponsibleCenterID" Association="AIMS3Model.FK_Equipment_CostCenter_ResponsibleCenterID">
+            <End Role="CostCenter" EntitySet="CostCenters" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Equipment_ParentEquipmentID" Association="AIMS3Model.FK_Equipment_Equipment_ParentEquipmentID">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="Equipment1" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Vendor_AssignedVendorID" Association="AIMS3Model.FK_Equipment_Vendor_AssignedVendorID">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Vendor_NameplateVendorID" Association="AIMS3Model.FK_Equipment_Vendor_NameplateVendorID">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Vendor_VendorID" Association="AIMS3Model.FK_Equipment_Vendor_VendorID">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="Equipment" EntitySet="Equipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_Equipment_EquipmentID" Association="AIMS3Model.FK_WorkOrder_Equipment_EquipmentID">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <EntitySet Name="VendorAddresses" EntityType="AIMS3Model.VendorAddress" />
+          <AssociationSet Name="FK_VendorAddress_Vendor_VendorID" Association="AIMS3Model.FK_VendorAddress_Vendor_VendorID">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="VendorAddress" EntitySet="VendorAddresses" />
+          </AssociationSet>
+          <EntitySet Name="C_Address" EntityType="AIMS3Model.C_Address" />
+          <EntitySet Name="View_DeliveryAdviceLastReceive" EntityType="AIMS3Model.View_DeliveryAdviceLastReceive" />
+          <EntitySet Name="C_Dictionary_Couriers" EntityType="AIMS3Model.C_Dictionary_Couriers" />
+          <EntitySet Name="C_DeliveryAdvice" EntityType="AIMS3Model.C_DeliveryAdvice" />
+          <AssociationSet Name="FK__DeliveryAdviceItems__DeliveryAdvice1" Association="AIMS3Model.FK__DeliveryAdviceItems__DeliveryAdvice1">
+            <End Role="C_DeliveryAdvices" EntitySet="C_DeliveryAdvice" />
+            <End Role="C_DeliveryAdviceItems" EntitySet="C_DeliveryAdviceItems" />
+          </AssociationSet>
+          <AssociationSet Name="C_DeliveryAdviceItemsView_DeliveryAdviceLastReceive" Association="AIMS3Model.C_DeliveryAdviceItemsView_DeliveryAdviceLastReceive">
+            <End Role="C_DeliveryAdviceItems" EntitySet="C_DeliveryAdviceItems" />
+            <End Role="View_DeliveryAdviceLastReceive" EntitySet="View_DeliveryAdviceLastReceive" />
+          </AssociationSet>
+          <AssociationSet Name="C_DeliveryAdviceC_Dictionary_Couriers" Association="AIMS3Model.C_DeliveryAdviceC_Dictionary_Couriers">
+            <End Role="C_DeliveryAdvice" EntitySet="C_DeliveryAdvice" />
+            <End Role="C_Dictionary_Couriers" EntitySet="C_Dictionary_Couriers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C_Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C_Audit" Relationship="AIMS3Model.FK__Audit__Application" FromRole="C_Application" ToRole="C_Audit" />
+        </EntityType>
+        <EntityType Name="CostCenter">
+          <Key>
+            <PropertyRef Name="CostCenterID" />
+          </Key>
+          <Property Name="CostCenterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsCostCenter" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsResponsibleCenter" Type="Boolean" Nullable="false" />
+          <Property Name="FridayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="FridayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="FridayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="MondayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="MondayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="MondayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="SaturdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="SaturdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="SaturdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="SundayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="SundayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="SundayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="ThursdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="ThursdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="ThursdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="tuesdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="TuesdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="TuesdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="WednesdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="WednesdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="WednesdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="AssignAllFacility" Type="Boolean" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneExt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_HHSName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_IsBTS" Type="Boolean" />
+          <Property Name="C_IsPathology" Type="Boolean" />
+          <Property Name="C_IsForensicScience" Type="Boolean" />
+          <Property Name="C_IsEHealth" Type="Boolean" />
+          <Property Name="C_ProfitCostCentreCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_RevenueCostCentreCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="C_DateModified" Type="DateTime" Precision="3" />
+          <Property Name="C_ServiceSiteCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WorkOrders" Relationship="AIMS3Model.FK_WorkOrder_CostCenter_CostCenterID" FromRole="CostCenter" ToRole="WorkOrder" />
+          <NavigationProperty Name="WorkOrders1" Relationship="AIMS3Model.FK_WorkOrder_CostCenter_ResponsibleCenterID" FromRole="CostCenter" ToRole="WorkOrder" />
+          <Property Name="DefaultBillableLabor" Type="Boolean" Nullable="false" />
+          <Property Name="DefaultBillableMaterial" Type="Boolean" Nullable="false" />
+          <Property Name="PMBaseDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Equipments" Relationship="AIMS3Model.FK_Equipment_CostCenter_CostCenterID" FromRole="CostCenter" ToRole="Equipment" />
+          <NavigationProperty Name="Equipments1" Relationship="AIMS3Model.FK_Equipment_CostCenter_ResponsibleCenterID" FromRole="CostCenter" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="ServiceDepartment">
+          <Key>
+            <PropertyRef Name="ServiceDepartmentID" />
+          </Key>
+          <Property Name="ServiceDepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastGeneratedDate" Type="DateTime" Precision="0" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="areaPriority1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="areaPriority2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="areaPriority3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="areaPriority4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EquipmentSupplier" Type="Boolean" Nullable="false" />
+          <Property Name="Manufacturer" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartSupplier" Type="Boolean" Nullable="false" />
+          <Property Name="ServiceProvider" Type="Boolean" Nullable="false" />
+          <Property Name="DefaultVendorRateID" Type="Int32" />
+          <Property Name="NameplateManufacturer" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="WorkOrders" Relationship="AIMS3Model.FK_WorkOrder_Vendor_AssignedVendorID" FromRole="Vendor" ToRole="WorkOrder" />
+          <NavigationProperty Name="Equipments" Relationship="AIMS3Model.FK_Equipment_Vendor_AssignedVendorID" FromRole="Vendor" ToRole="Equipment" />
+          <NavigationProperty Name="Equipments1" Relationship="AIMS3Model.FK_Equipment_Vendor_NameplateVendorID" FromRole="Vendor" ToRole="Equipment" />
+          <NavigationProperty Name="Equipments2" Relationship="AIMS3Model.FK_Equipment_Vendor_VendorID" FromRole="Vendor" ToRole="Equipment" />
+          <NavigationProperty Name="VendorAddresses" Relationship="AIMS3Model.FK_VendorAddress_Vendor_VendorID" FromRole="Vendor" ToRole="VendorAddress" />
+          </EntityType>
+        <EntityType Name="EmployeeLabor">
+          <Key>
+            <PropertyRef Name="EmployeeLaborID" />
+          </Key>
+          <Property Name="EmployeeLaborID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Billable" Type="Boolean" Nullable="false" />
+          <Property Name="Charge" Type="Double" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="EmployeeRateID" Type="Int32" />
+          <Property Name="EndDateTime" Type="DateTime" Precision="7" />
+          <Property Name="Hours" Type="Double" Nullable="false" />
+          <Property Name="RateType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResponseID" Type="Int32" />
+          <Property Name="StartDateTime" Type="DateTime" Precision="7" />
+          <Property Name="WorkOrderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WorkOrder" Relationship="AIMS3Model.FK_EmployeeLabor_WorkOrder_WorkOrderID" FromRole="EmployeeLabor" ToRole="WorkOrder" />
+          <NavigationProperty Name="EmployeeRate" Relationship="AIMS3Model.FK_EmployeeLabor_EmployeeRate_EmployeeRateID" FromRole="EmployeeLabor" ToRole="EmployeeRate" />
+          <NavigationProperty Name="Response" Relationship="AIMS3Model.FK_EmployeeLabor_Response_ResponseID" FromRole="EmployeeLabor" ToRole="Response" />
+          <NavigationProperty Name="Employee" Relationship="AIMS3Model.FK_EmployeeLabor_Employee_EmployeeID" FromRole="EmployeeLabor" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="WorkOrder">
+          <Key>
+            <PropertyRef Name="WorkOrderID" />
+          </Key>
+          <Property Name="WorkOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignedVendorID" Type="Int32" />
+          <Property Name="BuildingID" Type="Int32" />
+          <Property Name="CostCenterID" Type="Int32" />
+          <Property Name="DefaultAttachmentID" Type="Int32" />
+          <Property Name="DefaultAttachmentTable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalDowntimeHours" Type="Double" />
+          <Property Name="DueDateTime" Type="DateTime" Precision="7" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EquipmentID" Type="Int32" />
+          <Property Name="EstimatedTime" Type="Double" />
+          <Property Name="FSR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FacilityID" Type="Int32" />
+          <Property Name="FailureID" Type="Int32" />
+          <Property Name="JobTypeID" Type="Int32" />
+          <Property Name="Location1ID" Type="Int32" />
+          <Property Name="Location2ID" Type="Int32" />
+          <Property Name="Location3ID" Type="Int32" />
+          <Property Name="Location4ID" Type="Int32" />
+          <Property Name="Location5ID" Type="Int32" />
+          <Property Name="LocationDateTime" Type="DateTime" Precision="7" />
+          <Property Name="LocationDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PatientInjury" Type="Boolean" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PmPreventable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriorityID" Type="Int32" />
+          <Property Name="Problem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcedureID" Type="Int32" />
+          <Property Name="ProcedureVersionID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="RequestDateTime" Type="DateTime" Precision="7" />
+          <Property Name="Requester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResponsibleCenterID" Type="Int32" />
+          <Property Name="StatusDateTime" Type="DateTime" Precision="7" />
+          <Property Name="WoNumber" Type="Int32" Nullable="false" />
+          <Property Name="WorkOrderStatusID" Type="Int32" />
+          <Property Name="WorkOrderTypeID" Type="Int32" />
+          <Property Name="EquipmentDownDateTime" Type="DateTime" Precision="7" />
+          <Property Name="EquipmentOnlineDateTime" Type="DateTime" Precision="7" />
+          <Property Name="EquipmentTypeID" Type="Int32" />
+          <Property Name="ParentWorkOrderID" Type="Int32" />
+          <NavigationProperty Name="CostCenter" Relationship="AIMS3Model.FK_WorkOrder_CostCenter_CostCenterID" FromRole="WorkOrder" ToRole="CostCenter" />
+          <NavigationProperty Name="CostCenter1" Relationship="AIMS3Model.FK_WorkOrder_CostCenter_ResponsibleCenterID" FromRole="WorkOrder" ToRole="CostCenter" />
+          <NavigationProperty Name="EmployeeLabors" Relationship="AIMS3Model.FK_EmployeeLabor_WorkOrder_WorkOrderID" FromRole="WorkOrder" ToRole="EmployeeLabor" />
+          <NavigationProperty Name="Vendor" Relationship="AIMS3Model.FK_WorkOrder_Vendor_AssignedVendorID" FromRole="WorkOrder" ToRole="Vendor" />
+          <NavigationProperty Name="WorkOrder1" Relationship="AIMS3Model.FK_WorkOrder_WorkOrder_ParentWorkOrderID" FromRole="WorkOrder" ToRole="WorkOrder1" />
+          <NavigationProperty Name="WorkOrder2" Relationship="AIMS3Model.FK_WorkOrder_WorkOrder_ParentWorkOrderID" FromRole="WorkOrder1" ToRole="WorkOrder" />
+          <NavigationProperty Name="InHouseMaterials" Relationship="AIMS3Model.FK_InHouseMaterial_WorkOrder_WorkOrderID" FromRole="WorkOrder" ToRole="InHouseMaterial" />
+          <Property Name="EasyNet" Type="Boolean" Nullable="false" />
+          <Property Name="PMResult" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DecontaminateBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DecontaminateDateTime" Type="DateTime" Precision="7" />
+          <Property Name="DecontaminateHow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Decontaminated" Type="Boolean" />
+          <NavigationProperty Name="Equipment" Relationship="AIMS3Model.FK_WorkOrder_Equipment_EquipmentID" FromRole="WorkOrder" ToRole="Equipment" />
+        </EntityType>
+        <Association Name="FK_WorkOrder_CostCenter_CostCenterID">
+          <End Type="AIMS3Model.CostCenter" Role="CostCenter" Multiplicity="0..1" />
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="CostCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_CostCenter_ResponsibleCenterID">
+          <End Type="AIMS3Model.CostCenter" Role="CostCenter" Multiplicity="0..1" />
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="ResponsibleCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLabor_WorkOrder_WorkOrderID">
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AIMS3Model.EmployeeLabor" Role="EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="WorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_Vendor_AssignedVendorID">
+          <End Type="AIMS3Model.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="AssignedVendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_WorkOrder_ParentWorkOrderID">
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="0..1" />
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="WorkOrder1">
+              <PropertyRef Name="ParentWorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="C_DeliveryAdviceItems">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceItemID" />
+          </Key>
+          <Property Name="DeliveryAdviceItemID" Type="Int64" Nullable="false" />
+          <Property Name="DeliveryAdviceNumber" Type="Int32" Nullable="false" />
+          <Property Name="WorkOrderNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ItemNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Facility" Type="Int32" Nullable="false" />
+          <Property Name="QuantitySent" Type="Int32" />
+          <Property Name="QuantityReceivedTotal" Type="Int32" Nullable="false" />
+          <Property Name="UnitOfMeasure" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DecontaminationStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ReturnAdviceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VendorInstructions" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="IsReturn" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="C_DeliveryAdviceItemsReceipt" Relationship="AIMS3Model.FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems" FromRole="C_DeliveryAdviceItems" ToRole="C_DeliveryAdviceItemsReceipt" />
+          <NavigationProperty Name="View_DeliveryAdviceLastReceive" Relationship="AIMS3Model.C_DeliveryAdviceItemsView_DeliveryAdviceLastReceive" FromRole="C_DeliveryAdviceItems" ToRole="View_DeliveryAdviceLastReceive" />
+        </EntityType>
+        <EntityType Name="InHouseMaterial">
+          <Key>
+            <PropertyRef Name="InHouseMaterialID" />
+          </Key>
+          <Property Name="InHouseMaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Billable" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartDateTime" Type="DateTime" Precision="7" />
+          <Property Name="PartID" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="WorkOrderID" Type="Int32" Nullable="false" />
+          <Property Name="WarehouseID" Type="Int32" />
+          <NavigationProperty Name="WorkOrder" Relationship="AIMS3Model.FK_InHouseMaterial_WorkOrder_WorkOrderID" FromRole="InHouseMaterial" ToRole="WorkOrder" />
+          <NavigationProperty Name="Part" Relationship="AIMS3Model.FK_InHouseMaterial_Part_PartID" FromRole="InHouseMaterial" ToRole="Part" />
+          <Property Name="BatchNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartSerialNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseRequestLineItemID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_InHouseMaterial_WorkOrder_WorkOrderID">
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AIMS3Model.InHouseMaterial" Role="InHouseMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkOrder">
+              <PropertyRef Name="WorkOrderID" />
+            </Principal>
+            <Dependent Role="InHouseMaterial">
+              <PropertyRef Name="WorkOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="C_Audit">
+          <Key>
+            <PropertyRef Name="AuditID" />
+          </Key>
+          <Property Name="AuditID" Type="Guid" Nullable="false" />
+          <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+          <Property Name="Key1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Key2" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Key3" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C_Application" Relationship="AIMS3Model.FK__Audit__Application" FromRole="C_Audit" ToRole="C_Application" />
+          <NavigationProperty Name="Employee" Relationship="AIMS3Model.FK__Audit_Employee" FromRole="C_Audit" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK__Audit__Application">
+          <End Type="AIMS3Model.C_Application" Role="C_Application" Multiplicity="1" />
+          <End Type="AIMS3Model.C_Audit" Role="C_Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="C_Audit">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeRate">
+          <Key>
+            <PropertyRef Name="EmployeeRateID" />
+          </Key>
+          <Property Name="EmployeeRateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Billable" Type="Boolean" Nullable="false" />
+          <Property Name="Charge" Type="Double" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RateType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmployeeLabors" Relationship="AIMS3Model.FK_EmployeeLabor_EmployeeRate_EmployeeRateID" FromRole="EmployeeRate" ToRole="EmployeeLabor" />
+          <NavigationProperty Name="Employee" Relationship="AIMS3Model.FK_EmployeeRate_Employee_EmployeeID" FromRole="EmployeeRate" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_EmployeeLabor_EmployeeRate_EmployeeRateID">
+          <End Type="AIMS3Model.EmployeeRate" Role="EmployeeRate" Multiplicity="0..1" />
+          <End Type="AIMS3Model.EmployeeLabor" Role="EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeRate">
+              <PropertyRef Name="EmployeeRateID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="EmployeeRateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Response">
+          <Key>
+            <PropertyRef Name="ResponseID" />
+          </Key>
+          <Property Name="ResponseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PMType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmployeeLabors" Relationship="AIMS3Model.FK_EmployeeLabor_Response_ResponseID" FromRole="Response" ToRole="EmployeeLabor" />
+        </EntityType>
+        <Association Name="FK_EmployeeLabor_Response_ResponseID">
+          <End Type="AIMS3Model.Response" Role="Response" Multiplicity="0..1" />
+          <End Type="AIMS3Model.EmployeeLabor" Role="EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Response">
+              <PropertyRef Name="ResponseID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="ResponseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Part">
+          <Key>
+            <PropertyRef Name="PartID" />
+          </Key>
+          <Property Name="PartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="DefaultAttachmentID" Type="Int32" />
+          <Property Name="AncillaryDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OEMNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InHouseMaterials" Relationship="AIMS3Model.FK_InHouseMaterial_Part_PartID" FromRole="Part" ToRole="InHouseMaterial" />
+          <Property Name="PartCategoryID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_InHouseMaterial_Part_PartID">
+          <End Type="AIMS3Model.Part" Role="Part" Multiplicity="0..1" />
+          <End Type="AIMS3Model.InHouseMaterial" Role="InHouseMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Part">
+              <PropertyRef Name="PartID" />
+            </Principal>
+            <Dependent Role="InHouseMaterial">
+              <PropertyRef Name="PartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="C_DeliveryAdviceItemsReceipt">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceItemReceiptID" />
+          </Key>
+          <Property Name="DeliveryAdviceItemReceiptID" Type="Guid" Nullable="false" />
+          <Property Name="DeliveryAdviceItemID" Type="Int64" Nullable="false" />
+          <Property Name="QuantityPreviouslyReceived" Type="Int32" />
+          <Property Name="QuantityReceivingNow" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="IsExceptionRaised" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsExceptionAddressed" Type="Boolean" />
+          <Property Name="ExceptionAddressedByEmployeeID" Type="Int32" />
+          <Property Name="ExceptionAddressedNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionCorrectionDeliveryAdviceNumber" Type="Int32" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="C_DeliveryAdviceItems" Relationship="AIMS3Model.FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems" FromRole="C_DeliveryAdviceItemsReceipt" ToRole="C_DeliveryAdviceItems" />
+        </EntityType>
+        <Association Name="FK__DeliveryAdviceItemsReceipt__DeliveryAdviceItems">
+          <End Type="AIMS3Model.C_DeliveryAdviceItems" Role="C_DeliveryAdviceItems" Multiplicity="1" />
+          <End Type="AIMS3Model.C_DeliveryAdviceItemsReceipt" Role="C_DeliveryAdviceItemsReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_DeliveryAdviceItems">
+              <PropertyRef Name="DeliveryAdviceItemID" />
+            </Principal>
+            <Dependent Role="C_DeliveryAdviceItemsReceipt">
+              <PropertyRef Name="DeliveryAdviceItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Administrator" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecLevelID" Type="Int32" />
+          <Property Name="SelectedEquipmentFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SelectedWorkOrderFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultEmployeeRateID" Type="Int32" />
+          <Property Name="AutoAssignAll" Type="Boolean" Nullable="false" />
+          <Property Name="AssignAllFacility" Type="Boolean" Nullable="false" />
+          <Property Name="AssignAllServiceDept" Type="Boolean" Nullable="false" />
+          <Property Name="IsManager" Type="Boolean" Nullable="false" />
+          <Property Name="ManagerID" Type="Int32" />
+          <Property Name="EmailFormat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AllowEquipmentFieldsOnWO" Type="Boolean" Nullable="false" />
+          <Property Name="C_SAPPayrolePositionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_SAPPayroleEmployeeID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AssignmentProfileID" Type="Int32" />
+          <Property Name="IsTeam" Type="Boolean" Nullable="false" />
+          <Property Name="EmployeeOptionsID" Type="Int32" />
+          <Property Name="DefaultEmployeeDeviceID" Type="Int32" />
+          <Property Name="AssignAllBuildings" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="C_Audit" Relationship="AIMS3Model.FK__Audit_Employee" FromRole="Employee" ToRole="C_Audit" />
+          <NavigationProperty Name="EmployeeLabors" Relationship="AIMS3Model.FK_EmployeeLabor_Employee_EmployeeID" FromRole="Employee" ToRole="EmployeeLabor" />
+          <NavigationProperty Name="EmployeeRates" Relationship="AIMS3Model.FK_EmployeeRate_Employee_EmployeeID" FromRole="Employee" ToRole="EmployeeRate" />
+        </EntityType>
+        <Association Name="FK__Audit_Employee">
+          <End Type="AIMS3Model.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="AIMS3Model.C_Audit" Role="C_Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="C_Audit">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLabor_Employee_EmployeeID">
+          <End Type="AIMS3Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="AIMS3Model.EmployeeLabor" Role="EmployeeLabor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeLabor">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeRate_Employee_EmployeeID">
+          <End Type="AIMS3Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="AIMS3Model.EmployeeRate" Role="EmployeeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeRate">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="EquipmentID" />
+          </Key>
+          <Property Name="EquipmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignedVendorID" Type="Int32" />
+          <Property Name="BuildingID" Type="Int32" />
+          <Property Name="ConditionDateTime" Type="DateTime" Precision="7" />
+          <Property Name="CostCenterID" Type="Int32" />
+          <Property Name="Critical" Type="Boolean" />
+          <Property Name="DefaultAttachmentID" Type="Int32" />
+          <Property Name="DefaultAttachmentTable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EquipmentConditionID" Type="Int32" />
+          <Property Name="EquipmentStatusID" Type="Int32" />
+          <Property Name="EquipmentTypeID" Type="Int32" />
+          <Property Name="FacilityID" Type="Int32" />
+          <Property Name="InServiceDate" Type="DateTime" Precision="0" />
+          <Property Name="Location1ID" Type="Int32" />
+          <Property Name="Location2ID" Type="Int32" />
+          <Property Name="Location3ID" Type="Int32" />
+          <Property Name="Location4ID" Type="Int32" />
+          <Property Name="Location5ID" Type="Int32" />
+          <Property Name="LocationDateTime" Type="DateTime" Precision="7" />
+          <Property Name="LocationDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="ModelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NameplateVendorID" Type="Int32" />
+          <Property Name="OwnershipID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="ResponsibleCenterID" Type="Int32" />
+          <Property Name="Serial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiteID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusDateTime" Type="DateTime" Precision="7" />
+          <Property Name="TagNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VendorID" Type="Int32" />
+          <Property Name="FridayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="FridayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="FridayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="MondayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="MondayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="MondayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="SaturdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="SaturdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="SaturdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="SundayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="SundayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="SundayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="ThursdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="ThursdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="ThursdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="TuesdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="TuesdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="TuesdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="WednesdayCloseTime" Type="DateTime" Precision="7" />
+          <Property Name="WednesdayOpenAllDay" Type="Boolean" Nullable="false" />
+          <Property Name="WednesdayOpenTime" Type="DateTime" Precision="7" />
+          <Property Name="DepreciatedLife" Type="Int32" />
+          <Property Name="ManufacturedDate" Type="DateTime" Precision="0" />
+          <Property Name="PurchaseCost" Type="Double" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+          <Property Name="ReplacementCost" Type="Double" />
+          <Property Name="ReplacementDate" Type="DateTime" Precision="0" />
+          <Property Name="SalvageDate" Type="DateTime" Precision="0" />
+          <Property Name="SalvageValue" Type="Double" />
+          <Property Name="UsefulLife" Type="Int32" />
+          <Property Name="AssetNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RiskClassificationID" Type="Int32" />
+          <Property Name="ParentEquipmentID" Type="Int32" />
+          <Property Name="EstimatedPurchaseCost" Type="Boolean" />
+          <Property Name="PONumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RiskTypeID" Type="Int32" />
+          <Property Name="TotalRisk" Type="Int32" />
+          <NavigationProperty Name="CostCenter" Relationship="AIMS3Model.FK_Equipment_CostCenter_CostCenterID" FromRole="Equipment" ToRole="CostCenter" />
+          <NavigationProperty Name="CostCenter1" Relationship="AIMS3Model.FK_Equipment_CostCenter_ResponsibleCenterID" FromRole="Equipment" ToRole="CostCenter" />
+          <NavigationProperty Name="Equipment1" Relationship="AIMS3Model.FK_Equipment_Equipment_ParentEquipmentID" FromRole="Equipment" ToRole="Equipment1" />
+          <NavigationProperty Name="Equipment2" Relationship="AIMS3Model.FK_Equipment_Equipment_ParentEquipmentID" FromRole="Equipment1" ToRole="Equipment" />
+          <NavigationProperty Name="Vendor" Relationship="AIMS3Model.FK_Equipment_Vendor_AssignedVendorID" FromRole="Equipment" ToRole="Vendor" />
+          <NavigationProperty Name="Vendor1" Relationship="AIMS3Model.FK_Equipment_Vendor_NameplateVendorID" FromRole="Equipment" ToRole="Vendor" />
+          <NavigationProperty Name="Vendor2" Relationship="AIMS3Model.FK_Equipment_Vendor_VendorID" FromRole="Equipment" ToRole="Vendor" />
+          <NavigationProperty Name="WorkOrders" Relationship="AIMS3Model.FK_WorkOrder_Equipment_EquipmentID" FromRole="Equipment" ToRole="WorkOrder" />
+        </EntityType>
+        <Association Name="FK_Equipment_CostCenter_CostCenterID">
+          <End Type="AIMS3Model.CostCenter" Role="CostCenter" Multiplicity="0..1" />
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="CostCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_CostCenter_ResponsibleCenterID">
+          <End Type="AIMS3Model.CostCenter" Role="CostCenter" Multiplicity="0..1" />
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CostCenter">
+              <PropertyRef Name="CostCenterID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="ResponsibleCenterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Equipment_ParentEquipmentID">
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="0..1" />
+          <End Type="AIMS3Model.Equipment" Role="Equipment1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="EquipmentID" />
+            </Principal>
+            <Dependent Role="Equipment1">
+              <PropertyRef Name="ParentEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Vendor_AssignedVendorID">
+          <End Type="AIMS3Model.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="AssignedVendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Vendor_NameplateVendorID">
+          <End Type="AIMS3Model.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="NameplateVendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Vendor_VendorID">
+          <End Type="AIMS3Model.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_Equipment_EquipmentID">
+          <End Type="AIMS3Model.Equipment" Role="Equipment" Multiplicity="0..1" />
+          <End Type="AIMS3Model.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="EquipmentID" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VendorAddress">
+          <Key>
+            <PropertyRef Name="VendorAddressID" />
+          </Key>
+          <Property Name="VendorAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddressDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultAddress" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vendor" Relationship="AIMS3Model.FK_VendorAddress_Vendor_VendorID" FromRole="VendorAddress" ToRole="Vendor" />
+        </EntityType>
+        <Association Name="FK_VendorAddress_Vendor_VendorID">
+          <End Type="AIMS3Model.Vendor" Role="Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AIMS3Model.VendorAddress" Role="VendorAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="VendorAddress">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="C_Address">
+          <Key>
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Suburb" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ContactName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_DeliveryAdviceLastReceive">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceItemReceiptID" />
+            <PropertyRef Name="DeliveryAdviceItemID" />
+            <PropertyRef Name="DateCreated" />
+          </Key>
+          <Property Name="DeliveryAdviceItemReceiptID" Type="Guid" Nullable="false" />
+          <Property Name="DeliveryAdviceItemID" Type="Int64" Nullable="false" />
+          <Property Name="QuantityPreviouslyReceived" Type="Int32" />
+          <Property Name="QuantityReceivingNow" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="IsExceptionRaised" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsExceptionAddressed" Type="Boolean" />
+          <Property Name="ExceptionAddressedByEmployeeID" Type="Int32" />
+          <Property Name="ExceptionAddressedNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionCorrectionDeliveryAdviceNumber" Type="Int32" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="C_Dictionary_Couriers">
+          <Key>
+            <PropertyRef Name="CourierID" />
+          </Key>
+          <Property Name="CourierID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="BTSClientNumber" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="C_DeliveryAdvice">
+          <Key>
+            <PropertyRef Name="DeliveryAdviceNumber" />
+          </Key>
+          <Property Name="DeliveryAdviceNumber" Type="Int32" Nullable="false" />
+          <Property Name="FromName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ToName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="ConNoteNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourierID" Type="Int64" />
+          <Property Name="DeliveryAdviceReasonCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="DateReceived" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AccessoriesSent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FacilityID" Type="Int32" />
+          <Property Name="DeliveryAdviceTypeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="IsEditable" Type="Boolean" />
+          <Property Name="LastReceivedByEmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastPrintedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastPrintedEmployeeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C_DeliveryAdviceItems" Relationship="AIMS3Model.FK__DeliveryAdviceItems__DeliveryAdvice1" FromRole="C_DeliveryAdvices" ToRole="C_DeliveryAdviceItems" />
+          <NavigationProperty Name="C_Dictionary_Couriers" Relationship="AIMS3Model.C_DeliveryAdviceC_Dictionary_Couriers" FromRole="C_DeliveryAdvice" ToRole="C_Dictionary_Couriers" />
+        </EntityType>
+        <Association Name="FK__DeliveryAdviceItems__DeliveryAdvice1">
+          <End Type="AIMS3Model.C_DeliveryAdvice" Role="C_DeliveryAdvices" Multiplicity="1" />
+          <End Type="AIMS3Model.C_DeliveryAdviceItems" Role="C_DeliveryAdviceItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_DeliveryAdvices">
+              <PropertyRef Name="DeliveryAdviceNumber" />
+            </Principal>
+            <Dependent Role="C_DeliveryAdviceItems">
+              <PropertyRef Name="DeliveryAdviceNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C_DeliveryAdviceItemsView_DeliveryAdviceLastReceive">
+          <End Type="AIMS3Model.C_DeliveryAdviceItems" Role="C_DeliveryAdviceItems" Multiplicity="1" />
+          <End Type="AIMS3Model.View_DeliveryAdviceLastReceive" Role="View_DeliveryAdviceLastReceive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_DeliveryAdviceItems">
+              <PropertyRef Name="DeliveryAdviceItemID" />
+            </Principal>
+            <Dependent Role="View_DeliveryAdviceLastReceive">
+              <PropertyRef Name="DeliveryAdviceItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C_DeliveryAdviceC_Dictionary_Couriers">
+          <End Type="AIMS3Model.C_DeliveryAdvice" Role="C_DeliveryAdvice" Multiplicity="1" />
+          <End Type="AIMS3Model.C_Dictionary_Couriers" Role="C_Dictionary_Couriers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="C_Dictionary_Couriers">
+              <PropertyRef Name="CourierID" />
+            </Principal>
+            <Dependent Role="C_DeliveryAdvice">
+              <PropertyRef Name="CourierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AIMS3ModelStoreContainer" CdmEntityContainer="AIMS3Entities">
+          <EntitySetMapping Name="C_Application">
+            <EntityTypeMapping TypeName="AIMS3Model.C_Application">
+              <MappingFragment StoreEntitySet="_Application">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostCenters">
+            <EntityTypeMapping TypeName="AIMS3Model.CostCenter">
+              <MappingFragment StoreEntitySet="CostCenter">
+                <ScalarProperty Name="PMBaseDate" ColumnName="PMBaseDate" />
+                <ScalarProperty Name="DefaultBillableMaterial" ColumnName="DefaultBillableMaterial" />
+                <ScalarProperty Name="DefaultBillableLabor" ColumnName="DefaultBillableLabor" />
+                <ScalarProperty Name="C_ServiceSiteCode" ColumnName="_ServiceSiteCode" />
+                <ScalarProperty Name="C_DateModified" ColumnName="_DateModified" />
+                <ScalarProperty Name="C_DateCreated" ColumnName="_DateCreated" />
+                <ScalarProperty Name="C_RevenueCostCentreCode" ColumnName="_RevenueCostCentreCode" />
+                <ScalarProperty Name="C_ProfitCostCentreCode" ColumnName="_ProfitCostCentreCode" />
+                <ScalarProperty Name="C_IsEHealth" ColumnName="_IsEHealth" />
+                <ScalarProperty Name="C_IsForensicScience" ColumnName="_IsForensicScience" />
+                <ScalarProperty Name="C_IsPathology" ColumnName="_IsPathology" />
+                <ScalarProperty Name="C_IsBTS" ColumnName="_IsBTS" />
+                <ScalarProperty Name="C_HHSName" ColumnName="_HHSName" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PhoneExt" ColumnName="PhoneExt" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="AssignAllFacility" ColumnName="AssignAllFacility" />
+                <ScalarProperty Name="WednesdayOpenTime" ColumnName="WednesdayOpenTime" />
+                <ScalarProperty Name="WednesdayOpenAllDay" ColumnName="WednesdayOpenAllDay" />
+                <ScalarProperty Name="WednesdayCloseTime" ColumnName="WednesdayCloseTime" />
+                <ScalarProperty Name="TuesdayOpenTime" ColumnName="TuesdayOpenTime" />
+                <ScalarProperty Name="TuesdayOpenAllDay" ColumnName="TuesdayOpenAllDay" />
+                <ScalarProperty Name="tuesdayCloseTime" ColumnName="tuesdayCloseTime" />
+                <ScalarProperty Name="ThursdayOpenTime" ColumnName="ThursdayOpenTime" />
+                <ScalarProperty Name="ThursdayOpenAllDay" ColumnName="ThursdayOpenAllDay" />
+                <ScalarProperty Name="ThursdayCloseTime" ColumnName="ThursdayCloseTime" />
+                <ScalarProperty Name="SundayOpenTime" ColumnName="SundayOpenTime" />
+                <ScalarProperty Name="SundayOpenAllDay" ColumnName="SundayOpenAllDay" />
+                <ScalarProperty Name="SundayCloseTime" ColumnName="SundayCloseTime" />
+                <ScalarProperty Name="SaturdayOpenTime" ColumnName="SaturdayOpenTime" />
+                <ScalarProperty Name="SaturdayOpenAllDay" ColumnName="SaturdayOpenAllDay" />
+                <ScalarProperty Name="SaturdayCloseTime" ColumnName="SaturdayCloseTime" />
+                <ScalarProperty Name="MondayOpenTime" ColumnName="MondayOpenTime" />
+                <ScalarProperty Name="MondayOpenAllDay" ColumnName="MondayOpenAllDay" />
+                <ScalarProperty Name="MondayCloseTime" ColumnName="MondayCloseTime" />
+                <ScalarProperty Name="FridayOpenTime" ColumnName="FridayOpenTime" />
+                <ScalarProperty Name="FridayOpenAllDay" ColumnName="FridayOpenAllDay" />
+                <ScalarProperty Name="FridayCloseTime" ColumnName="FridayCloseTime" />
+                <ScalarProperty Name="IsResponsibleCenter" ColumnName="IsResponsibleCenter" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsCostCenter" ColumnName="IsCostCenter" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CostCenterID" ColumnName="CostCenterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceDepartments">
+            <EntityTypeMapping TypeName="AIMS3Model.ServiceDepartment">
+              <MappingFragment StoreEntitySet="ServiceDepartment">
+                <ScalarProperty Name="areaPriority4" ColumnName="areaPriority4" />
+                <ScalarProperty Name="areaPriority3" ColumnName="areaPriority3" />
+                <ScalarProperty Name="areaPriority2" ColumnName="areaPriority2" />
+                <ScalarProperty Name="areaPriority1" ColumnName="areaPriority1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastGeneratedDate" ColumnName="LastGeneratedDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ServiceDepartmentID" ColumnName="ServiceDepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="AIMS3Model.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="NameplateManufacturer" ColumnName="NameplateManufacturer" />
+                <ScalarProperty Name="DefaultVendorRateID" ColumnName="DefaultVendorRateID" />
+                <ScalarProperty Name="ServiceProvider" ColumnName="ServiceProvider" />
+                <ScalarProperty Name="PartSupplier" ColumnName="PartSupplier" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="EquipmentSupplier" ColumnName="EquipmentSupplier" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeLabors">
+            <EntityTypeMapping TypeName="AIMS3Model.EmployeeLabor">
+              <MappingFragment StoreEntitySet="EmployeeLabor">
+                <ScalarProperty Name="WorkOrderID" ColumnName="WorkOrderID" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="ResponseID" ColumnName="ResponseID" />
+                <ScalarProperty Name="RateType" ColumnName="RateType" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="EmployeeRateID" ColumnName="EmployeeRateID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Billable" ColumnName="Billable" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="EmployeeLaborID" ColumnName="EmployeeLaborID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkOrders">
+            <EntityTypeMapping TypeName="AIMS3Model.WorkOrder">
+              <MappingFragment StoreEntitySet="WorkOrder">
+                <ScalarProperty Name="Decontaminated" ColumnName="Decontaminated" />
+                <ScalarProperty Name="DecontaminateHow" ColumnName="DecontaminateHow" />
+                <ScalarProperty Name="DecontaminateDateTime" ColumnName="DecontaminateDateTime" />
+                <ScalarProperty Name="DecontaminateBy" ColumnName="DecontaminateBy" />
+                <ScalarProperty Name="PMResult" ColumnName="PMResult" />
+                <ScalarProperty Name="EasyNet" ColumnName="EasyNet" />
+                <ScalarProperty Name="ParentWorkOrderID" ColumnName="ParentWorkOrderID" />
+                <ScalarProperty Name="EquipmentTypeID" ColumnName="EquipmentTypeID" />
+                <ScalarProperty Name="EquipmentOnlineDateTime" ColumnName="EquipmentOnlineDateTime" />
+                <ScalarProperty Name="EquipmentDownDateTime" ColumnName="EquipmentDownDateTime" />
+                <ScalarProperty Name="WorkOrderTypeID" ColumnName="WorkOrderTypeID" />
+                <ScalarProperty Name="WorkOrderStatusID" ColumnName="WorkOrderStatusID" />
+                <ScalarProperty Name="WoNumber" ColumnName="WoNumber" />
+                <ScalarProperty Name="StatusDateTime" ColumnName="StatusDateTime" />
+                <ScalarProperty Name="ResponsibleCenterID" ColumnName="ResponsibleCenterID" />
+                <ScalarProperty Name="Requester" ColumnName="Requester" />
+                <ScalarProperty Name="RequestDateTime" ColumnName="RequestDateTime" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="ProcedureVersionID" ColumnName="ProcedureVersionID" />
+                <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
+                <ScalarProperty Name="Problem" ColumnName="Problem" />
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="PmPreventable" ColumnName="PmPreventable" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PatientInjury" ColumnName="PatientInjury" />
+                <ScalarProperty Name="LocationDetails" ColumnName="LocationDetails" />
+                <ScalarProperty Name="LocationDateTime" ColumnName="LocationDateTime" />
+                <ScalarProperty Name="Location5ID" ColumnName="Location5ID" />
+                <ScalarProperty Name="Location4ID" ColumnName="Location4ID" />
+                <ScalarProperty Name="Location3ID" ColumnName="Location3ID" />
+                <ScalarProperty Name="Location2ID" ColumnName="Location2ID" />
+                <ScalarProperty Name="Location1ID" ColumnName="Location1ID" />
+                <ScalarProperty Name="JobTypeID" ColumnName="JobTypeID" />
+                <ScalarProperty Name="FailureID" ColumnName="FailureID" />
+                <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+                <ScalarProperty Name="FSR" ColumnName="FSR" />
+                <ScalarProperty Name="EstimatedTime" ColumnName="EstimatedTime" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DueDateTime" ColumnName="DueDateTime" />
+                <ScalarProperty Name="TotalDowntimeHours" ColumnName="TotalDowntimeHours" />
+                <ScalarProperty Name="DefaultAttachmentTable" ColumnName="DefaultAttachmentTable" />
+                <ScalarProperty Name="DefaultAttachmentID" ColumnName="DefaultAttachmentID" />
+                <ScalarProperty Name="CostCenterID" ColumnName="CostCenterID" />
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="AssignedVendorID" ColumnName="AssignedVendorID" />
+                <ScalarProperty Name="WorkOrderID" ColumnName="WorkOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_DeliveryAdviceItems">
+            <EntityTypeMapping TypeName="AIMS3Model.C_DeliveryAdviceItems">
+              <MappingFragment StoreEntitySet="_DeliveryAdviceItems">
+                <ScalarProperty Name="IsReturn" ColumnName="IsReturn" />
+                <ScalarProperty Name="VendorInstructions" ColumnName="VendorInstructions" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ReturnAdviceNumber" ColumnName="ReturnAdviceNumber" />
+                <ScalarProperty Name="DecontaminationStatus" ColumnName="DecontaminationStatus" />
+                <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+                <ScalarProperty Name="QuantityReceivedTotal" ColumnName="QuantityReceivedTotal" />
+                <ScalarProperty Name="QuantitySent" ColumnName="QuantitySent" />
+                <ScalarProperty Name="Facility" ColumnName="Facility" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemNumber" ColumnName="ItemNumber" />
+                <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+                <ScalarProperty Name="WorkOrderNumber" ColumnName="WorkOrderNumber" />
+                <ScalarProperty Name="DeliveryAdviceNumber" ColumnName="DeliveryAdviceNumber" />
+                <ScalarProperty Name="DeliveryAdviceItemID" ColumnName="DeliveryAdviceItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InHouseMaterials">
+            <EntityTypeMapping TypeName="AIMS3Model.InHouseMaterial">
+              <MappingFragment StoreEntitySet="InHouseMaterial">
+                <ScalarProperty Name="PurchaseRequestLineItemID" ColumnName="PurchaseRequestLineItemID" />
+                <ScalarProperty Name="PartSerialNumber" ColumnName="PartSerialNumber" />
+                <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+                <ScalarProperty Name="WorkOrderID" ColumnName="WorkOrderID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+                <ScalarProperty Name="PartDateTime" ColumnName="PartDateTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Billable" ColumnName="Billable" />
+                <ScalarProperty Name="InHouseMaterialID" ColumnName="InHouseMaterialID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Audit">
+            <EntityTypeMapping TypeName="AIMS3Model.C_Audit">
+              <MappingFragment StoreEntitySet="_Audit">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Key3" ColumnName="Key3" />
+                <ScalarProperty Name="Key2" ColumnName="Key2" />
+                <ScalarProperty Name="Key1" ColumnName="Key1" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeRates">
+            <EntityTypeMapping TypeName="AIMS3Model.EmployeeRate">
+              <MappingFragment StoreEntitySet="EmployeeRate">
+                <ScalarProperty Name="RateType" ColumnName="RateType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Billable" ColumnName="Billable" />
+                <ScalarProperty Name="EmployeeRateID" ColumnName="EmployeeRateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Responses">
+            <EntityTypeMapping TypeName="AIMS3Model.Response">
+              <MappingFragment StoreEntitySet="Response">
+                <ScalarProperty Name="WorkType" ColumnName="WorkType" />
+                <ScalarProperty Name="PMType" ColumnName="PMType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ResponseID" ColumnName="ResponseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parts">
+            <EntityTypeMapping TypeName="AIMS3Model.Part">
+              <MappingFragment StoreEntitySet="Part">
+                <ScalarProperty Name="PartCategoryID" ColumnName="PartCategoryID" />
+                <ScalarProperty Name="OEMNumber" ColumnName="OEMNumber" />
+                <ScalarProperty Name="AncillaryDesc" ColumnName="AncillaryDesc" />
+                <ScalarProperty Name="DefaultAttachmentID" ColumnName="DefaultAttachmentID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_DeliveryAdviceItemsReceipt">
+            <EntityTypeMapping TypeName="AIMS3Model.C_DeliveryAdviceItemsReceipt">
+              <MappingFragment StoreEntitySet="_DeliveryAdviceItemsReceipt">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ExceptionCorrectionDeliveryAdviceNumber" ColumnName="ExceptionCorrectionDeliveryAdviceNumber" />
+                <ScalarProperty Name="ExceptionAddressedNotes" ColumnName="ExceptionAddressedNotes" />
+                <ScalarProperty Name="ExceptionAddressedByEmployeeID" ColumnName="ExceptionAddressedByEmployeeID" />
+                <ScalarProperty Name="IsExceptionAddressed" ColumnName="IsExceptionAddressed" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsExceptionRaised" ColumnName="IsExceptionRaised" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="QuantityReceivingNow" ColumnName="QuantityReceivingNow" />
+                <ScalarProperty Name="QuantityPreviouslyReceived" ColumnName="QuantityPreviouslyReceived" />
+                <ScalarProperty Name="DeliveryAdviceItemID" ColumnName="DeliveryAdviceItemID" />
+                <ScalarProperty Name="DeliveryAdviceItemReceiptID" ColumnName="DeliveryAdviceItemReceiptID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="AIMS3Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="AssignAllBuildings" ColumnName="AssignAllBuildings" />
+                <ScalarProperty Name="DefaultEmployeeDeviceID" ColumnName="DefaultEmployeeDeviceID" />
+                <ScalarProperty Name="EmployeeOptionsID" ColumnName="EmployeeOptionsID" />
+                <ScalarProperty Name="IsTeam" ColumnName="IsTeam" />
+                <ScalarProperty Name="AssignmentProfileID" ColumnName="AssignmentProfileID" />
+                <ScalarProperty Name="C_SAPPayroleEmployeeID" ColumnName="_SAPPayroleEmployeeID" />
+                <ScalarProperty Name="C_SAPPayrolePositionID" ColumnName="_SAPPayrolePositionID" />
+                <ScalarProperty Name="AllowEquipmentFieldsOnWO" ColumnName="AllowEquipmentFieldsOnWO" />
+                <ScalarProperty Name="EmailFormat" ColumnName="EmailFormat" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+                <ScalarProperty Name="AssignAllServiceDept" ColumnName="AssignAllServiceDept" />
+                <ScalarProperty Name="AssignAllFacility" ColumnName="AssignAllFacility" />
+                <ScalarProperty Name="AutoAssignAll" ColumnName="AutoAssignAll" />
+                <ScalarProperty Name="DefaultEmployeeRateID" ColumnName="DefaultEmployeeRateID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SelectedWorkOrderFields" ColumnName="SelectedWorkOrderFields" />
+                <ScalarProperty Name="SelectedEquipmentFields" ColumnName="SelectedEquipmentFields" />
+                <ScalarProperty Name="SecLevelID" ColumnName="SecLevelID" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Administrator" ColumnName="Administrator" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="AIMS3Model.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="TotalRisk" ColumnName="TotalRisk" />
+                <ScalarProperty Name="RiskTypeID" ColumnName="RiskTypeID" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="EstimatedPurchaseCost" ColumnName="EstimatedPurchaseCost" />
+                <ScalarProperty Name="ParentEquipmentID" ColumnName="ParentEquipmentID" />
+                <ScalarProperty Name="RiskClassificationID" ColumnName="RiskClassificationID" />
+                <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
+                <ScalarProperty Name="UsefulLife" ColumnName="UsefulLife" />
+                <ScalarProperty Name="SalvageValue" ColumnName="SalvageValue" />
+                <ScalarProperty Name="SalvageDate" ColumnName="SalvageDate" />
+                <ScalarProperty Name="ReplacementDate" ColumnName="ReplacementDate" />
+                <ScalarProperty Name="ReplacementCost" ColumnName="ReplacementCost" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="PurchaseCost" ColumnName="PurchaseCost" />
+                <ScalarProperty Name="ManufacturedDate" ColumnName="ManufacturedDate" />
+                <ScalarProperty Name="DepreciatedLife" ColumnName="DepreciatedLife" />
+                <ScalarProperty Name="WednesdayOpenTime" ColumnName="WednesdayOpenTime" />
+                <ScalarProperty Name="WednesdayOpenAllDay" ColumnName="WednesdayOpenAllDay" />
+                <ScalarProperty Name="WednesdayCloseTime" ColumnName="WednesdayCloseTime" />
+                <ScalarProperty Name="TuesdayOpenTime" ColumnName="TuesdayOpenTime" />
+                <ScalarProperty Name="TuesdayOpenAllDay" ColumnName="TuesdayOpenAllDay" />
+                <ScalarProperty Name="TuesdayCloseTime" ColumnName="TuesdayCloseTime" />
+                <ScalarProperty Name="ThursdayOpenTime" ColumnName="ThursdayOpenTime" />
+                <ScalarProperty Name="ThursdayOpenAllDay" ColumnName="ThursdayOpenAllDay" />
+                <ScalarProperty Name="ThursdayCloseTime" ColumnName="ThursdayCloseTime" />
+                <ScalarProperty Name="SundayOpenTime" ColumnName="SundayOpenTime" />
+                <ScalarProperty Name="SundayOpenAllDay" ColumnName="SundayOpenAllDay" />
+                <ScalarProperty Name="SundayCloseTime" ColumnName="SundayCloseTime" />
+                <ScalarProperty Name="SaturdayOpenTime" ColumnName="SaturdayOpenTime" />
+                <ScalarProperty Name="SaturdayOpenAllDay" ColumnName="SaturdayOpenAllDay" />
+                <ScalarProperty Name="SaturdayCloseTime" ColumnName="SaturdayCloseTime" />
+                <ScalarProperty Name="MondayOpenTime" ColumnName="MondayOpenTime" />
+                <ScalarProperty Name="MondayOpenAllDay" ColumnName="MondayOpenAllDay" />
+                <ScalarProperty Name="MondayCloseTime" ColumnName="MondayCloseTime" />
+                <ScalarProperty Name="FridayOpenTime" ColumnName="FridayOpenTime" />
+                <ScalarProperty Name="FridayOpenAllDay" ColumnName="FridayOpenAllDay" />
+                <ScalarProperty Name="FridayCloseTime" ColumnName="FridayCloseTime" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="TagNumber" ColumnName="TagNumber" />
+                <ScalarProperty Name="StatusDateTime" ColumnName="StatusDateTime" />
+                <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="ResponsibleCenterID" ColumnName="ResponsibleCenterID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="OwnershipID" ColumnName="OwnershipID" />
+                <ScalarProperty Name="NameplateVendorID" ColumnName="NameplateVendorID" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="LocationDetails" ColumnName="LocationDetails" />
+                <ScalarProperty Name="LocationDateTime" ColumnName="LocationDateTime" />
+                <ScalarProperty Name="Location5ID" ColumnName="Location5ID" />
+                <ScalarProperty Name="Location4ID" ColumnName="Location4ID" />
+                <ScalarProperty Name="Location3ID" ColumnName="Location3ID" />
+                <ScalarProperty Name="Location2ID" ColumnName="Location2ID" />
+                <ScalarProperty Name="Location1ID" ColumnName="Location1ID" />
+                <ScalarProperty Name="InServiceDate" ColumnName="InServiceDate" />
+                <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+                <ScalarProperty Name="EquipmentTypeID" ColumnName="EquipmentTypeID" />
+                <ScalarProperty Name="EquipmentStatusID" ColumnName="EquipmentStatusID" />
+                <ScalarProperty Name="EquipmentConditionID" ColumnName="EquipmentConditionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DefaultAttachmentTable" ColumnName="DefaultAttachmentTable" />
+                <ScalarProperty Name="DefaultAttachmentID" ColumnName="DefaultAttachmentID" />
+                <ScalarProperty Name="Critical" ColumnName="Critical" />
+                <ScalarProperty Name="CostCenterID" ColumnName="CostCenterID" />
+                <ScalarProperty Name="ConditionDateTime" ColumnName="ConditionDateTime" />
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="AssignedVendorID" ColumnName="AssignedVendorID" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorAddresses">
+            <EntityTypeMapping TypeName="AIMS3Model.VendorAddress">
+              <MappingFragment StoreEntitySet="VendorAddress">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DefaultAddress" ColumnName="DefaultAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressDescription" ColumnName="AddressDescription" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="VendorAddressID" ColumnName="VendorAddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Address">
+            <EntityTypeMapping TypeName="AIMS3Model.C_Address">
+              <MappingFragment StoreEntitySet="_Address">
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Contact_Phone1" ColumnName="Contact_Phone1" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_DeliveryAdviceLastReceive">
+            <EntityTypeMapping TypeName="AIMS3Model.View_DeliveryAdviceLastReceive">
+              <MappingFragment StoreEntitySet="View_DeliveryAdviceLastReceive">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ExceptionCorrectionDeliveryAdviceNumber" ColumnName="ExceptionCorrectionDeliveryAdviceNumber" />
+                <ScalarProperty Name="ExceptionAddressedNotes" ColumnName="ExceptionAddressedNotes" />
+                <ScalarProperty Name="ExceptionAddressedByEmployeeID" ColumnName="ExceptionAddressedByEmployeeID" />
+                <ScalarProperty Name="IsExceptionAddressed" ColumnName="IsExceptionAddressed" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsExceptionRaised" ColumnName="IsExceptionRaised" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="QuantityReceivingNow" ColumnName="QuantityReceivingNow" />
+                <ScalarProperty Name="QuantityPreviouslyReceived" ColumnName="QuantityPreviouslyReceived" />
+                <ScalarProperty Name="DeliveryAdviceItemID" ColumnName="DeliveryAdviceItemID" />
+                <ScalarProperty Name="DeliveryAdviceItemReceiptID" ColumnName="DeliveryAdviceItemReceiptID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Dictionary_Couriers">
+            <EntityTypeMapping TypeName="AIMS3Model.C_Dictionary_Couriers">
+              <MappingFragment StoreEntitySet="_Dictionary_Couriers">
+                <ScalarProperty Name="BTSClientNumber" ColumnName="BTSClientNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CourierName" ColumnName="CourierName" />
+                <ScalarProperty Name="CourierID" ColumnName="CourierID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_DeliveryAdvice">
+            <EntityTypeMapping TypeName="AIMS3Model.C_DeliveryAdvice">
+              <MappingFragment StoreEntitySet="_DeliveryAdvices">
+                <ScalarProperty Name="LastPrintedEmployeeCode" ColumnName="LastPrintedEmployeeCode" />
+                <ScalarProperty Name="LastPrintedDate" ColumnName="LastPrintedDate" />
+                <ScalarProperty Name="LastReceivedByEmployeeCode" ColumnName="LastReceivedByEmployeeCode" />
+                <ScalarProperty Name="IsEditable" ColumnName="IsEditable" />
+                <ScalarProperty Name="DeliveryAdviceTypeCode" ColumnName="DeliveryAdviceTypeCode" />
+                <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+                <ScalarProperty Name="AccessoriesSent" ColumnName="AccessoriesSent" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DeliveryAdviceReasonCode" ColumnName="DeliveryAdviceReasonCode" />
+                <ScalarProperty Name="CourierID" ColumnName="CourierID" />
+                <ScalarProperty Name="ConNoteNumber" ColumnName="ConNoteNumber" />
+                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+                <ScalarProperty Name="FromName" ColumnName="FromName" />
+                <ScalarProperty Name="DeliveryAdviceNumber" ColumnName="DeliveryAdviceNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

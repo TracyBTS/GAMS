@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" />
+  <xs:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fac" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_computerNameBNAClient" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NovellLocation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NovellPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NovellPhone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NovelMobile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Novelldisplayname" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="GetUserResult" nillable="true" type="q1:USER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_getUserfacility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_getUserfacilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_getUserfacilityResult" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_createNewAims">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_user_env" nillable="true" type="q3:User_Setting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_createNewAimsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBTSSite">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBTSSiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetBTSSiteResult" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserActing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_applyToDB" nillable="true" type="q5:ArrayOfPURCHASE_APPROVAL_WGP_ACTING_MANAGER" />
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserActingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="storeUserSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_user_env" nillable="true" type="q6:User_Setting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="storeUserSettingsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="appGetWindowSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_appToRegister" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_computerNameBNAClient" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="appGetWindowSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appGetWindowSettingsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="appSetWindowSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_a" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_appName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_computerNameBNAClient" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="appSetWindowSettingsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBNAUsers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBNAUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getBNAUsersResult" nillable="true" type="q7:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="storePostIt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_toAdd" nillable="true" type="q8:WidgetPostIt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="storePostItResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="storePostItResult" nillable="true" type="q9:WidgetPostIt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPostIt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPostItResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getPostItResult" nillable="true" type="q10:ArrayOfWidgetPostIt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removePostIt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_postItID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removePostItResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_height" type="xs:int" />
+        <xs:element minOccurs="0" name="_width" type="xs:int" />
+        <xs:element minOccurs="0" name="_username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_computerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getUserListResult" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getUserDetailsResult" nillable="true" type="q12:User_Setting" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_UserDeets" nillable="true" type="q13:User_Setting" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_actingRoles" nillable="true" type="q14:ArrayOfPURCHASE_APPROVAL_WGP_ACTING_MANAGER" />
+        <xs:element minOccurs="0" name="_byWhom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="auditNotes" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_BnaAPPAccess" nillable="true" type="q15:ArrayOfBNA_USER_APP_ACCESS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getActingRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getActingRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getActingRolesResult" nillable="true" type="q16:ArrayOfPURCHASE_APPROVAL_WGP_ACTING_MANAGER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserApprovalWrkGrps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserApprovalWrkGrpsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getUserApprovalWrkGrpsResult" nillable="true" type="q17:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getApprovalWrkGrps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_wg_Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_remove" type="xs:int" />
+        <xs:element minOccurs="0" name="_novelUsername" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getApprovalWrkGrpsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getApprovalWrkGrpsResult" nillable="true" type="q18:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get788CCTR">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get788CCTRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="get788CCTRResult" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserApprovalWrkGrps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_WorkGroups" nillable="true" type="q20:ArrayOfKeyValueOfstringstring" />
+        <xs:element minOccurs="0" name="_PersonDoingTheChange" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserApprovalWrkGrpsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserSessionOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="background" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MenuTrans" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AppTrans" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AnimationOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="WikiOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="MsgOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="NotebookOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AirportOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="QisOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserSessionOptionsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_NovellUsername" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_EmployeeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_EAEmployeeNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_isEAEmpActive" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_Department" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_QHID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_SecurityLevel" type="q21:char" />
+        <xs:element minOccurs="0" name="_AssignToAll" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_defaultSRVCDEPT" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNextUserNumber">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNextUserNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getNextUserNumberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSrvcDept">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSrvcDeptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getSrvcDeptResult" nillable="true" type="q22:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getActivityDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dates" nillable="true" type="q23:ArrayOfdateTime" />
+        <xs:element minOccurs="0" name="employee" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getActivityDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getActivityDetailsResult" nillable="true" type="q24:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getWorkGroupNames">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getWorkGroupNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getWorkGroupNamesResult" nillable="true" type="q25:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCostCentersAssigned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_wg_Code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCostCentersAssignedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getCostCentersAssignedResult" nillable="true" type="q26:ArrayOfPURCHASING_WORKGROUP_CENTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setNewWorkGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_wg_Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_wg_Code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setNewWorkGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setNewWorkGroupResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteWorkGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_wg_Code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteWorkGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteWorkGroupResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRemoveCCtoWG">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_wg_Code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_CC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_remove" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRemoveCCtoWGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRemoveCCtoWGResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeCCfromWG">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_wg_Code" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_CC" nillable="true" type="q27:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeCCfromWGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="removeCCfromWGResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserResponceSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_empt" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_time" type="q28:duration" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_key" nillable="true" type="q29:ArrayOfstring" />
+        <xs:element minOccurs="0" name="_customTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_customFrom" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserResponceSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getUserResponceSummaryResult" nillable="true" type="q30:ArrayOfKeyValueOfanyTypeanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_key" nillable="true" type="q31:ArrayOfstring" />
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_lookBack" type="q32:duration" />
+        <xs:element minOccurs="0" name="_customFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_customTo" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getActivityResult" nillable="true" type="q33:ArrayOfCastDictionary_Single" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBillableActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_key" nillable="true" type="q34:ArrayOfstring" />
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_lookBack" type="q35:duration" />
+        <xs:element minOccurs="0" name="_customFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_customTo" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBillableActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getBillableActivityResult" nillable="true" type="q36:ArrayOfCastDictionary_Single" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNonBillableActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_key" nillable="true" type="q37:ArrayOfstring" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_lookBack" type="q38:duration" />
+        <xs:element minOccurs="0" name="_customFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_customTo" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNonBillableActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getNonBillableActivityResult" nillable="true" type="q39:ArrayOfCastDictionary_Single" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPurchasingHistoryDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_key" nillable="true" type="q40:ArrayOfstring" />
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="_lookBack" type="q41:duration" />
+        <xs:element minOccurs="0" name="_customFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_customTo" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPurchasingHistoryDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getPurchasingHistoryDetailsResult" nillable="true" type="q42:ArrayOfCastDictionary_Dual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployeeSite">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getEmployeeSiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getEmployeeSiteResult" nillable="true" type="q43:ArrayOfKeyValueOfanyTypeanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMyReportSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMyReportSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getMyReportSubscriptionResult" nillable="true" type="q44:ArrayOfREPORT_SCHEDULED" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="saveReportSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="reportToSave" nillable="true" type="q45:REPORT_SCHEDULED" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="usersSubscribed" nillable="true" type="q46:ArrayOfREPORT_SCHEDULED_SUBSCRIBED_USER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="saveReportScheduleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_reportGUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_removeAllOtherSubscribers" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeReportResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHistorySchedule_OverDue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHistorySchedule_OverDueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getHistorySchedule_OverDueResult" nillable="true" type="q47:ArrayOfREPORT_SCHEDULEHISTORY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHistorySchedule_NextRun">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHistorySchedule_NextRunResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getHistorySchedule_NextRunResult" nillable="true" type="q48:ArrayOfREPORT_SCHEDULEHISTORY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_userRanReportGUID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_GUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_userRanReportGUIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_utilisationSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_Utilisation" type="xs:int" />
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_utilisationSetResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_utilisationGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_utilisationGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_utilisationGetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_getUserAuditTrail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_getUserAuditTrailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_getUserAuditTrailResult" nillable="true" type="q49:ArrayOfPURCHASING_AUDIT_CHANGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_getEAUserPrimServiceDept">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_getEAUserPrimServiceDeptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_getEAUserPrimServiceDeptResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_setEAUserPrimServiceDept">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_sdName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_byWhome" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_setEAUserPrimServiceDeptResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_User_Vendor_Details">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_NovelUsername" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_User_Vendor_DetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_User_Vendor_DetailsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_NovelUsername" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="get_PurchaseTravelForUserResult" nillable="true" type="q50:ArrayOfPURCHASE_TRAVEL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelForFSR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelForFSRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="get_PurchaseTravelForFSRResult" nillable="true" type="q51:ArrayOfPURCHASE_TRAVEL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="del_PurchaseTravel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_TRAVEL_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="del_PurchaseTravelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="del_PurchaseTravelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelFSRs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TripIDKey" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelFSRsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="get_PurchaseTravelFSRsResult" nillable="true" type="q52:ArrayOfPURCHASE_TRAVEL_FSR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelApprovalDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_PurchaseTravelApprovalDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_PurchaseTravelApprovalDetailsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="set_PurchaseTravel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="toUpdate" nillable="true" type="q53:PURCHASE_TRAVEL" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="toUpdateFSRs" nillable="true" type="q54:ArrayOfPURCHASE_TRAVEL_FSR" />
+        <xs:element minOccurs="0" name="employeeDone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employeeDoneBy" nillable="true" type="xs:string" />
+        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_filebytes" nillable="true" type="q55:ArrayOfbase64Binary" />
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_filename" nillable="true" type="q56:ArrayOfstring" />
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_keylist" nillable="true" type="q57:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="set_PurchaseTravelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="set_PurchaseTravelResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_WOConfirm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_WONUMBER" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_WOConfirmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_WOConfirmResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="process_FSR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSR_TARGET" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_FSR_DivisionType" type="xs:int" />
+        <xs:element minOccurs="0" name="_EMPL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_IsPorcessCanceled" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="process_FSRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="process_FSRResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFSRApprovalSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_searchType" type="xs:int" />
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFSRApprovalSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getFSRApprovalSummaryResult" nillable="true" type="q58:ArrayOfFSR_Summary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUpdateServiceDepartmentOnFSR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_FSRToUpdate" nillable="true" type="q59:ArrayOfstring" />
+        <xs:element minOccurs="0" name="_ServiceDepartmentCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUpdateServiceDepartmentOnFSRResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_TravelTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_TravelTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="get_TravelTypesResult" nillable="true" type="q60:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_TravelDatasets">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_TravelDatasetsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="get_TravelDatasetsResult" nillable="true" type="q61:ArrayOfPURCHASE_TRAVEL_TYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="savePurchaseType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_toSave" nillable="true" type="q62:PURCHASE_TRAVEL_TYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="savePurchaseTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStdFeeOnTravelType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_Travel_Type_Code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getStdFeeOnTravelTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getStdFeeOnTravelTypeResult" nillable="true" type="q63:PURCHASE_TRAVEL_TYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete_TravelType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_Travel_Type_Code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete_TravelTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="set_User_CustomLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_addMe" nillable="true" type="q64:User_CustomQuickLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="set_User_CustomLinkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_User_CustomQuickLinks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_User_CustomQuickLinksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="get_User_CustomQuickLinksResult" nillable="true" type="q65:ArrayOfUser_CustomQuickLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_FSR_Summary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ApprovalType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_FSR_SummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="get_FSR_SummaryResult" nillable="true" type="q66:ArrayOfFSR_WO_SUMMARY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_FSR_Travel_Summary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_FSR_Travel_SummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_FSR_Travel_SummaryResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFSRRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSRToCheck" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFSRRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getFSRRegistrationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setFSRRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_FSRToRegister" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_SDCodeToRegisterOn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_FSRDateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setFSRRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mergeFSRs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_target" nillable="true" type="q67:ArrayOfstring" />
+        <xs:element minOccurs="0" name="source" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_employeeCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mergeFSRsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mergeFSRsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAccountCodes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAccountCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getAccountCodesResult" nillable="true" type="q68:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserApprovalAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_userCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="_WorkGroups" nillable="true" type="q69:ArrayOfstring" />
+        <xs:element minOccurs="0" name="_PersonDoingTheChange" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserApprovalAccountsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserAccountCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_employeeCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserAccountCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getUserAccountCodesResult" nillable="true" type="q70:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserToil">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserToilResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getUserToilResult" nillable="true" type="q71:ArrayOfUserToil" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserToil">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="_userToil" nillable="true" type="q72:UserToil" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserToilResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="markAsDeleted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guid" type="q73:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="markAsDeletedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getToilSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getToilSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getToilSummaryResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllRoles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getAllRolesResult" nillable="true" type="q74:ArrayOfSystemRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRoleBasedOnID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RoleID" type="q75:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRoleBasedOnIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getRoleBasedOnIDResult" nillable="true" type="q76:SystemRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setRoleWorkGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="RoleWorkGroup" nillable="true" type="q77:SystemRoleApprovalGroupLimit" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setRoleWorkGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setRoleServiceDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RoleID" type="q78:guid" />
+        <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setRoleServiceDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="UserRole" nillable="true" type="q79:UserRole" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="Role" nillable="true" type="q80:SystemRole" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserPrivateInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RoleID" type="q81:guid" />
+        <xs:element minOccurs="0" name="PrivateCC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserPrivateInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPrivateCostCentres">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPrivateCostCentresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getPrivateCostCentresResult" nillable="true" type="q82:ArrayOfCOD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getApprovalGroups">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getApprovalGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getApprovalGroupsResult" nillable="true" type="q83:ArrayOfSystemApprovalGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSystemRolesOnUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSystemRolesOnUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getSystemRolesOnUsernameResult" nillable="true" type="q84:ArrayOfView_SystemUserRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTravelFilesOnTravelID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTravelFilesOnTravelIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getTravelFilesOnTravelIDResult" nillable="true" type="q85:ArrayOfPURCHASE_TRAVEL_FILE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteTravelFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelID" type="xs:int" />
+        <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteTravelFileResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionOnUserWorkGroupbyEMP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExcluldeAccessedItems" type="xs:boolean" />
+        <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SDs" nillable="true" type="q86:ArrayOfstring" />
+        <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExcpetionsType" nillable="true" type="q87:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionOnUserWorkGroupbyEMPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getDataManagerExceptionOnUserWorkGroupbyEMPResult" nillable="true" type="q88:ArrayOfDataManagerException" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionOnUniqueID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UniqueID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionOnUniqueIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getDataManagerExceptionOnUniqueIDResult" nillable="true" type="q89:ArrayOfDataManagerException" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionNotesOnID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="DataManagerExceptionID" type="q90:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionNotesOnIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getDataManagerExceptionNotesOnIDResult" nillable="true" type="q91:ArrayOfDataManagerExceptionNote" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="saveIt" nillable="true" type="q92:DataManagerExceptionNote" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionNoteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionFlag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="DataManagerExceptionID" type="q93:guid" />
+        <xs:element minOccurs="0" name="IsFlagged" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionFlagResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionAcknoledge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="DataManagerExceptionID" type="q94:guid" />
+        <xs:element minOccurs="0" name="IsAccepted" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionAcknoledgeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionWorkGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDataManagerExceptionWorkGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionWorkGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDataManagerExceptionWorkGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getDataManagerExceptionWorkGroupsResult" nillable="true" type="q95:ArrayOfDataMangerExceptionsWorkGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserFavouriteDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Usercode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="DocumentID" type="q96:guid" />
+        <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUserFavouriteDocumentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserFavouriteDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Usercode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserFavouriteDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getUserFavouriteDocumentsResult" nillable="true" type="q97:ArrayOfUserDocumentFavourite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserApplicationAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Usercode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserApplicationAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" minOccurs="0" name="getUserApplicationAccessResult" nillable="true" type="q98:ArrayOfBNA_USER_APP_ACCESS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getExceptionTypesByUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getExceptionTypesByUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getExceptionTypesByUsernameResult" nillable="true" type="q99:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setExceptionTypePerUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        <xs:element xmlns:q100="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Exception" nillable="true" type="q100:ArrayOfstring" />
+        <xs:element minOccurs="0" name="ExceptionDisplayAcknowledge" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setExceptionTypePerUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getExceptionTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getExceptionTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getExceptionTypesResult" nillable="true" type="q101:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

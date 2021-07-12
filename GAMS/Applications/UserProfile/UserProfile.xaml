@@ -1,0 +1,45 @@
+﻿<Window 
+     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+    x:Class="GAMS.Applications.UserProfile.UserProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMS.Applications.UserProfile"
+        mc:Ignorable="d"
+        Title="UserProfile" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <telerik:RadTabControl x:Name="rtc_Main" Grid.RowSpan="2" BorderThickness="0" Margin="0,3,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <telerik:RadTabItem Header="Profile">
+
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Security">
+
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Work Group defaults" x:Name="rti_WorkGroupDefaults">
+
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Account Manager">
+
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Toil">
+
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Competence &amp; Licencing">
+
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+
+        <telerik:RadButton x:Name="btn_Close" Margin="0,0,0,0" ToolTip="Close" VerticalAlignment="Center" BorderThickness="0" HorizontalAlignment="Right"
+                           Click="btn_Close_Click">
+            <telerik:RadButton.Content>
+                <Image Source="/SharedImages/CloseWindow-80x80.png" Stretch="UniformToFill" Height="25" Width="25"/>
+            </telerik:RadButton.Content>
+        </telerik:RadButton>
+    </Grid>
+</Window>

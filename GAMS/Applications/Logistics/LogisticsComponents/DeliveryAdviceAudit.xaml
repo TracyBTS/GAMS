@@ -4,11 +4,29 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
     xmlns:local="clr-namespace:GAMS.Applications.Logistics.LogisticsComponents"
     mc:Ignorable="d" 
     d:DesignHeight="450" d:DesignWidth="800"
     Title="Delivery Advice : Audit">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="657*"/>
+        </Grid.ColumnDefinitions>
+        <telerik:RadGridView   Margin="3,3,2.6,3"  AutoGenerateColumns="true"
+                            ItemsSource="{Binding CurrentDA.C_Audit}" Grid.ColumnSpan="2"   telerik:StyleManager.Theme="Office_Blue"
+                           />
+
+        <telerik:RadGridView  x:Name="rgv_DeliveryItems"  ShowGroupPanel="False"  Visibility="Collapsed" Grid.ColumnSpan="2" Margin="0,0,-0.4,0" />
+        <!--<telerik:RadGridView >-->
+        <!--<telerik:RadGridView.Columns>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding KEY1}" Header="DA Num"  />
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding SEQUENCE}" Header="Sequence" />
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding AUDITOR}" Header="Employee"  />
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding NOTES}" Header="Notes"  />
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding AUDIT_DATE}" Header="Audit Date" />
+        </telerik:RadGridView.Columns>-->
+
     </Grid>
 </Window>

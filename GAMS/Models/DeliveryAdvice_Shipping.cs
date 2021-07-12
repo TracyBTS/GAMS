@@ -14,6 +14,12 @@ namespace GAMS.Models
     
     public partial class DeliveryAdvice_Shipping
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DeliveryAdvice_Shipping()
+        {
+            this.DeliveryAdvice_item1 = new HashSet<DeliveryAdvice_item1>();
+        }
+    
         public int DeliveryNo { get; set; }
         public string FromName { get; set; }
         public string FromAddress { get; set; }
@@ -36,5 +42,8 @@ namespace GAMS.Models
         public System.DateTime LAST_PRINTED { get; set; }
         public string LAST_PRINTED_BY { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeliveryAdvice_item1> DeliveryAdvice_item1 { get; set; }
     }
 }

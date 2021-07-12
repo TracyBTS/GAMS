@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aa6b92fc-5dc6-478c-806a-e1ef60f2bb7e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://bna.health.qld.gov.au/WebServices/ActiveDirectoryAuthentication.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ActiveDirectoryAuthentication.wsdl" MetadataType="Wsdl" ID="a3e2b8a2-082e-4f78-b1fe-c84111414b5e" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/ActiveDirectoryAuthentication.svc?wsdl" />
+    <MetadataFile FileName="ActiveDirectoryAuthentication.xsd" MetadataType="Schema" ID="75bd5e9e-2669-4364-a3df-c756a148dc9e" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/ActiveDirectoryAuthentication.svc?xsd=xsd0" />
+    <MetadataFile FileName="ActiveDirectoryAuthentication1.xsd" MetadataType="Schema" ID="ed1935c0-ef54-4ea0-be1e-db64947935fe" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/ActiveDirectoryAuthentication.svc?xsd=xsd1" />
+    <MetadataFile FileName="ActiveDirectoryAuthentication.disco" MetadataType="Disco" ID="6be9ffa1-1e1d-4f58-a689-337a23473a73" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/ActiveDirectoryAuthentication.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

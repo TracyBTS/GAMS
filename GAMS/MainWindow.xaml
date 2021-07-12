@@ -40,7 +40,7 @@
             </MenuItem>
             <MenuItem Header="Close all but this" Click="rmi_MainTabbedWindow_CloseAllButThis">
                 <MenuItem.Icon>
-                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/ClockAllButThis-40x40.png" />
+                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/CloseAllButThis-40x40.png" />
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Close all" Click="rmi_MainTabbedWindow_CloseAll">
@@ -492,14 +492,14 @@
             </telerik:RadMenuItem>
         </telerik:RadMenu>
         
-        <telerik:RadMenu x:Name="rm_MainMenuRight" Grid.Column="2" BorderThickness="0">
-            <telerik:RadMenuItem Header="Session">
+        <telerik:RadMenu x:Name="rm_MainMenuRight" Grid.Column="2" BorderThickness="0" HorizontalAlignment="Left" MinWidth="100">
+            <telerik:RadMenuItem Header="Session" x:Name="radMenuItem_Session" Margin="0,5,0,0">
                 <telerik:RadMenuItem.Icon>
-                    <Image Source="/SharedImages/Session-40x40.png" Height="26" />
+                    <Image Source="/SharedImages/Session-40x40.png"  Height="26"/>
                 </telerik:RadMenuItem.Icon>
-                <telerik:RadMenuItem Header="Logout">
+                <telerik:RadMenuItem Header="Logout" Click="RadMenuItem_Click">
                     <telerik:RadMenuItem.Icon>
-                        <Image Source="/SharedImages/Logout-40x40.png" />
+                        <Image Source="/SharedImages/Logout-40x40.png"  />
                     </telerik:RadMenuItem.Icon>
                 </telerik:RadMenuItem>
                 <telerik:RadMenuSeparatorItem />

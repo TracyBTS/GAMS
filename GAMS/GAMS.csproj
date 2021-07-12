@@ -20,6 +20,23 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\weit\source\Deploy\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,13 +57,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B77B56278148F6E7F2D38FFFB7684E78B35B9799</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GAMS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Toolkit.Win32.UI.XamlHost.Managed, Version=6.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Toolkit.UI.XamlHost.6.1.0-preview1\lib\net462\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.dll</HintPath>
     </Reference>
@@ -59,11 +82,13 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -73,12 +98,28 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Progress\Telerik UI for WPF R1 2020\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.Windows.Controls.Data, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.GridView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Input, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.Windows.Data, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Progress\Telerik UI for WPF R1 2020\Binaries\WPF45\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\weit\source\repos\TelerikWpfApp3\lib\RCWPF\2020.1.218.45\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Progress\Telerik UI for WPF R1 2020\Binaries\WPF45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Progress\Telerik UI for WPF R1 2020\Binaries\WPF45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
@@ -95,6 +136,12 @@
     </Compile>
     <Compile Include="Applications\Logistics\LogisticsComponents\DeliveryAdviceQuickReceipt.xaml.cs">
       <DependentUpon>DeliveryAdviceQuickReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Logistics\LogisticsComponents\Window_Courier.xaml.cs">
+      <DependentUpon>Window_Courier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\UserProfile\UserProfile.xaml.cs">
+      <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Applications\WorkOrder\WorkOrderComponents\WorkOrderAudit.xaml.cs">
       <DependentUpon>WorkOrderAudit.xaml</DependentUpon>
@@ -228,6 +275,45 @@
     <Compile Include="Catalog_VendorPurchasingRules.cs">
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\COD.cs" />
+    <Compile Include="Connected Services\AD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WS_User\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Aims3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aims3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aims3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aims3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aims3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aims3.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APP_AUDIT.cs">
+      <DependentUpon>BNAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Settings.cs">
+      <DependentUpon>BNAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SharedClasses\SharedConverters\Converters.cs" />
+    <Compile Include="Classes\General.cs" />
     <Compile Include="Configuration_ActorRole.cs">
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
@@ -405,6 +491,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ImessageInterface.cs" />
     <Compile Include="Item_Asset.cs">
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
@@ -495,35 +582,74 @@
     <Compile Include="Item_WorkOrderHistory.cs">
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BNAModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BNAModel.Context.tt</DependentUpon>
+    <Compile Include="Models\ADR.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BNAModel.cs">
+    <Compile Include="Models\AimsEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BNAModel.tt</DependentUpon>
+      <DependentUpon>AimsEntity.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BNAModel.Designer.cs">
+    <Compile Include="Models\AimsEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BNAModel.edmx</DependentUpon>
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AimsEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AimsEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BNAEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNAEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BNAEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BNAEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNAEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DeliveryAdvice_item1.cs">
-      <DependentUpon>BNAModel.tt</DependentUpon>
+      <DependentUpon>BNAEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeliveryAdvice_Shipping.cs">
-      <DependentUpon>BNAModel.tt</DependentUpon>
+      <DependentUpon>BNAEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DIR_ADR.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EQU.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LINE_ITEM.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PO.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRT.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WCM.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WCT.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WKO.cs">
+      <DependentUpon>AimsEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="ShareControls\AddressBookWindow.xaml.cs">
       <DependentUpon>AddressBookWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShareControls\FloatingWindow.xaml.cs">
       <DependentUpon>FloatingWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ShareControls\ReportWindow.xaml.cs">
-      <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SharedClasses\SharedCommands\Commands.cs" />
     <Compile Include="SharedClasses\SharedConverters\Converter_BoolToVisibility.cs" />
@@ -538,12 +664,6 @@
     <Compile Include="ViewModel\IView.cs" />
     <Compile Include="ViewModel\LogisticsViewModel.cs" />
     <Compile Include="ViewModel\WorkOrderViewModel.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window2.xaml.cs">
-      <DependentUpon>Window2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="xxItem_AssetLegacy.cs">
       <DependentUpon>GAMSModel.tt</DependentUpon>
     </Compile>
@@ -560,6 +680,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Applications\Logistics\Logistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\Logistics\LogisticsComponents\Window_Courier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Applications\UserProfile\UserProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -582,6 +710,10 @@
     <Page Include="Applications\WorkOrder\WorkOrderSingleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -619,18 +751,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShareControls\ReportWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -655,15 +775,131 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GAMSModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Connected Services\AD\ActiveDirectoryAuthentication.wsdl" />
+    <None Include="Connected Services\AD\ActiveDirectoryAuthentication.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AD\ActiveDirectoryAuthentication1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.BNA_USER_APP_ACCESS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.CastDictionary_Dual.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.CastDictionary_Single.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.COD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.DataManagerException.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.DataManagerExceptionNote.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.DataMangerExceptionsWorkGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.FSR_Summary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.FSR_WO_SUMMARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASE_APPROVAL_WGP_ACTING_MANAGER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASE_TRAVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASE_TRAVEL_FILE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASE_TRAVEL_FSR.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASE_TRAVEL_TYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASING_AUDIT_CHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.PURCHASING_WORKGROUP_CENTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.REPORT_SCHEDULED.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.REPORT_SCHEDULEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.SystemApprovalGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.SystemRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.USER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.UserDocumentFavourite.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.UserToil.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.User_CustomQuickLink.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.User_Setting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.View_SystemUserRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\GAMS.WS_User.WidgetPostIt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WS_User\WBS_User.wsdl" />
+    <None Include="Connected Services\WS_User\WBS_User.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WS_User\WBS_User1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WS_User\WBS_User2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WS_User\WBS_User3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="GAMSModel.edmx.diagram">
       <DependentUpon>GAMSModel.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="Models\BNAModel.edmx">
+    <EntityDeploy Include="Models\AimsEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BNAModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AimsEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\BNAModel.edmx.diagram">
-      <DependentUpon>BNAModel.edmx</DependentUpon>
+    <None Include="GAMS_TemporaryKey.pfx" />
+    <EntityDeploy Include="Models\Aims3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Aims3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Aims3.edmx.diagram">
+      <DependentUpon>Aims3.edmx</DependentUpon>
+    </None>
+    <None Include="Models\AimsEntity.edmx.diagram">
+      <DependentUpon>AimsEntity.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Models\BNAEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BNAEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\BNAEntities.edmx.diagram">
+      <DependentUpon>BNAEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -681,6 +917,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\AD\ActiveDirectoryAuthentication.disco" />
+    <None Include="Connected Services\AD\configuration91.svcinfo" />
+    <None Include="Connected Services\AD\configuration.svcinfo" />
+    <None Include="Connected Services\AD\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\WS_User\WBS_User.disco" />
+    <None Include="Connected Services\WS_User\configuration91.svcinfo" />
+    <None Include="Connected Services\WS_User\configuration.svcinfo" />
+    <None Include="Connected Services\WS_User\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="GAMSModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GAMSModel.Context.cs</LastGenOutput>
@@ -691,16 +941,37 @@
       <DependentUpon>GAMSModel.edmx</DependentUpon>
       <LastGenOutput>GAMSModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BNAModel.Context.tt">
+    <Content Include="Models\Aims3.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BNAModel.edmx</DependentUpon>
-      <LastGenOutput>BNAModel.Context.cs</LastGenOutput>
+      <DependentUpon>Aims3.edmx</DependentUpon>
+      <LastGenOutput>Aims3.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BNAModel.tt">
+    <Content Include="Models\Aims3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BNAModel.edmx</DependentUpon>
-      <LastGenOutput>BNAModel.cs</LastGenOutput>
+      <DependentUpon>Aims3.edmx</DependentUpon>
+      <LastGenOutput>Aims3.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\AimsEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AimsEntity.edmx</DependentUpon>
+      <LastGenOutput>AimsEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AimsEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AimsEntity.edmx</DependentUpon>
+      <LastGenOutput>AimsEntity.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BNAEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BNAEntities.edmx</DependentUpon>
+      <LastGenOutput>BNAEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BNAEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BNAEntities.edmx</DependentUpon>
+      <LastGenOutput>BNAEntities.cs</LastGenOutput>
+    </Content>
+    <Resource Include="SharedImages\CloseWindow-80x80.png" />
     <Resource Include="SharedImages\Open-16x16.png" />
     <Resource Include="SharedImages\Receive-40x40.png" />
     <Resource Include="SharedImages\Email-40x40.png" />
@@ -810,6 +1081,25 @@
     <PackageReference Include="System.Data.SQLite">
       <Version>1.0.113.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AD\" />
+    <WCFMetadataStorage Include="Connected Services\WS_User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

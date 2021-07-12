@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using Telerik.Windows.Controls;
 
+
 namespace GAMS
 {
     /// <summary>
@@ -27,22 +28,37 @@ namespace GAMS
     public partial class MainWindow : Window
     {
         public Data.BNALocalDatabase LocalDatabase;
-        string testingGitHub;
-        string testingGitHubJun17;
 
-        public MainWindow()
+        public Applications.UserProfile.UserProfile Window_UserProfile;
+
+        
+       
+        Guid SessionID;
+        //public WS_User.USER _currentUser;
+        public Models.Employee   _currentUser;
+
+        public MainWindow(WS_User.USER myUser, Guid sessionID)
         {
             StyleManager.ApplicationTheme = new Office2013Theme();
 
             InitializeComponent();
+            SessionID = sessionID;
 
-            string PathFolder = string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "BNALocalDB.db");
-            LocalDatabase = new Data.BNALocalDatabase(PathFolder);
+            _currentUser = new Models.Employee();
+            _currentUser.EmployeeID = 385;
+            Window_UserProfile = new Applications.UserProfile.UserProfile(myUser.Name);
+
+            //string PathFolder = string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "BNALocalDB.db");
+            //LocalDatabase = new Data.BNALocalDatabase(PathFolder);
 
             rtw_MainContentView.HideMaximizeButton = true;
             rtw_MainContentView.HideMinimizeButton = true;
 
-            
+            radMenuItem_Session.Header = myUser.Name;
+       
+
+
+
         }
 
         public void RadTabbedWindow_CreateNewTab(UserControl control, string title)
@@ -61,13 +77,16 @@ namespace GAMS
 
             if ((rtw_MainContentView.SelectedItem as ModelViewItem).UserControlCatagoryApplicationType == UserControlApplicationsCatagoryType.Logistic)
             {
-                ModelViewTabComponents.Add(new ModelViewItem() 
-                { 
-                    Content = new GAMS.Applications.Logistics.DeliveryAdviceSingleView((rtw_MainContentView.SelectedItem as ModelViewItem).Content, -1), 
-                    HeaderIcon = "pack://application:,,,/GAMS;component/SharedImages/LogisticsNew-40x40.png",
-                    Header = "New DA",
-                    UserControlCatagoryApplicationType = UserControlApplicationsCatagoryType.Logistic
-                });
+                //ModelViewTabComponents.Add(new ModelViewItem() 
+                //{ 
+                //    Content = new GAMS.Applications.Logistics.DeliveryAdviceSingleView(null), 
+                //    HeaderIcon = "pack://application:,,,/GAMS;component/SharedImages/LogisticsNew-40x40.png",
+                //    Header = "New DA",
+                //    UserControlCatagoryApplicationType = UserControlApplicationsCatagoryType.Logistic
+                //});
+
+                GAMS.Applications.Logistics.LogisticsComponents.Window_Courier _newWindow = new Applications.Logistics.LogisticsComponents.Window_Courier(this);
+                _newWindow.Show();
             }
             else if ((rtw_MainContentView.SelectedItem as ModelViewItem).UserControlCatagoryApplicationType == UserControlApplicationsCatagoryType.WorkOrder)
             {
@@ -109,6 +128,8 @@ namespace GAMS
         {
             e.CanExecute = true;
         }
+
+        
 
         private void WorkOrderViewCmd_Executed(object sender, ExecutedRoutedEventArgs e)
         {
@@ -158,6 +179,12 @@ namespace GAMS
             if (rtw_MainContentView.SelectedItem != null)
                 (rtw_MainContentView.SelectedItem as ModelViewItem).SetFocus();
         }
+
+      
+        private void RadMenuItem_Click(object sender, Telerik.Windows.RadRoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
     public class ModelViewContentItems : INotifyPropertyChanged
@@ -188,10 +215,29 @@ namespace GAMS
 
         public void Add(ModelViewItem modelViewItem)
         {
+           
             _modelViewItems.Add(modelViewItem);
             SelectedItem = modelViewItem;
             AddButtonVisibility = Visibility.Visible;
         }
+
+        public bool IsExisting(string _header)
+        {
+            if (_modelViewItems.Count() > 0)
+            {
+                foreach (ModelViewItem _item in _modelViewItems)
+                {
+                    if (_item.Header == _header)
+                    {
+                        SelectedItem = _item;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
 
         public void Delete(ModelViewItem modelViewItem, bool deleteAllOthers = false)
         {

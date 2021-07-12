@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0dd5479cf5144f54b6ffbccc98c65537" Name="Diagram1">
+        <EntityTypeShape EntityType="GAMSModel1.Item_PurchaseOrder" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel1.Item_PurchaseOrderControlItemValue" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel1.Item_PurchaseOrderHistory" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel1.Item_PurchaseOrderInvoice" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel1.Item_PurchaseOrderNotes" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GAMSModel1.Item_PurchaseOrderRequest" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="GAMSModel1.FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel1.FK_Item_PurchaseOrderHistory_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel1.FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel1.FK_Item_PurchaseOrderNotes_Item_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GAMSModel1.FK_Item_PurchaseOrderRequest_Item_PurchaseOrder" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

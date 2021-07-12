@@ -14,7 +14,7 @@ namespace GAMS.Models
     
     public partial class DeliveryAdvice_item1
     {
-        public decimal DeliveryNum { get; set; }
+        public int DeliveryNum { get; set; }
         public string powo { get; set; }
         public string item_num { get; set; }
         public string FACILITY { get; set; }
@@ -30,5 +30,6 @@ namespace GAMS.Models
         public string IsVendorInstructions { get; set; }
         public string TYPE { get; set; }
         public Nullable<int> QTY_RECV { get; set; }
+        public Nullable<int> Qty_LastRecv { get; set; }
     }
 }

@@ -10,25 +10,32 @@
     mc:Ignorable="d"
     Margin="3">
 
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <vm:DAAddEditViewModels/>
-    </UserControl.DataContext>
-    
+    </UserControl.DataContext>-->
+
     <UserControl.Resources>
         <Converters:Converter_BoolToVisibility x:Key="BooleanToVisibilityConvert" />
         <Converters:Converter_VisibilityInverter x:Key="VisibilityInverterConvert" />
         <Converters:DebugConverter x:Key="debugConverter" />
-        <Converters:RadComboBoxItemConverter x:Key="RadComboBoxItemConverter" />   
+        <Converters:EditableToVisibilityConverter x:Key="EditableToVisibilityConverter" />
+        <Converters:EditableToNotVisibleConverter x:Key="EditableToNotVisibleConverter" />
+        <Converters:RadComboBoxItemConverter x:Key="RadComboBoxItemConverter" />
+
+        <!--<vm:DAAddEditViewModels x:Key="DAAddEditViewModels"/>-->
+
     </UserControl.Resources>
 
- 
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
         </Grid.RowDefinitions>
+        <WebBrowser x:Name="wb_ReportView" Grid.Row="4" />
         <Grid ShowGridLines="False" HorizontalAlignment="Stretch" Grid.Row="0">
             <Grid.RowDefinitions>
                 <!-- Address -->
@@ -38,6 +45,7 @@
                 <RowDefinition Height="22" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="10" />
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -50,44 +58,33 @@
 
             <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,5,0">
                 <telerik:RadButton x:Name="btn_Help"  Margin="0,0,3,0" ToolTip="Goto help page"
-                               Click="btn_Help_Click">
+                               Click="btn_Help_Click"  Visibility="Collapsed">
                     <telerik:RadButton.Content>
                         <Image Source="/SharedImages/Help-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                     </telerik:RadButton.Content>
                 </telerik:RadButton>
                 <telerik:RadButton x:Name="btn_Warning"  Margin="0,0,3,0" ToolTip="Raise an exception about this delivery advice"
-                               Click="btn_Warning_Click">
+                               Click="btn_Warning_Click" Visibility="Collapsed" >
                     <telerik:RadButton.Content>
                         <Image Source="/SharedImages/Warning-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                     </telerik:RadButton.Content>
                 </telerik:RadButton>
                 <telerik:RadButton x:Name="btn_Audit"  Margin="0,0,3,0" ToolTip="Audit"
-                               Click="btn_Audit_Click">
+                                   Visibility="{Binding ModeEdit, Converter={StaticResource EditableToNotVisibleConverter}}"
+                                     Command="{Binding GetAuditItemCommand}"
+                               Click="btn_Audit_Click" >
                     <telerik:RadButton.Content>
                         <Image Source="/SharedImages/History-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                     </telerik:RadButton.Content>
                 </telerik:RadButton>
-
                 <telerik:RadButton x:Name="btn_ShowReportWindow"  Margin="0,0,3,0" ToolTip="Show report window"
-                               Click="btn_ShowReportWindow_Click">
+                               Click="btn_ShowReportWindow_Click" Visibility="{Binding ModeEdit, Converter={StaticResource EditableToNotVisibleConverter}}">
                     <telerik:RadButton.Content>
-                        <Image Source="/SharedImages/Reports-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                        <Image Source="/SharedImages/Print-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                     </telerik:RadButton.Content>
-                </telerik:RadButton>
-                <telerik:RadButton x:Name="btn_Edit"  Margin="0,0,3,0" ToolTip="Edit this delivery advice"
-                               Click="btn_Edit_Click">
-                    <telerik:RadButton.Content>
-                        <Image Source="/SharedImages/Receipt-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
-                    </telerik:RadButton.Content>
-                    <telerik:RadButton.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Receipt" Click="rmi_Edit_Receive" />
-                            <MenuItem Header="Edit" Click="rmi_Edit_Edit" />
-                        </ContextMenu>
-                    </telerik:RadButton.ContextMenu>
                 </telerik:RadButton>
                 <telerik:RadButton x:Name="btn_Export"  Margin="0,0,3,0" ToolTip="Send this via email"
-                               Click="btn_Export_Click">
+                               Click="btn_Export_Click" Visibility="Collapsed" >
                     <telerik:RadButton.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Email" Click="rmi_Export_Email" />
@@ -98,8 +95,45 @@
                         <Image Source="/SharedImages/Export-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                     </telerik:RadButton.Content>
                 </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_Receive"  Margin="0,0,0,0" ToolTip="Receive it"
+                                Visibility="{Binding ModeEdit, Converter={StaticResource EditableToNotVisibleConverter}}"
+                             
+                               Click="btn_Receive_Click" >
+                    <!--Command="{Binding PlacementTarget.Tag.DataContext.ReceiveDACommand, 
+                                            RelativeSource={RelativeSource Mode=FindAncestor,                                                                                         
+                                                                           AncestorType=ContextMenu}}"-->
+                    <telerik:RadButton.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Receive All" 
+                                      Click="MenuItem_Click"
+                                      Command="{Binding ReceiveDACommand }"
+                                       CommandParameter="All"/>
+                            <MenuItem Header="Save"  Click="MenuItem_Click"
+                                      Command="{Binding ReceiveDACommand}" CommandParameter="Partically"/>
+                        </ContextMenu>
+                    </telerik:RadButton.ContextMenu>
+
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Receive-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_Edit"  Margin="0,0,3,0" ToolTip="Edit this delivery advice" Visibility="{Binding ModeEdit, Converter={StaticResource EditableToNotVisibleConverter}}"
+                               Click="btn_Edit_Click">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/Edit-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                    <telerik:RadButton.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Receipt" Click="rmi_Edit_Receive" />
+                            <MenuItem Header="Edit" Click="rmi_Edit_Edit" />
+                        </ContextMenu>
+                    </telerik:RadButton.ContextMenu>
+                </telerik:RadButton>
+
+
+
                 <telerik:RadButton x:Name="btn_SaveClose"  Margin="0,0,0,0" ToolTip="Save it"
-                                Command="{Binding Path=CancelCommand}">
+                                Command="{Binding Path=SaveDACommand}" Visibility="{Binding ModeEdit, Converter={StaticResource EditableToVisibilityConverter}}">
                     <telerik:RadButton.Content>
                         <Image Source="/SharedImages/SaveClose-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                     </telerik:RadButton.Content>
@@ -107,7 +141,7 @@
                         <ContextMenu>
                             <MenuItem Header="Save &amp; Print" Click="rmi_Save_Print">
                                 <MenuItem.Icon>
-                                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/Print-40x40" />
+                                    <Image Source="pack://application:,,,/GAMS;component/SharedImages/Print-40x40.png" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Save" Click="rmi_Save">
@@ -118,35 +152,41 @@
                         </ContextMenu>
                     </telerik:RadButton.ContextMenu>
                 </telerik:RadButton>
+                <telerik:RadButton x:Name="btn_CancelEdit"  Margin="0,0,0,0" ToolTip="Cancel Edit" Click="btn_Cancel_Click"
+                                    Visibility="{Binding ModeEdit, Converter={StaticResource EditableToVisibilityConverter}}">
+                    <telerik:RadButton.Content>
+                        <Image Source="/SharedImages/CloseThis-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    </telerik:RadButton.Content>
+                </telerik:RadButton>
+
+
+
+
+
             </StackPanel>
-            
+
             <Border BorderBrush="LightGray" Background="White" BorderThickness="1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,35,5,0">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Canvas x:Name="barcodeCanvas" Grid.Row="1" Width="130" Height="25" Margin="0,2,0,0" />
-                    <TextBox  BorderThickness="0" Background="White" Height="20" x:Name="txtblk_DispatchNumber" 
-                             HorizontalAlignment="Center" Margin="0,-10,0,0" ToolTipService.ToolTip="Delivery Advice Number"
-                             Text="{Binding Path=CurrentDA.DeliveryNo, Converter={StaticResource debugConverter}}"/>
+                    <telerik:RadBarcode128 Text="{Binding Path=DeliveryAdviceNumber}" ShowText="False" Grid.Row="1" Width="130" Height="25" Margin="0,2,0,0"/>
+                    
+                  
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+                        <TextBlock Text="Delivery Num:"/>
+                        <TextBox  BorderThickness="0" Background="White" x:Name="txtblk_DispatchNumber" 
+                             HorizontalAlignment="Center" Margin="5,0,0,0" ToolTipService.ToolTip="Delivery Advice Number"
+                             Text="{Binding Path=DeliveryAdviceNumber, Converter={StaticResource debugConverter}}"/>
+                    </StackPanel>
+
+
                     <Border Width="158" Height="1" Background="Black" HorizontalAlignment="Center" Margin="2" />
                     <TextBlock Text="Delivery Advice Reason" FontSize="10" HorizontalAlignment="Center" Margin="2,0,0,0" />
                     <!--SelectedIndex="{Binding Path= CurrentDA.DeliveryReasonNum, Converter={StaticResource RadComboBoxItemConverter}}"-->
                     <telerik:RadComboBox x:Name="cmbbx_DAReason" FontSize="14" Height="24" HorizontalAlignment="Center"  Width="160"                                   
-                                         Text="{Binding Path=CurrentDA.DeliveryReasonNum, Mode=TwoWay}"
-                                         IsEnabled="{Binding Path=ModeEdit}">
-                        <telerik:RadComboBoxItem Content="Credit Return" />
-                        <telerik:RadComboBoxItem Content="Return Faulty/Damaged Goods" />
-                        <telerik:RadComboBoxItem Content="Return Oversupply" />
-                        <telerik:RadComboBoxItem Content="Warranty Repair" />
-                        <telerik:RadComboBoxItem Content="Internal Repair" />
-                        <telerik:RadComboBoxItem Content="BTS2Client" />
-                        <telerik:RadComboBoxItem Content="BTS2BTS" />
-                        <telerik:RadComboBoxItem Content="Other" />
-                        <telerik:RadComboBoxItem Content="Quote on Repair/Replacement" />
-                        <telerik:RadComboBoxItem Content="Part Utility Tx|Rx" Tag="P" IsEnabled="False" />
-                        <telerik:RadComboBoxItem Content="Imprest Stock Rtn" Tag="I" IsEnabled="False" />
-                        <telerik:RadComboBoxItem Content="External Repair" Tag="Q" />
-                        <telerik:RadComboBoxItem Content="Quote Req|Ex Rep" IsEnabled="False" Tag="E" />
-                        <telerik:RadComboBoxItem Content="Retrun Loan Equipment" />
-</telerik:RadComboBox> 
+                                         SelectedItem="{Binding Path=CurrentDA.DeliveryAdviceReasonCode, Mode=TwoWay}"
+                                         IsEnabled="{Binding ModeEdit}">
+
+                    </telerik:RadComboBox>
                 </StackPanel>
             </Border>
 
@@ -157,32 +197,32 @@
 
             <TextBlock Margin="2,0,0,0" Grid.Row="0" Grid.Column="2" x:Name="txtblk_FromAddress_Header" Text="{Binding Path=SearchText, ElementName=autobox_FromAddress}" VerticalAlignment="Center" />
             <TextBlock Margin="2,0,0,0" Grid.Row="0" Grid.Column="5" x:Name="txtblk_ToAddress_Header" Text="{Binding Path=SearchText, ElementName=autobox_ToAddress}" VerticalAlignment="Center" />
-            
+
             <Border x:Name="brdr_GoToAddressBook_From" Margin="2,2,2,0" Grid.Row="0" Grid.Column="2" Background="White" BorderThickness="1" BorderBrush="LightGray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Visible"
                         MouseLeftButtonUp="brdr_GoToSpace_MouseLeftButtonUp">
                 <Grid HorizontalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <telerik:RadButton x:Name="btn_AddressBookFrom"  IsEnabled="True" Grid.Column="0" Margin="1" BorderThickness="0"
-                                           Click="btn_AddressBook_Click">
-                        <telerik:RadButton.Content>
-                            <Image Source="/SharedImages/AddressBook-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
-                        </telerik:RadButton.Content>
-                    </telerik:RadButton>
-                    <telerik:RadAutoCompleteBox x:Name="racb_FromAddress" WatermarkContent="Service Department" Grid.Column="1" BorderThickness="0" Foreground="Black"  Margin="0,0,3,0" HorizontalAlignment="Stretch" 
-                                               KeyUp="autobox_FromAddress_KeyUp" SearchText="{Binding Path=CurrentDA.FromName}"
-                                               ItemsSource="{Binding}"/>
-                    <telerik:RadButton x:Name="btn_GoTo"  Content="GO" Width="32" Margin="0,1,1,1" Grid.Column="2"
-                      Click="btn_GoTo_Click" />
+
+                    <StackPanel >
+                        <telerik:RadAutoCompleteBox x:Name="racb_FromAddress" Grid.Column="1" BorderThickness="0" Foreground="Black"  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                                                ItemsSource="{Binding DAFromDatasource}" DisplayMemberPath ="Name"
+                                                WatermarkContent="Service Department"  
+                                                AutoCompleteMode="Suggest"   
+                                                Loaded="racb_FromAddress_Loaded"
+                                               SelectedItem="{Binding SelectedFromCod, Mode=TwoWay}"
+                                                SelectionChanged="racb_FromAddress_SelectionChanged"                                               
+                                                SelectionMode="Single"
+                                                IsEnabled="{Binding ModeEdit}"
+                                                Visibility="Visible" 
+                                             />
+                    </StackPanel>
+
+
                 </Grid>
             </Border>
-  <!--Visibility="{Binding ElementName=brdr_GoToAddressBook_From, Path=Visibility, Converter={StaticResource VisibilityInverterConvert}}"-->
+            <!--Visibility="{Binding ElementName=brdr_GoToAddressBook_From, Path=Visibility, Converter={StaticResource VisibilityInverterConvert}}"-->
             <TextBox x:Name="txtbx_Attention_From" Grid.Row="1" Grid.Column="2" Margin="2,0,2,0"  Visibility="{Binding ElementName=brdr_GoToAddressBook_From, Path=Visibility, Converter={StaticResource VisibilityInverterConvert}}" />
-            <TextBlock x:Name="txtblk_FromAddressLine"  Grid.Row="2" Grid.RowSpan="4" Grid.Column="2" Margin="2,0,0,0" Text="{Binding Path=CurrentDA.FromAddress, Converter={StaticResource debugConverter}}"
-                       Visibility="Visible"
+            <TextBlock x:Name="txtblk_FromAddressLine"  Grid.Row="2" Grid.RowSpan="4" Grid.Column="2" Margin="2,0,0,0"                   
+                       Visibility="Visible" TextWrapping="Wrap"
                       />
 
 
@@ -193,34 +233,24 @@
 
             <Border x:Name="brdr_GoToAddressBook_To" Margin="2,2,2,0" Grid.Row="0" Grid.Column="5" BorderThickness="1" BorderBrush="LightGray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid HorizontalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <telerik:RadButton x:Name="btn_AddressBookTo" IsEnabled="False" Grid.Column="0" Margin="1" BorderThickness="0"
-                                Click="btn_AddressBook_Click">
-                        <telerik:RadButton.Content>
-                            <Image Source="/SharedImages/AddressBook-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
-                        </telerik:RadButton.Content>
-                    </telerik:RadButton>
-                    <telerik:RadAutoCompleteBox x:Name="racb_ToAddress"  WatermarkContent="Destination" Width="251" BorderThickness="0" Foreground="Black" Margin="0,0,3,0" Grid.Column="1"
-                                                SearchText="{Binding Path=CurrentDA.ToName}"
-                                                SelectionChanged="autobox_ToAddress_SelectionChanged" />
-                    <telerik:RadButton Content="GO"  Width="32" Margin="0,1,1,1" Grid.Column="2"
-                                Click="btn_GoTo_Click" />
+
+                    <telerik:RadAutoCompleteBox x:Name="racb_ToAddress"  WatermarkContent="Destination" BorderThickness="0" Foreground="Black"  Margin="0,0,3,0" HorizontalAlignment="Stretch"                                              
+                                                SelectionChanged="autobox_ToAddress_SelectionChanged" 
+                                                ItemsSource="{Binding DAToDataSource }"
+                                                DisplayMemberPath="Name"                                               
+                                                SelectedItem="{Binding SelectedToCod, Mode=TwoWay}"                                               
+                                                AutoCompleteMode="Suggest"
+                                                SelectionMode="Single"
+                                                 IsEnabled="{Binding ModeEdit}"
+                                                Loaded="racb_ToAddress_Loaded"/>
                 </Grid>
             </Border>
 
-            <TextBlock x:Name="txtbx_Attention_To" Grid.Row="0" Grid.Column="5" Margin="2,0,2,0" 
-                       Text="{Binding Path=CurrentDA.ToName}"
-                       VerticalAlignment="Center"
-                       Visibility="{Binding ElementName=brdr_GoToAddressBook_To, Path=Visibility, Converter={StaticResource VisibilityInverterConvert}}" />
+
             <!--Visibility="{Binding ElementName=brdr_GoToAddressBook_To, Path=Visibility, Converter={StaticResource VisibilityInverterConvert}}"-->
-            <TextBlock x:Name="txtbx_ToAddressLine" Grid.Row="1" Grid.Column="5" Margin="2,0,2,0"  
-                       Text="{Binding Path=CurrentDA.ToAddress}" TextWrapping="Wrap" Grid.RowSpan="5" 
-                      />
-            <TextBox x:Name="txtbx_ToAddressLineOther" Grid.Row="1" Grid.Column="5" Margin="2,0,2,2" Text="{Binding Path=CurrentDA.ToAddress}" TextWrapping="Wrap" Grid.RowSpan="5" AcceptsReturn="True" Visibility="{Binding ElementName=brdr_GoToAddressBook_To, Path=Visibility, Converter={StaticResource VisibilityInverterConvert}}" />
+            <TextBox x:Name="txtbx_ToAddressLine" Grid.Row="1" Grid.Column="5" Grid.RowSpan="5" Margin="2,0,2,0"  
+                       TextWrapping="Wrap"  AcceptsReturn="True"  IsEnabled="{Binding ModeEdit}"
+                       Text="{Binding Path=CurrentDA.ToAddress, Mode=TwoWay}"/>
 
         </Grid>
 
@@ -236,20 +266,23 @@
                     <Grid>
                         <TextBlock Text="Delivery Items" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" />
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3">
-                            <telerik:RadButton x:Name="btn_D_Add"  Visibility="Visible" Margin="2,0,2,0" IsEnabled="true" BorderThickness="0" ToolTipService.ToolTip="Add item" 
-                                                Command="{Binding AddNewItemCommand}" >
+                            <telerik:RadButton x:Name="btn_D_Add"   Margin="2,0,2,0" IsEnabled="{Binding ModeEdit}" BorderThickness="0" ToolTipService.ToolTip="Add item" 
+                                                Command="{Binding AddNewItemCommand}" 
+                                               Visibility="{Binding ModeReceive,Converter={StaticResource EditableToNotVisibleConverter}}">
                                 <telerik:RadButton.Content>
                                     <Image Source="/SharedImages/Add-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                                 </telerik:RadButton.Content>
                             </telerik:RadButton>
-                            <telerik:RadButton x:Name="btn_D_Edit"  Visibility="Visible"  Margin="2,0,2,0" IsEnabled="False" BorderThickness="0" ToolTipService.ToolTip="Edit item" 
-                                                   Click="btn_D_Edit_Click">
+                            <!--Visibility="{Binding ModeReceive,Converter={StaticResource EditableToNotVisibleConverter}}"-->
+                            <telerik:RadButton x:Name="btn_D_Edit"  Visibility="Collapsed"
+                                               Margin="2,0,2,0" IsEnabled="{Binding ModeEdit}"  BorderThickness="0" ToolTipService.ToolTip="Edit item" 
+                                                   Click="btn_D_Edit_Click" >
                                 <telerik:RadButton.Content>
                                     <Image Source="/SharedImages/Edit-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                                 </telerik:RadButton.Content>
                             </telerik:RadButton>
-                            <telerik:RadButton x:Name="btn_D_Delete"  Visibility="Visible" Margin="2,0,0,0" IsEnabled="False" BorderThickness="0" ToolTipService.ToolTip="Delete selected item" 
-                                                   Click="btn_D_Delete_Click">
+                            <telerik:RadButton x:Name="btn_D_Delete"   Margin="2,0,0,0" IsEnabled="{Binding ModeEdit}"  BorderThickness="0" ToolTipService.ToolTip="Delete selected item" 
+                                             Command="{Binding DeleteItemCommand}" Visibility="{Binding ModeReceive,Converter={StaticResource EditableToNotVisibleConverter}}">
                                 <telerik:RadButton.Content>
                                     <Image Source="/SharedImages/Delete-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                                 </telerik:RadButton.Content>
@@ -258,34 +291,53 @@
                     </Grid>
                 </Border>
                 <telerik:RadGridView x:Name="rgv_DeliveryItems"  ShowGroupPanel="False" Margin="3" Grid.Row="1" AutoGenerateColumns="False"
-                                     ItemsSource="{Binding CurrentDAItems}">
+                                     ItemsSource="{Binding CurrentDA.C_DeliveryAdviceItems}"
+                                     SelectedItem="{Binding SelectedDAItem}" 
+                                    telerik:StyleManager.Theme="Office_Blue"
+                                     >
+                    <!--<telerik:RadGridView.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF2985A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </telerik:RadGridView.Background>-->
                     <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding powo}" Header="WO/PO" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding item_num}" Header="ItemNumber" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding description}" Header="ItemDescription" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding qty}" Header="QTY" />                       
-                            <telerik:GridViewColumn Header="" >
-                                <telerik:GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                    <telerik:RadButton Content="Delete" Command="{Binding}"/>
+                        <telerik:GridViewColumn Header="PO/WO" >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding WorkOrderNumber, Mode=TwoWay}" KeyDown="TextBox_KeyDown" MinWidth="80"  
+                                              IsEnabled="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}},Path=DataContext.ModeEdit}"/>
                                 </DataTemplate>
-                                </telerik:GridViewColumn.CellTemplate>
-                            </telerik:GridViewColumn>
-                          
-                       
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                        <!--IsReadOnlyBinding="{Binding ModeEdit}"-->
+                        <!--IsReadOnlyBinding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}},Path=DataContext.ModeEdit}"-->
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ItemNumber, Mode=TwoWay}" Header="Item Number"  
+                                                   IsReadOnlyBinding="{Binding CurrentDA.IsEditable}"  />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ItemDescription, Mode=TwoWay}" Header="Item Description"  
+                                                     IsReadOnlyBinding="{Binding CurrentDA.IsEditable}" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding QuantitySent, Mode=TwoWay}" Header="QTY"  IsReadOnlyBinding="{Binding CurrentDA.IsEditable}" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ReturnAdviceNumber, Mode=TwoWay}" Header="Return Advice No"  IsReadOnlyBinding="{Binding CurrentDA.IsEditable}" />
+                        <telerik:GridViewColumn Header="Decon." >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox SelectedItem="{Binding DecontaminationStatus, Mode=TwoWay}" Loaded="ComboBox_Loaded" 
+                                               IsEnabled="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}},Path=DataContext.ModeEdit}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
                     </telerik:RadGridView.Columns>
                 </telerik:RadGridView>
 
-                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left" Margin="3">
+                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left" Margin="3" Visibility="Collapsed" >
                     <TextBlock Text="Show line item detail?" VerticalAlignment="Center" />
                     <telerik:RadToggleSwitchButton x:Name="rtgsb_ShowLineItemDetails" CheckedContent="Yes" UncheckedContent="No" IsChecked="False" Content="Show line item detail" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3" Grid.Row="2"
-                                                    Checked="rtgsb_ShowLineItemDetails_Checked"
-                                                    Unchecked="rtgsb_ShowLineItemDetails_Checked" />
+                                                     />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="3">
                     <TextBlock Text="Item count : " Grid.Row="3" Grid.ColumnSpan="2" Margin="4,0,0,0" FontStyle="Italic" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                    <TextBlock x:Name="txtblk_NumberOfItemsInDA" Text="{Binding DeliveryItemCount}" Margin="2,0,0,0" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTipService.ToolTip="Quantity Ordered" />
+                    <TextBlock x:Name="txtblk_NumberOfItemsInDA" Text="{Binding DeliveryItemCount}" Margin="2,0,10,0" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTipService.ToolTip="Quantity Ordered" />
                 </StackPanel>
 
                 <Grid x:Name="grd_ItemsDetailPane" Grid.Row="3" 
@@ -297,19 +349,21 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="92*" />
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="81*" />
+                        <ColumnDefinition Width="11*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Items Details goes here" />
+                    <TextBlock Text="Items Details goes here" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="0,0,460,0" Grid.RowSpan="3" />
                 </Grid>
             </Grid>
         </Border>
 
         <Grid HorizontalAlignment="Stretch" Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="461*" />
+                <ColumnDefinition Width="67*" />
+                <ColumnDefinition Width="394*"/>
             </Grid.ColumnDefinitions>
             <Border BorderBrush="LightGray" Background="White" BorderThickness="1" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0">
                 <Grid>
@@ -325,10 +379,12 @@
                         </TextBlock>
                     </Border>
                     <TextBox x:Name="txtbx_Notes_VendorInstr" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                             Text="{Binding Path=Notes}" TextWrapping="Wrap" Margin="2" />
+                              TextWrapping="Wrap" Margin="2"
+                              IsEnabled="{Binding ModeEdit}"
+                             Text="{Binding Path=CurrentDA.Notes, Mode=TwoWay }"/>
                 </Grid>
             </Border>
-            <Border BorderBrush="LightGray" Background="White" BorderThickness="1" Grid.Column="1" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,0,0">
+            <Border BorderBrush="LightGray" Background="White" BorderThickness="1" Grid.Column="1" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,0,0" Grid.ColumnSpan="2">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -342,7 +398,8 @@
                         </TextBlock>
                     </Border>
                     <TextBox x:Name="txtbx_Accessories" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                              Text="{Binding Path=ACCESORIES}" TextWrapping="Wrap" Margin="2" />
+                              Text="{Binding Path=CurrentDA.AccessoriesSent, Mode=TwoWay}" TextWrapping="Wrap" Margin="2" 
+                              IsEnabled="{Binding ModeEdit}"/>
                 </Grid>
             </Border>
         </Grid>
@@ -360,48 +417,58 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
+
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Name of Transport: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" />
-                    <telerik:RadComboBox x:Name="cmbbx_Courier" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="22" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,1,3,1" Background="Transparent" 
-                                        Text="{Binding Path= CurrentDA.Courier}" IsEnabled="{Binding Path=ModeEdit}" />
+                    <TextBlock Text="Name of Transport: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Margin="0" />
+                    <ComboBox x:Name="cmbbx_Courier" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="22" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" Margin="0,1,3,1" Background="Transparent"
+                              ItemsSource="{Binding CourierList}" DisplayMemberPath="CourierName"
+                              SelectedItem="{Binding Path=CurrentDA.C_Dictionary_Courier , Mode=TwoWay}" IsEnabled="{Binding Path=ModeEdit}"
+                              Loaded="cmbbx_Courier_Loaded" SelectionChanged="cmbbx_Courier_SelectionChanged"/>
 
 
 
-                    <TextBlock Text="Consignment Note No: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" />
+
+
+                    <TextBlock Text="Consignment Note No: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0" />
                     <TextBox x:Name="txtbx_ConNoteNumber" VerticalAlignment="Stretch" Background="Transparent" HorizontalAlignment="Stretch" 
-                             Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,1,3,1" 
-                            Text="{Binding Path= CurrentDA.ConnoteNum}" IsEnabled="{Binding Path=ModeEdit}"/>
+                             Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"  Margin="0,1,3,1"
+                            Text="{Binding Path= CurrentDA.ConnoteNum, Mode=TwoWay}" IsEnabled="{Binding Path=ModeEdit}"/>
 
-                    <TextBlock Text="Prepared by: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" />
-                    <telerik:RadAutoCompleteBox x:Name="racb_Employee" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="0,1,3,1" 
+                    <TextBlock Text="Prepared by: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                    <telerik:RadAutoCompleteBox x:Name="racb_EmployeePrepare" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" 
+                                                ItemsSource="{Binding EMPList}" DisplayMemberPath="Name"
+                                                SearchText="{Binding Path=CurrentDA.Employee.Name}" />
+
+
+
+                    <TextBlock Text="Received by: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3"  />
+                    <telerik:RadAutoCompleteBox x:Name="racb_ReceivedBy"  SearchText="{Binding Path=CurrentDA.RECEIVED_BY}"
+                                                IsEnabled="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" />
+
+                    <TextBlock Text="Date: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2"  />
+                    <telerik:RadDatePicker x:Name="dtpckr_DA_Date_Sent" SelectedDate="{Binding CurrentDA.DateCreated}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="3" 
+                                           Margin="0,0,1,0"/>
+
+                    <TextBlock Text="Date: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" />
+                    <telerik:RadDatePicker x:Name="dtpckr_DA_Date_Received" SelectedDate="{Binding CurrentDA.DateReceived}" IsEnabled="false" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="3" 
+                                            Margin="0,0,1,0"/>
+
+                    <TextBlock Text="BTS Contact: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"  />
+                    <telerik:RadAutoCompleteBox x:Name="racb_BTSContact" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1"
                                                 SearchText="{Binding Path= CurrentDA.EMPName}" IsEnabled="{Binding Path=ModeEdit}"/>
 
-                    <TextBlock Text="Collected by: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" />
-                    <telerik:RadAutoCompleteBox x:Name="racb_ReceivedBy" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Margin="0,1,3,1" />
-
-                    <TextBlock Text="Date: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Margin="3,0,0,0" />
-                    <telerik:RadDatePicker x:Name="dtpckr_DA_Date_Sent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="5" Margin="0,1,3,1" />
-
-                    <TextBlock Text="Date: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Margin="3,0,0,0" />
-                    <telerik:RadDatePicker x:Name="dtpckr_DA_Date_Received" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="5" Margin="0,1,3,1"
-                                               LostFocus="dtpckr_DA_Date_Received_LostFocus" />
-
-                    <TextBlock Text="BTS Contact: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" />
-                    <telerik:RadAutoCompleteBox x:Name="racb_BTSContact" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Margin="0,1,3,1" 
-                                                SearchText="{Binding Path= CurrentDA.EMPName}" IsEnabled="{Binding Path=ModeEdit}"/>
-
-                    <TextBlock Text="Phone: " VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="2" Margin="3,0,0,0" />
-                    <TextBox Text="" x:Name="txtbx_phoneContact" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3" Margin="0,1,3,1" />
+                    <TextBlock Text="Phone: " VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="2"  />
+                    <TextBox Text="" x:Name="txtbx_phoneContact" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="4"  Margin="0,0,1,0" />
                 </Grid>
 
                 <Border Background="Black" BorderThickness="1" Width="920" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,5" />
 
-                <TextBlock Text="Last printed by LASTNAME, FIRSTNAME on DATE(dd/mm/yyyy hh:ss)" HorizontalAlignment="Center" Margin="0,2,0,3" FontSize="10" x:Name="txtblk_LastPrintedDateTimeName" />
+                <TextBlock Text="Last printed by LASTNAME, FIRSTNAME on DATE(dd/mm/yyyy hh:ss)" HorizontalAlignment="Center" Margin="0,2,0,3" FontSize="10" x:Name="txtblk_LastPrintedDateTimeName" Visibility="Collapsed" />
             </StackPanel>
         </Border>
     </Grid>

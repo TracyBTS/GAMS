@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GAMSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Item_PurchaseOrder">
+          <Key>
+            <PropertyRef Name="PurchaseOrderID" />
+          </Key>
+          <Property Name="PurchaseOrderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseOrderReferenceNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeIDApproved" Type="uniqueidentifier" />
+          <Property Name="DateLastSentToVendor" Type="datetime" />
+          <Property Name="ContactTypeIDPlacedVia" Type="uniqueidentifier" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="PurchaseStatusID" Type="uniqueidentifier" />
+          <Property Name="DatePurchaseStatus" Type="datetime" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="IsClosed" Type="bit" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderControlItemValue">
+          <Key>
+            <PropertyRef Name="PurchaseOrderControlItemValue" />
+          </Key>
+          <Property Name="PurchaseOrderControlItemValue" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ControlItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Text" Type="text" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderHistory">
+          <Key>
+            <PropertyRef Name="PurchaseOrderHistoryID" />
+          </Key>
+          <Property Name="PurchaseOrderHistoryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="uniqueidentifier" />
+          <Property Name="RequestID" Type="uniqueidentifier" />
+          <Property Name="IsRequestHistory" Type="bit" Nullable="false" />
+          <Property Name="IsSystemGenerated" Type="bit" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="EmployeeID" Type="uniqueidentifier" />
+          <Property Name="HistoryDetail" Type="text" Nullable="false" />
+          <Property Name="ExceptionID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderInvoice">
+          <Key>
+            <PropertyRef Name="PurchaseOrderInvoiceID" />
+          </Key>
+          <Property Name="PurchaseOrderInvoiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="WorkOrderEventInvoiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ChargesToBeSharedOut" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateInvoiceReceived" Type="datetime" />
+          <Property Name="DateOriginalFileDate" Type="datetime" />
+          <Property Name="DateBatched" Type="datetime" />
+          <Property Name="DateCleared" Type="datetime" />
+          <Property Name="ChargesFreight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ChargesHandling" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ChargesAmountGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ChargesTax" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderNotes">
+          <Key>
+            <PropertyRef Name="PurchaseOrderNotesID" />
+          </Key>
+          <Property Name="PurchaseOrderNotesID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeIDCreated" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Notes" Type="text" Nullable="false" />
+          <Property Name="EmployeeIDAttentionTo" Type="uniqueidentifier" />
+          <Property Name="PurchaseOrderNotesIDRespondedTo" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderRequest">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VendorID" Type="uniqueidentifier" />
+          <Property Name="AddressID" Type="uniqueidentifier" />
+          <Property Name="VendorInstructions" Type="text" />
+          <Property Name="RequestReferenceNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="uniqueidentifier" />
+          <Property Name="EmployeeIDResponsible" Type="uniqueidentifier" />
+          <Property Name="EmployeeIDApproval" Type="uniqueidentifier" />
+          <Property Name="DateApprovalConfirmed" Type="datetime" />
+          <Property Name="DateApprovalRejected" Type="datetime" />
+          <Property Name="ApprovalNotes" Type="text" />
+          <Property Name="PurchaseStatusID" Type="uniqueidentifier" />
+          <Property Name="DatePurchaseStatus" Type="nvarchar" MaxLength="10" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="1" />
+          <End Role="Item_PurchaseOrderControlItemValue" Type="Self.Item_PurchaseOrderControlItemValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderControlItemValue">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderHistory_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="0..1" />
+          <End Role="Item_PurchaseOrderHistory" Type="Self.Item_PurchaseOrderHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderHistory">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="1" />
+          <End Role="Item_PurchaseOrderInvoice" Type="Self.Item_PurchaseOrderInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderInvoice">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderNotes_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="1" />
+          <End Role="Item_PurchaseOrderNotes" Type="Self.Item_PurchaseOrderNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderNotes">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderRequest_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="0..1" />
+          <End Role="Item_PurchaseOrderRequest" Type="Self.Item_PurchaseOrderRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderRequest">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GAMSModel1StoreContainer">
+          <EntitySet Name="Item_PurchaseOrder" EntityType="Self.Item_PurchaseOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_PurchaseOrderControlItemValue" EntityType="Self.Item_PurchaseOrderControlItemValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_PurchaseOrderHistory" EntityType="Self.Item_PurchaseOrderHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_PurchaseOrderInvoice" EntityType="Self.Item_PurchaseOrderInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_PurchaseOrderNotes" EntityType="Self.Item_PurchaseOrderNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_PurchaseOrderRequest" EntityType="Self.Item_PurchaseOrderRequest" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderControlItemValue" EntitySet="Item_PurchaseOrderControlItemValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderHistory_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderHistory_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderHistory" EntitySet="Item_PurchaseOrderHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderInvoice" EntitySet="Item_PurchaseOrderInvoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderNotes_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderNotes_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderNotes" EntitySet="Item_PurchaseOrderNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderRequest_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderRequest_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderRequest" EntitySet="Item_PurchaseOrderRequest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GAMSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Item_PurchaseOrder">
+          <Key>
+            <PropertyRef Name="PurchaseOrderID" />
+          </Key>
+          <Property Name="PurchaseOrderID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseOrderReferenceNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeIDApproved" Type="Guid" />
+          <Property Name="DateLastSentToVendor" Type="DateTime" Precision="3" />
+          <Property Name="ContactTypeIDPlacedVia" Type="Guid" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="PurchaseStatusID" Type="Guid" />
+          <Property Name="DatePurchaseStatus" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsClosed" Type="Boolean" />
+          <NavigationProperty Name="Item_PurchaseOrderControlItemValue" Relationship="Self.FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder" FromRole="Item_PurchaseOrder" ToRole="Item_PurchaseOrderControlItemValue" />
+          <NavigationProperty Name="Item_PurchaseOrderHistory" Relationship="Self.FK_Item_PurchaseOrderHistory_Item_PurchaseOrder" FromRole="Item_PurchaseOrder" ToRole="Item_PurchaseOrderHistory" />
+          <NavigationProperty Name="Item_PurchaseOrderInvoice" Relationship="Self.FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder" FromRole="Item_PurchaseOrder" ToRole="Item_PurchaseOrderInvoice" />
+          <NavigationProperty Name="Item_PurchaseOrderNotes" Relationship="Self.FK_Item_PurchaseOrderNotes_Item_PurchaseOrder" FromRole="Item_PurchaseOrder" ToRole="Item_PurchaseOrderNotes" />
+          <NavigationProperty Name="Item_PurchaseOrderRequest" Relationship="Self.FK_Item_PurchaseOrderRequest_Item_PurchaseOrder" FromRole="Item_PurchaseOrder" ToRole="Item_PurchaseOrderRequest" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderControlItemValue">
+          <Key>
+            <PropertyRef Name="PurchaseOrderControlItemValue" />
+          </Key>
+          <Property Name="PurchaseOrderControlItemValue" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="Guid" Nullable="false" />
+          <Property Name="ControlItemID" Type="Guid" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Item_PurchaseOrder" Relationship="Self.FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder" FromRole="Item_PurchaseOrderControlItemValue" ToRole="Item_PurchaseOrder" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderHistory">
+          <Key>
+            <PropertyRef Name="PurchaseOrderHistoryID" />
+          </Key>
+          <Property Name="PurchaseOrderHistoryID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="Guid" />
+          <Property Name="RequestID" Type="Guid" />
+          <Property Name="IsRequestHistory" Type="Boolean" Nullable="false" />
+          <Property Name="IsSystemGenerated" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeID" Type="Guid" />
+          <Property Name="HistoryDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExceptionID" Type="Guid" />
+          <NavigationProperty Name="Item_PurchaseOrder" Relationship="Self.FK_Item_PurchaseOrderHistory_Item_PurchaseOrder" FromRole="Item_PurchaseOrderHistory" ToRole="Item_PurchaseOrder" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderInvoice">
+          <Key>
+            <PropertyRef Name="PurchaseOrderInvoiceID" />
+          </Key>
+          <Property Name="PurchaseOrderInvoiceID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="Guid" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkOrderEventInvoiceID" Type="Guid" Nullable="false" />
+          <Property Name="ChargesToBeSharedOut" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateInvoiceReceived" Type="DateTime" Precision="3" />
+          <Property Name="DateOriginalFileDate" Type="DateTime" Precision="3" />
+          <Property Name="DateBatched" Type="DateTime" Precision="3" />
+          <Property Name="DateCleared" Type="DateTime" Precision="3" />
+          <Property Name="ChargesFreight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChargesHandling" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChargesAmountGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ChargesTax" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Item_PurchaseOrder" Relationship="Self.FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder" FromRole="Item_PurchaseOrderInvoice" ToRole="Item_PurchaseOrder" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderNotes">
+          <Key>
+            <PropertyRef Name="PurchaseOrderNotesID" />
+          </Key>
+          <Property Name="PurchaseOrderNotesID" Type="Guid" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeIDCreated" Type="Guid" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeIDAttentionTo" Type="Guid" />
+          <Property Name="PurchaseOrderNotesIDRespondedTo" Type="Guid" />
+          <NavigationProperty Name="Item_PurchaseOrder" Relationship="Self.FK_Item_PurchaseOrderNotes_Item_PurchaseOrder" FromRole="Item_PurchaseOrderNotes" ToRole="Item_PurchaseOrder" />
+        </EntityType>
+        <EntityType Name="Item_PurchaseOrderRequest">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Guid" Nullable="false" />
+          <Property Name="VendorID" Type="Guid" />
+          <Property Name="AddressID" Type="Guid" />
+          <Property Name="VendorInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RequestReferenceNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseOrderID" Type="Guid" />
+          <Property Name="EmployeeIDResponsible" Type="Guid" />
+          <Property Name="EmployeeIDApproval" Type="Guid" />
+          <Property Name="DateApprovalConfirmed" Type="DateTime" Precision="3" />
+          <Property Name="DateApprovalRejected" Type="DateTime" Precision="3" />
+          <Property Name="ApprovalNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseStatusID" Type="Guid" />
+          <Property Name="DatePurchaseStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Item_PurchaseOrder" Relationship="Self.FK_Item_PurchaseOrderRequest_Item_PurchaseOrder" FromRole="Item_PurchaseOrderRequest" ToRole="Item_PurchaseOrder" />
+        </EntityType>
+        <Association Name="FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="1" />
+          <End Role="Item_PurchaseOrderControlItemValue" Type="Self.Item_PurchaseOrderControlItemValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderControlItemValue">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderHistory_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="0..1" />
+          <End Role="Item_PurchaseOrderHistory" Type="Self.Item_PurchaseOrderHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderHistory">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="1" />
+          <End Role="Item_PurchaseOrderInvoice" Type="Self.Item_PurchaseOrderInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderInvoice">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderNotes_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="1" />
+          <End Role="Item_PurchaseOrderNotes" Type="Self.Item_PurchaseOrderNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderNotes">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_PurchaseOrderRequest_Item_PurchaseOrder">
+          <End Role="Item_PurchaseOrder" Type="Self.Item_PurchaseOrder" Multiplicity="0..1" />
+          <End Role="Item_PurchaseOrderRequest" Type="Self.Item_PurchaseOrderRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="Item_PurchaseOrderRequest">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GAMSEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Item_PurchaseOrder" EntityType="Self.Item_PurchaseOrder" />
+          <EntitySet Name="Item_PurchaseOrderControlItemValue" EntityType="Self.Item_PurchaseOrderControlItemValue" />
+          <EntitySet Name="Item_PurchaseOrderHistory" EntityType="Self.Item_PurchaseOrderHistory" />
+          <EntitySet Name="Item_PurchaseOrderInvoice" EntityType="Self.Item_PurchaseOrderInvoice" />
+          <EntitySet Name="Item_PurchaseOrderNotes" EntityType="Self.Item_PurchaseOrderNotes" />
+          <EntitySet Name="Item_PurchaseOrderRequest" EntityType="Self.Item_PurchaseOrderRequest" />
+          <AssociationSet Name="FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderControlItemValue_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderControlItemValue" EntitySet="Item_PurchaseOrderControlItemValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderHistory_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderHistory_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderHistory" EntitySet="Item_PurchaseOrderHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderInvoice_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderInvoice" EntitySet="Item_PurchaseOrderInvoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderNotes_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderNotes_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderNotes" EntitySet="Item_PurchaseOrderNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_PurchaseOrderRequest_Item_PurchaseOrder" Association="Self.FK_Item_PurchaseOrderRequest_Item_PurchaseOrder">
+            <End Role="Item_PurchaseOrder" EntitySet="Item_PurchaseOrder" />
+            <End Role="Item_PurchaseOrderRequest" EntitySet="Item_PurchaseOrderRequest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GAMSModel1StoreContainer" CdmEntityContainer="GAMSEntities1">
+          <EntitySetMapping Name="Item_PurchaseOrder">
+            <EntityTypeMapping TypeName="GAMSModel1.Item_PurchaseOrder">
+              <MappingFragment StoreEntitySet="Item_PurchaseOrder">
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="PurchaseOrderReferenceNumber" ColumnName="PurchaseOrderReferenceNumber" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="EmployeeIDApproved" ColumnName="EmployeeIDApproved" />
+                <ScalarProperty Name="DateLastSentToVendor" ColumnName="DateLastSentToVendor" />
+                <ScalarProperty Name="ContactTypeIDPlacedVia" ColumnName="ContactTypeIDPlacedVia" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="PurchaseStatusID" ColumnName="PurchaseStatusID" />
+                <ScalarProperty Name="DatePurchaseStatus" ColumnName="DatePurchaseStatus" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_PurchaseOrderControlItemValue">
+            <EntityTypeMapping TypeName="GAMSModel1.Item_PurchaseOrderControlItemValue">
+              <MappingFragment StoreEntitySet="Item_PurchaseOrderControlItemValue">
+                <ScalarProperty Name="PurchaseOrderControlItemValue" ColumnName="PurchaseOrderControlItemValue" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="ControlItemID" ColumnName="ControlItemID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_PurchaseOrderHistory">
+            <EntityTypeMapping TypeName="GAMSModel1.Item_PurchaseOrderHistory">
+              <MappingFragment StoreEntitySet="Item_PurchaseOrderHistory">
+                <ScalarProperty Name="PurchaseOrderHistoryID" ColumnName="PurchaseOrderHistoryID" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="IsRequestHistory" ColumnName="IsRequestHistory" />
+                <ScalarProperty Name="IsSystemGenerated" ColumnName="IsSystemGenerated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="HistoryDetail" ColumnName="HistoryDetail" />
+                <ScalarProperty Name="ExceptionID" ColumnName="ExceptionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_PurchaseOrderInvoice">
+            <EntityTypeMapping TypeName="GAMSModel1.Item_PurchaseOrderInvoice">
+              <MappingFragment StoreEntitySet="Item_PurchaseOrderInvoice">
+                <ScalarProperty Name="PurchaseOrderInvoiceID" ColumnName="PurchaseOrderInvoiceID" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="WorkOrderEventInvoiceID" ColumnName="WorkOrderEventInvoiceID" />
+                <ScalarProperty Name="ChargesToBeSharedOut" ColumnName="ChargesToBeSharedOut" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateInvoiceReceived" ColumnName="DateInvoiceReceived" />
+                <ScalarProperty Name="DateOriginalFileDate" ColumnName="DateOriginalFileDate" />
+                <ScalarProperty Name="DateBatched" ColumnName="DateBatched" />
+                <ScalarProperty Name="DateCleared" ColumnName="DateCleared" />
+                <ScalarProperty Name="ChargesFreight" ColumnName="ChargesFreight" />
+                <ScalarProperty Name="ChargesHandling" ColumnName="ChargesHandling" />
+                <ScalarProperty Name="ChargesAmountGross" ColumnName="ChargesAmountGross" />
+                <ScalarProperty Name="ChargesTax" ColumnName="ChargesTax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_PurchaseOrderNotes">
+            <EntityTypeMapping TypeName="GAMSModel1.Item_PurchaseOrderNotes">
+              <MappingFragment StoreEntitySet="Item_PurchaseOrderNotes">
+                <ScalarProperty Name="PurchaseOrderNotesID" ColumnName="PurchaseOrderNotesID" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EmployeeIDCreated" ColumnName="EmployeeIDCreated" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="EmployeeIDAttentionTo" ColumnName="EmployeeIDAttentionTo" />
+                <ScalarProperty Name="PurchaseOrderNotesIDRespondedTo" ColumnName="PurchaseOrderNotesIDRespondedTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item_PurchaseOrderRequest">
+            <EntityTypeMapping TypeName="GAMSModel1.Item_PurchaseOrderRequest">
+              <MappingFragment StoreEntitySet="Item_PurchaseOrderRequest">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="VendorInstructions" ColumnName="VendorInstructions" />
+                <ScalarProperty Name="RequestReferenceNumber" ColumnName="RequestReferenceNumber" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="EmployeeIDResponsible" ColumnName="EmployeeIDResponsible" />
+                <ScalarProperty Name="EmployeeIDApproval" ColumnName="EmployeeIDApproval" />
+                <ScalarProperty Name="DateApprovalConfirmed" ColumnName="DateApprovalConfirmed" />
+                <ScalarProperty Name="DateApprovalRejected" ColumnName="DateApprovalRejected" />
+                <ScalarProperty Name="ApprovalNotes" ColumnName="ApprovalNotes" />
+                <ScalarProperty Name="PurchaseStatusID" ColumnName="PurchaseStatusID" />
+                <ScalarProperty Name="DatePurchaseStatus" ColumnName="DatePurchaseStatus" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="adc870ca45104c6ba368c8a5deb9487c" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="AIMSDatabaseModel.ADR" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.COD" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.DIR_ADR" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.LINE_ITEM" Width="1.5" PointX="5.625" PointY="4.125" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.PO" Width="1.5" PointX="7.625" PointY="4.125" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.EQU" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.PRT" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.WCM" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.WCT" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="AIMSDatabaseModel.WKO" Width="1.5" PointX="12.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

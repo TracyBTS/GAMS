@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9090fa3b-91ef-407c-a503-ad438811af74" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://bna.health.qld.gov.au/WebServices/WBS_User.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WBS_User.disco" MetadataType="Disco" ID="a4451904-cd37-48be-9d97-1c771a67ab2b" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?disco" />
+    <MetadataFile FileName="WBS_User.wsdl" MetadataType="Wsdl" ID="5428f919-729e-465d-a1ad-7839b6ac37c8" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?wsdl" />
+    <MetadataFile FileName="WBS_User.xsd" MetadataType="Schema" ID="faee7037-ab99-45d5-b32c-951d8dd675a4" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd2" />
+    <MetadataFile FileName="WBS_User1.xsd" MetadataType="Schema" ID="243da94f-f136-4f1f-9376-f4c9bb9bf4d3" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd3" />
+    <MetadataFile FileName="WBS_User2.xsd" MetadataType="Schema" ID="6ac706db-7c8b-4159-9049-c2f8063af5ea" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd0" />
+    <MetadataFile FileName="WBS_User3.xsd" MetadataType="Schema" ID="11ff4a7f-4d0e-4e37-84c2-3181cd5073b6" SourceId="1" SourceUrl="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

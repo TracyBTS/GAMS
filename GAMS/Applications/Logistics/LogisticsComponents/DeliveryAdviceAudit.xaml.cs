@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace GAMS.Applications.Logistics.LogisticsComponents
 {
     /// <summary>
@@ -20,9 +21,20 @@ namespace GAMS.Applications.Logistics.LogisticsComponents
     /// </summary>
     public partial class DeliveryAdviceAudit : Window
     {
-        public DeliveryAdviceAudit(UserControl myOwner, string deliveryAdviceNumber)
+        public DeliveryAdviceAudit(UserControl myOwner)
         {
+            this.DataContext = myOwner.DataContext;
             InitializeComponent();
+
+            this.Closing += DeliveryAdviceAudit_Closing;
         }
+
+        private void DeliveryAdviceAudit_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        
     }
 }

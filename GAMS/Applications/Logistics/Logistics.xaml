@@ -9,7 +9,8 @@
     xmlns:SearchControl="clr-namespace:UIControls;assembly=SearchTextBox"
     xmlns:vm="clr-namespace:GAMS.ViewModel"
      xmlns:Converters="clr-namespace:GAMS.SharedClasses.SharedConverters"
-    xmlns:Overrider="clr-namespace:GAMS.SharedClasses.SharedOverriders"  
+    xmlns:Overrider="clr-namespace:GAMS.SharedClasses.SharedOverriders" 
+              xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
     Loaded="UserControl_Loaded"
     mc:Ignorable="d" 
     MinHeight="500"
@@ -19,9 +20,11 @@
         <vm:LogisticsViewModel />
     </UserControl.DataContext>
 
-   
+    <!--<UserControl.Resources>
+        <vm:LogisticsViewModel x:Key="MyViewModel"/>
+    </UserControl.Resources>-->
 
-    <UserControl.CommandBindings>
+    <!--<UserControl.CommandBindings>
         <CommandBinding
             Command="{x:Static SharedCommands:Commands.DeliveryAdviceCreateCmd}"
             CanExecute="DeliveryAdviceCreateCmd_CanExecute"
@@ -30,30 +33,30 @@
             Command="{x:Static SharedCommands:Commands.LogisticsReceiveCmd}"
             CanExecute="LogisticsReceiveCmd_CanExecute"
             Executed="LogisticsReceiveCmd_Executed" />
-    </UserControl.CommandBindings>
+    </UserControl.CommandBindings>-->
     <UserControl.InputBindings>
         <KeyBinding Key="N" Modifiers="Alt" Command="SharedCommands:Commands.DeliveryAdviceCreateCmd" />
         <KeyBinding Key="R" Modifiers="Alt" Command="SharedCommands:Commands.LogisticsReceiveCmd" />
     </UserControl.InputBindings>
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
+
+        <WebBrowser x:Name="wb_ReportView" Grid.Row="2" />
         <StackPanel Orientation="Horizontal">
             <StackPanel.Resources>
                 <Converters:DebugConverter x:Key="debugConverter" />
             </StackPanel.Resources>
 
             <telerik:RadComboBox x:Name="rcb_DAListType" Width="140" HorizontalAlignment="Left" Margin="0,0,3,0"
-                                 SelectedItem="{Binding SelectedFilterType, Mode=TwoWay}">
-                <telerik:RadComboBoxItem Content="Unreceived" IsSelected="True" />
-                <telerik:RadComboBoxItem Content="Received" IsSelected="True" />
-            </telerik:RadComboBox>
+                                 SelectedItem="{Binding SelectedFilterType}" />
 
-            <telerik:RadDatePicker x:Name="rdp_DateFrom"  Margin="0,0,3,0" SelectedValue="{Binding DateFilterFrom}" DateTimeWatermarkContent="Date From" Width="100" ToolTip="Date from" />
-            <telerik:RadDatePicker x:Name="rdp_DateTo"  Margin="0,0,3,0" SelectedValue="{Binding DateFilterTo}" DateTimeWatermarkContent="Date To" Width="100" ToolTip="Date to" />
+            <telerik:RadDatePicker x:Name="rdp_DateFrom"  Margin="0,0,3,0" SelectedValue="{Binding DateFilterFrom, Mode=TwoWay}" DateTimeWatermarkContent="Date From" Width="100" ToolTip="Date from" />
+            <telerik:RadDatePicker x:Name="rdp_DateTo"  Margin="0,0,3,0" SelectedValue="{Binding DateFilterTo , Mode=TwoWay}" DateTimeWatermarkContent="Date To" Width="100" ToolTip="Date to" />
 
             <telerik:RadButton x:Name="btn_Refresh" Margin="3,0,3,0"                               
                                Command="{Binding Path=RefreshDAListCommand}">
@@ -71,32 +74,50 @@
                                Click="btn_CreateNewDA_Click"
                               >
                 <telerik:RadButton.Content>
-                    <Image Source="/SharedImages/LogisticsNew-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    <Image Source="/SharedImages/Logistics-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                 </telerik:RadButton.Content>
             </telerik:RadButton>
+            <telerik:RadButton x:Name="btn_EditDA"  Margin="0,0,3,0" ToolTip="Edit DA (Alt+E)"                              
+                               Command="{Binding Path=EditDACommand}"   
+                               Click="btn_EditDA_Click"
+                              >
+                <telerik:RadButton.Content>
+                    <Image Source="/SharedImages/Edit-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                </telerik:RadButton.Content>
+            </telerik:RadButton>
+            <telerik:RadButton x:Name="btn_DeleteDA"  Margin="0,0,3,0" ToolTip="Delete DA (Alt+D)"                              
+                               Command="{Binding Path=DeleteDACommand}"
+                              >
+                <telerik:RadButton.Content>
+                    <Image Source="/SharedImages/Delete-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                </telerik:RadButton.Content>
+            </telerik:RadButton>
+            
             <telerik:RadButton x:Name="btn_ReceiveDA"  Margin="0,0,3,0" ToolTip="Quick Receipt DA (Alt+R)"
-                               Command="SharedCommands:Commands.LogisticsReceiveCmd">
+                               Command="SharedCommands:Commands.LogisticsReceiveCmd" Visibility="Collapsed">
                 <telerik:RadButton.Content>
                     <Image Source="/SharedImages/Receive-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                 </telerik:RadButton.Content>
             </telerik:RadButton>
-            <telerik:RadButton x:Name="btn_ShowReportWindow"  Margin="0,0,3,0" ToolTip="Show report window"
+            <telerik:RadButton x:Name="btn_ShowReportWindow"  Margin="0,0,3,0" ToolTip="Print"
                                Click="btn_ShowReportWindow_Click">
                 <telerik:RadButton.Content>
-                    <Image Source="/SharedImages/Reports-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
+                    <Image Source="/SharedImages/Print-40x40.png" Stretch="UniformToFill" Height="18" Width="18" />
                 </telerik:RadButton.Content>
             </telerik:RadButton>
             <SearchControl:SearchTextBox x:Name="stb_SearchLogistics" Width="140" HorizontalAlignment="Right" />
         </StackPanel>
 
-        <telerik:RadBusyIndicator x:Name="rbi_MainItem" Grid.Row="1" Margin="0,3,0,0" IsBusy="{Binding IsLoading}">
-            <telerik:RadGridView x:Name="rgv_MainItems"  AutoGenerateColumns="false"  
+        <telerik:RadBusyIndicator x:Name="rbi_MainItem" Grid.Row="1" Margin="0,3,0,0" IsBusy="{Binding IsLoading}" HorizontalAlignment="Stretch"   >
+            <telerik:RadGridView x:Name="rgv_MainItems"  AutoGenerateColumns="false"  HorizontalAlignment="Stretch"
                                  ItemsSource="{Binding DAListtoDisplay}" 
-                                 SelectedItem="{Binding SelectedDeliveryAdvice}">
+                                 SelectedItem="{Binding SelectedDeliveryAdvice}"
+                                 telerik:StyleManager.Theme="Office_Blue"
+                                >
                 <telerik:RadGridView.ChildTableDefinitions>
                     <telerik:GridViewTableDefinition>
                         <telerik:GridViewTableDefinition.Relation>
-                            <telerik:PropertyRelation ParentPropertyName="DeliveryItems" />
+                            <telerik:PropertyRelation ParentPropertyName="GAMS_DeliveryAdviceItem" />
                         </telerik:GridViewTableDefinition.Relation>
                     </telerik:GridViewTableDefinition>
                 </telerik:RadGridView.ChildTableDefinitions>
@@ -108,7 +129,7 @@
                                 <telerik:RadButton x:Name="rb_LoadDeliveryAdvice"
                                                     Click="rb_LoadDeliveryAdvice_Click"
                                                    Command="{Binding ViewDACommand}"
-                                                CommandParameter="{Binding}" >
+                                                CommandParameter="{Binding}"  Visibility="Collapsed" >
                                     <telerik:RadButton.Content>
                                         <Image Source="/SharedImages/Open-16x16.png" Stretch="UniformToFill" Height="18" Width="18" />
                                     </telerik:RadButton.Content>
@@ -116,29 +137,44 @@
                             </DataTemplate>
                         </telerik:GridViewColumn.CellTemplate>
                     </telerik:GridViewColumn>
-                    <telerik:GridViewDataColumn DataMemberBinding="{Binding DeliveryNo}" Header="DA Number" />
-                    <telerik:GridViewDataColumn DataMemberBinding="{Binding DeliveryReasonNum}" Header="DA Type" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding DeliveryAdviceNumber}" Header="DA Number" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding DeliveryAdviceReasonCode}" Header="DA Type" />
                     <telerik:GridViewDataColumn DataMemberBinding="{Binding FromName}" Header="From" />
-                    <telerik:GridViewDataColumn DataMemberBinding="{Binding FromAddress}" Header="AddressAttnTo" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding FromAddress}" Header="From Address" Width="80" />
                     <telerik:GridViewDataColumn DataMemberBinding="{Binding ToName}" Header="To" />
-                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ToAddress}" Header="To" />
-                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Courier}" Header="Courier" />
-                    <telerik:GridViewDataColumn DataMemberBinding="{Binding date, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Created" />                   
-                    <Overrider:RadGridView_ButtonColumn Header="Delete"  />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ToAddress}" Header="To Address" Width="80" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding C_Dictionary_Courier.CourierName}" Header="Courier" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding DateCreated, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Created Date" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Employee.Name}" Header="Created By" />
+
+                    <!--<telerik:GridViewColumn Header="Delete" >
+                        <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                                <telerik:RadButton Content="Delete"  Command="{Binding DeleteDACommand}" 
+                                                   CommandParameter="{Binding SelectedItem, ElementName=rgv_MainItems}" />
+                                
+                                --><!--<telerik:RadButton Content="Delete" Command="telerikGrid:RadGridViewCommands.Delete"
+                                               CommandParameter="{Binding}" />--><!--
+                            </DataTemplate> 
+                        </telerik:GridViewColumn.CellTemplate> 
+                  </telerik:GridViewColumn>--> 
                 </telerik:RadGridView.Columns>
 
                 <telerik:RadGridView.HierarchyChildTemplate>
                     <DataTemplate>
-                        <telerik:RadGridView ShowGroupPanel="False" AutoGenerateColumns="False" ItemsSource="{Binding DeliveryItems}" GroupRenderMode="Flat">
+                        <telerik:RadGridView ShowGroupPanel="False" AutoGenerateColumns="False" 
+                                             ItemsSource="{Binding C_DeliveryAdviceItems}" GroupRenderMode="Flat">
                             <telerik:RadGridView.Columns>
-                                <telerik:GridViewDataColumn DataMemberBinding="{Binding powo}"  Header="WO/PO" />
-                                <telerik:GridViewDataColumn DataMemberBinding="{Binding item_num}"  Header="ItemNumber" />
-                                <telerik:GridViewDataColumn DataMemberBinding="{Binding description}" Header="ItemDescription" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding WorkOrderNumber}"  Header="WO/PO" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ItemNumber}"  Header="Item Number" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ItemDescription}" Header="Item Description" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding QuantitySent}" Header="Quantity" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ReturnAdviceNumber}" Header="RtnNumber" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding DecontaminationStatus}" Header="Decon" />
                             </telerik:RadGridView.Columns>
                         </telerik:RadGridView>
                         <!--<StackPanel Orientation="Horizontal" >
                             <TextBlock Text=" Num of itesm: "/>
-                            <TextBlock Text="{Binding DeliveryItemCount}"/>
                         </StackPanel>-->
                         
                     </DataTemplate>

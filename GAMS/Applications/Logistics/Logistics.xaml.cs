@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using GAMS.Models;
 using GAMS.ViewModel;
 using Telerik.Windows.Controls;
+using GAMS.Applications.Logistics;
 
 namespace GAMS.Applications.Logistics
 {
@@ -24,77 +25,82 @@ namespace GAMS.Applications.Logistics
     /// </summary>
     public partial class Logistics : UserControl
     {
-        MainWindow MainWindow;
+       readonly MainWindow   MainWindow;
 
-        GAMS.ShareControls.ReportWindow reportWindow;
-        GAMS.Applications.Logistics.LogisticsComponents.DeliveryAdviceQuickReceipt receiptWindow;
-        private LogisticsViewModel _context;
-        private BNAEntities BNADB;
+      
+        
+        private readonly LogisticsViewModel _context;
+        
+        public List<string> SearchCbxOption;
+
+
 
         public Logistics(MainWindow mainWindow)
-        {  
-           
+        {
             InitializeComponent();
             MainWindow = mainWindow;
-          
 
-            stb_SearchLogistics.SectionsList = new List<string>() { "Delivery Number", "Part Number", "Work Order Number", "Part Description", "Purchase Order" };
+            SearchCbxOption = new List<string>();
+            SearchCbxOption.Add("Created");
+            SearchCbxOption.Add("Received");
+            rcb_DAListType.ItemsSource = SearchCbxOption;
+            rcb_DAListType.SelectedIndex = 0;
+
+         
+           // stb_SearchLogistics.SectionsList = new List<string>() { "Delivery Number", "Part Number", "Work Order Number", "Part Description", "Purchase Order" };
             stb_SearchLogistics.SectionsStyle = UIControls.SearchTextBox.SectionsStyles.CheckBoxStyle;
             stb_SearchLogistics.OnSearch += Stb_SearchLogistics_OnSearch;
+
 
             rdp_DateFrom.SelectedDate = DateTime.Today.AddDays(-3);
             rdp_DateTo.SelectedDate = DateTime.Now;
 
+
+
             rgv_MainItems.SelectionChanged += Rgv_MainItems_SelectionChanged;
 
-            _context = this.DataContext as LogisticsViewModel;
-            _context.MainWindow = MainWindow;
-            _context.Logistics = this;
+           
         }
 
         private void Rgv_MainItems_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
-            UpdateReportWindow();
+           // UpdateReportWindow();
         }
 
         private void Stb_SearchLogistics_OnSearch(object sender, RoutedEventArgs e)
         {
-            MainWindow.LocalDatabase.setLocalDatabase_UserTrackedInterests("marshallhp", "LogisticsSearch", stb_SearchLogistics.Text, false);
+            //MainWindow.LocalDatabase.setLocalDatabase_UserTrackedInterests("marshallhp", "LogisticsSearch", stb_SearchLogistics.Text, false);
 
-            UIControls.SearchEventArgs SearchEventArgs = e as UIControls.SearchEventArgs;
+            //UIControls.SearchEventArgs SearchEventArgs = e as UIControls.SearchEventArgs;
 
-            string sections = "\r\nSections(s): ";
-            foreach (string section in SearchEventArgs.Sections)
-                sections += (section + "; ");
+            //string sections = "\r\nSections(s): ";
+            //foreach (string section in SearchEventArgs.Sections)
+            //    sections += (section + "; ");
 
-            //send SearchEventArgs.Keyword (text) with the [sections] to build the search function
+            ////send SearchEventArgs.Keyword (text) with the [sections] to build the search function
+            ///
+            if (this.DataContext != null && (this.DataContext as LogisticsViewModel) != null)
+            {
+                if ((this.DataContext as LogisticsViewModel).FindDA(stb_SearchLogistics.Text) == false)
+                    MessageBox.Show("it is not a existing DA Number");
+                else
+                    OpenNewWindow(stb_SearchLogistics.Text);
+            }
         }
 
-        private void OpenDeliveryAdviceItem(int deliveryAdviceNumber)
-        {
-            MainWindow.RadTabbedWindow_CreateNewTab(new DeliveryAdviceSingleView(this, deliveryAdviceNumber), "DA: " + deliveryAdviceNumber.ToString());
-        }
-
+      
         private void btn_ShowReportWindow_Click(object sender, RoutedEventArgs e)
         {
-            if (reportWindow == null)
-            {
-                reportWindow = new ShareControls.ReportWindow(this);
-            }
+            var target_DeliveryAdvice = rgv_MainItems.SelectedItem as C_DeliveryAdvice;
 
-            reportWindow.Show();
-            UpdateReportWindow();
+            if (target_DeliveryAdvice!= null)
+                wb_ReportView.Source = new Uri("http://bna.health.qld.gov.au/WebForm/WebForm_DAforExternal.aspx?id=" + target_DeliveryAdvice.DeliveryAdviceNumber.ToString());
+
+            return;
+
         }
 
-        void UpdateReportWindow()
-        {
-            if (reportWindow != null && rgv_MainItems.SelectedItem != null)
-            {
-                var target_DeliveryAdvice = rgv_MainItems.SelectedItem as Item_DeliveryAdvice;
-                reportWindow.LoadReport(target_DeliveryAdvice.DeliveryAdviceID.ToString(), "Delivery Advice: " + target_DeliveryAdvice.DeliveryAdviceID.ToString());
-            }
-        }
-
+       
       
 
         private void DeliveryAdviceCreateCmd_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -104,12 +110,12 @@ namespace GAMS.Applications.Logistics
 
         private void DeliveryAdviceCreateCmd_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MainWindow.ModelViewTabComponents.Add(new ModelViewItem()
-            {
-                Content = new GAMS.Applications.Logistics.DeliveryAdviceSingleView(this, -1),
-                HeaderIcon = "/SharedImages/LogisticsNew-40x40.png",
-                Header = "New DA"
-            });
+            //MainWindow.ModelViewTabComponents.Add(new ModelViewItem()
+            //{
+            //    Content = new GAMS.Applications.Logistics.DeliveryAdviceSingleView(null,),
+            //    HeaderIcon = "/SharedImages/LogisticsNew-40x40.png",
+            //    Header = "New DA"
+            //});
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -122,15 +128,7 @@ namespace GAMS.Applications.Logistics
             e.CanExecute = true;
         }
 
-        private void LogisticsReceiveCmd_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (receiptWindow == null)
-            {
-                receiptWindow = new LogisticsComponents.DeliveryAdviceQuickReceipt();
-            }
-
-            receiptWindow.Show();
-        }
+       
 
         private void btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
@@ -152,7 +150,36 @@ namespace GAMS.Applications.Logistics
 
         private void btn_CreateNewDA_Click(object sender, RoutedEventArgs e)
         {
-            RadButton _btn = (sender as RadButton);
+            GAMS.Applications.Logistics.LogisticsComponents.Window_Courier _newWindow = new Applications.Logistics.LogisticsComponents.Window_Courier(this.MainWindow );
+            _newWindow.Show();
+
+          
+        }
+
+        private void btn_EditDA_Click(object sender, RoutedEventArgs e)
+        {
+            if ((this.DataContext as LogisticsViewModel).SelectedDeliveryAdvice != null)
+                OpenNewWindow((this.DataContext as LogisticsViewModel).SelectedDeliveryAdvice.DeliveryAdviceNumber.ToString ());
+            else
+                MessageBox.Show("Please select the Delivery Advice.");
+        }
+
+        private void OpenNewWindow(string key )
+        {
+
+                if (MainWindow.ModelViewTabComponents.IsExisting("DA:" + key) == false)
+                {
+                    MainWindow.ModelViewTabComponents.Add(new ModelViewItem()
+                    {
+                        Content = new GAMS.Applications.Logistics.DeliveryAdviceSingleView((this.DataContext as LogisticsViewModel).SelectedDeliveryAdvice, null, MainWindow),
+                        HeaderIcon = "pack://application:,,,/GAMS;component/SharedImages/LogisticsNew-40x40.png",
+                        Header = "DA:" + (this.DataContext as LogisticsViewModel).SelectedDeliveryAdvice.DeliveryAdviceNumber.ToString(),
+                        UserControlCatagoryApplicationType = UserControlApplicationsCatagoryType.Logistic
+                    });
+                }
+
+           
+           
         }
     }
 }

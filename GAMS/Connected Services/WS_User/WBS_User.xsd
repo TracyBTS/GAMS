@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BNA.Web.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://bna.health.qld.gov.au/WebServices/WBS_User.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="USER">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Facility" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Env_AutoHide_BaseBar" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Background_Color" type="xs:int" />
+      <xs:element minOccurs="0" name="Env_Widget_AirportScreen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Widget_Calender" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Widget_Clock" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Widget_Msg" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Widget_Wiki" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Widget_Clock_X" type="xs:int" />
+      <xs:element minOccurs="0" name="Env_Widget_Clock_Y" type="xs:int" />
+      <xs:element minOccurs="0" name="IsWA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EXlimit" type="xs:double" />
+      <xs:element minOccurs="0" name="Prolimit" type="xs:double" />
+      <xs:element minOccurs="0" name="_computerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Env_Height" type="xs:double" />
+      <xs:element minOccurs="0" name="Env_Width" type="xs:double" />
+      <xs:element minOccurs="0" name="WAO_Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WAO_End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EAO_Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EAO_End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PAO_Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PAO_End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="INV_Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="INV_End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CRE_Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CRE_End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LI_Begin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LI_End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PT_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DA_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EOM_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SCH_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EAO_Max" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WAO_Max" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PAO_Max" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellLogin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Env_Widget_QisScreen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_VirtualKeyboard" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_Widget_Notebook" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_MenuTrans" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_AppTrans" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Env_AnimationsOn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CPAP_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Novell_Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Novell_Group" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Novell_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Novell_Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Novell_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Novell_FN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ST_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TRNS_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DDS_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CM_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TRVL_Access" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientInvoicingEnd" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientInvoicingBegin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KPIDefaults" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceDepartmentDefault" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnpostWO_Access" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PRIVATE_INVC_ACCESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IMPRESTSTOCK_ACCESS" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NovellMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExceptionDefaults" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APP_ACC" nillable="true" type="tns:ArrayOfVW_BNA_USER_APP_ACC" />
+      <xs:element minOccurs="0" name="ExceptionDisplayAcknowledgedItems" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SecurityLevelEA" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="USER" nillable="true" type="tns:USER" />
+  <xs:complexType name="ArrayOfVW_BNA_USER_APP_ACC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VW_BNA_USER_APP_ACC" nillable="true" type="tns:VW_BNA_USER_APP_ACC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVW_BNA_USER_APP_ACC" nillable="true" type="tns:ArrayOfVW_BNA_USER_APP_ACC" />
+  <xs:complexType name="VW_BNA_USER_APP_ACC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EMPLOYEE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APP_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACCESS" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ACCESS_LEVEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APP_DESC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VW_BNA_USER_APP_ACC" nillable="true" type="tns:VW_BNA_USER_APP_ACC" />
+  <xs:complexType name="User_Setting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_env_Animations" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_AutoHide_BaseBar" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Background_Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_env_Menu_Transparent" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Widget_AirportScreen" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Widget_Calender" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Widget_MSG" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Widget_Wiki" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Widget_Notebook" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_WAO_Begin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_WAO_End" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_WAO_Max" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="_app_EAO_Begin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_EAO_End" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_EAO_Max" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="_app_PAO_Begin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_PAO_End" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_PAO_Max" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="_app_INV_Begin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_INV_End" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_INV_Max" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="_app_LI_Begin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_LI_End" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_ClientInvoicing_Begin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_ClientInvoicing_End" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_app_access_DA" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_PT" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_EOM" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_SCH" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_TRVL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_app_isNotesPanelOpen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_env_Widget_Clock" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_Widget_QisScreen" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_VirtualKeyboard" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_MenuTransparency" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_ApplicationTransparency" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_env_AnimationsOn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_CPaP" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_DDS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_TRNS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_SafetyTester" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_DMTool" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="QH_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_app_access_ConsoleMngr" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="C_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C_Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C_ProfileImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C_Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_app_SS_Max" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EMP_StartTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMP_FinishTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMP_Role" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EMP_PayRole" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMP_PayGrade" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EMP_Avail_1_Monday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_1_Tuesday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_1_Wednesday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_1_Thursday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_1_Friday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avai_1_Saturday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_1_Sunday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Monday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Tuesday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Wednesday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Thursday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Friday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Saturday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMP_Avail_2_Sunday" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VENDOR_Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DDSUniqueIDDigitalSignaturePAO" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="KPIDefaults" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_app_PrivateInvc_Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IS_BAN1_ENABLED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_app_access_Unpost" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_FileMaker_Apps_Access" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_app_ImprestStock" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NovellPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellPosition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovelMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecoveryCCTR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExceptionDefaults" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExceptionDisplayAcknowledgedItems" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FSRVendorSupplierNumberOld" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FSRVendorSupplierNumberNew" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellDepartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellOffice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NovellZip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User_Setting" nillable="true" type="tns:User_Setting" />
+  <xs:complexType name="ArrayOfPURCHASE_APPROVAL_WGP_ACTING_MANAGER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASE_APPROVAL_WGP_ACTING_MANAGER" nillable="true" type="tns:PURCHASE_APPROVAL_WGP_ACTING_MANAGER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASE_APPROVAL_WGP_ACTING_MANAGER" nillable="true" type="tns:ArrayOfPURCHASE_APPROVAL_WGP_ACTING_MANAGER" />
+  <xs:complexType name="PURCHASE_APPROVAL_WGP_ACTING_MANAGER">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NOVELL_USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACTING_ROLL_USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACTING_ROLL_EA_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACTING_FROM" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ACTING_TO" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PK" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASE_APPROVAL_WGP_ACTING_MANAGER" nillable="true" type="tns:PURCHASE_APPROVAL_WGP_ACTING_MANAGER" />
+  <xs:complexType name="WidgetPostIt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="_IDPostIt" type="xs:int" />
+      <xs:element minOccurs="0" name="_Note_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Note_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Note_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Note_4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_GeneratedByBNAUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_AssignedToBNAUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_IsComplete" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="_IsCompleteDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WidgetPostIt" nillable="true" type="tns:WidgetPostIt" />
+  <xs:complexType name="ArrayOfWidgetPostIt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WidgetPostIt" nillable="true" type="tns:WidgetPostIt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWidgetPostIt" nillable="true" type="tns:ArrayOfWidgetPostIt" />
+  <xs:complexType name="ArrayOfBNA_USER_APP_ACCESS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BNA_USER_APP_ACCESS" nillable="true" type="tns:BNA_USER_APP_ACCESS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBNA_USER_APP_ACCESS" nillable="true" type="tns:ArrayOfBNA_USER_APP_ACCESS" />
+  <xs:complexType name="BNA_USER_APP_ACCESS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EMPLOYEE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APP_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACCESS" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ACCESS_LEVEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BNA_USER_APP_ACCESS" nillable="true" type="tns:BNA_USER_APP_ACCESS" />
+  <xs:complexType name="ArrayOfPURCHASING_WORKGROUP_CENTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASING_WORKGROUP_CENTER" nillable="true" type="tns:PURCHASING_WORKGROUP_CENTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASING_WORKGROUP_CENTER" nillable="true" type="tns:ArrayOfPURCHASING_WORKGROUP_CENTER" />
+  <xs:complexType name="PURCHASING_WORKGROUP_CENTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PURCHASE_WG_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COST_CENTER_ASSINED" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASING_WORKGROUP_CENTER" nillable="true" type="tns:PURCHASING_WORKGROUP_CENTER" />
+  <xs:complexType name="ArrayOfCastDictionary_Single">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CastDictionary_Single" nillable="true" type="tns:CastDictionary_Single" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCastDictionary_Single" nillable="true" type="tns:ArrayOfCastDictionary_Single" />
+  <xs:complexType name="CastDictionary_Single">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IndependantValue" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DependantValue" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CastDictionary_Single" nillable="true" type="tns:CastDictionary_Single" />
+  <xs:complexType name="ArrayOfCastDictionary_Dual">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CastDictionary_Dual" nillable="true" type="tns:CastDictionary_Dual" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCastDictionary_Dual" nillable="true" type="tns:ArrayOfCastDictionary_Dual" />
+  <xs:complexType name="CastDictionary_Dual">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IndependantValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DependantValue_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DependantValue_2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CastDictionary_Dual" nillable="true" type="tns:CastDictionary_Dual" />
+  <xs:complexType name="ArrayOfREPORT_SCHEDULED">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="REPORT_SCHEDULED" nillable="true" type="tns:REPORT_SCHEDULED" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfREPORT_SCHEDULED" nillable="true" type="tns:ArrayOfREPORT_SCHEDULED" />
+  <xs:complexType name="REPORT_SCHEDULED">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="REPORT_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_VARIABLES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_DATA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_GUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_NAME_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_OWNER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_CREATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="REPORT_EMAIL_NOTIFICATION" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_TIME_TO_RUN" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="REPORT_DATE_TO_BEGIN" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="REPORT_DATE_TO_END" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_MON" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_TUE" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_WED" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_THU" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_FRI" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_SAT" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_SUN" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_PAY" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="REPORT_REPEAT_MONTH" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="REPORT_SCHEDULED" nillable="true" type="tns:REPORT_SCHEDULED" />
+  <xs:complexType name="ArrayOfREPORT_SCHEDULED_SUBSCRIBED_USER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="REPORT_SCHEDULED_SUBSCRIBED_USER" nillable="true" type="tns:REPORT_SCHEDULED_SUBSCRIBED_USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfREPORT_SCHEDULED_SUBSCRIBED_USER" nillable="true" type="tns:ArrayOfREPORT_SCHEDULED_SUBSCRIBED_USER" />
+  <xs:complexType name="REPORT_SCHEDULED_SUBSCRIBED_USER">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="REPORT_GUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_USERCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_LAST_VIEWED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="REPORT_LAST_RUN" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="REPORT_ACKNOWLEDGE" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="REPORT_SCHEDULED_SUBSCRIBED_USER" nillable="true" type="tns:REPORT_SCHEDULED_SUBSCRIBED_USER" />
+  <xs:complexType name="ArrayOfREPORT_SCHEDULEHISTORY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="REPORT_SCHEDULEHISTORY" nillable="true" type="tns:REPORT_SCHEDULEHISTORY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfREPORT_SCHEDULEHISTORY" nillable="true" type="tns:ArrayOfREPORT_SCHEDULEHISTORY" />
+  <xs:complexType name="REPORT_SCHEDULEHISTORY">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="REPORT_GUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_USERCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="REPORT_NAME_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_VARIABLES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REPORT_DATA" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="REPORT_SCHEDULEHISTORY" nillable="true" type="tns:REPORT_SCHEDULEHISTORY" />
+  <xs:complexType name="ArrayOfPURCHASING_AUDIT_CHANGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASING_AUDIT_CHANGE" nillable="true" type="tns:PURCHASING_AUDIT_CHANGE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASING_AUDIT_CHANGE" nillable="true" type="tns:ArrayOfPURCHASING_AUDIT_CHANGE" />
+  <xs:complexType name="PURCHASING_AUDIT_CHANGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AUDIT_DATETIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AUDIT_DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUDIT_BYWHOM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUDIT_USER_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUDIT_GUID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASING_AUDIT_CHANGE" nillable="true" type="tns:PURCHASING_AUDIT_CHANGE" />
+  <xs:complexType name="ArrayOfPURCHASE_TRAVEL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASE_TRAVEL" nillable="true" type="tns:PURCHASE_TRAVEL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASE_TRAVEL" nillable="true" type="tns:ArrayOfPURCHASE_TRAVEL" />
+  <xs:complexType name="PURCHASE_TRAVEL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FSR_TRACKING" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRAVEL_ITEM_KEY" type="xs:int" />
+      <xs:element minOccurs="0" name="EMPLOYEE_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ITEM_DETAILS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_COST" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IS_PURGED_FLAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STD_BTS_FEE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BILLABLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEMCOST_EXGST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DOC_ATTACHED" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PURCHASE_TRAVEL_FILEs" nillable="true" type="tns:ArrayOfPURCHASE_TRAVEL_FILE">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASE_TRAVEL" nillable="true" type="tns:PURCHASE_TRAVEL" />
+  <xs:complexType name="ArrayOfPURCHASE_TRAVEL_FILE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASE_TRAVEL_FILE" nillable="true" type="tns:PURCHASE_TRAVEL_FILE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASE_TRAVEL_FILE" nillable="true" type="tns:ArrayOfPURCHASE_TRAVEL_FILE" />
+  <xs:complexType name="PURCHASE_TRAVEL_FILE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TRAVEL_ITEM_KEY" type="xs:int" />
+      <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASE_TRAVEL_FILE" nillable="true" type="tns:PURCHASE_TRAVEL_FILE" />
+  <xs:complexType name="ArrayOfPURCHASE_TRAVEL_FSR">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASE_TRAVEL_FSR" nillable="true" type="tns:PURCHASE_TRAVEL_FSR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASE_TRAVEL_FSR" nillable="true" type="tns:ArrayOfPURCHASE_TRAVEL_FSR" />
+  <xs:complexType name="PURCHASE_TRAVEL_FSR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TRAVEL_ITEM_KEY" type="xs:int" />
+      <xs:element minOccurs="0" name="FSR_TRACKING" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASE_TRAVEL_FSR" nillable="true" type="tns:PURCHASE_TRAVEL_FSR" />
+  <xs:complexType name="ArrayOfFSR_Summary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FSR_Summary" nillable="true" type="tns:FSR_Summary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFSR_Summary" nillable="true" type="tns:ArrayOfFSR_Summary" />
+  <xs:complexType name="FSR_Summary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FSR_Tracking" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WOCount" type="xs:int" />
+      <xs:element minOccurs="0" name="BillableHours" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CostsTAA" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CostsClaim" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CostsTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DivisionType" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessedByEmp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Finalised" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ServiceDepartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CanIApprove" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ApprovalType" type="xs:int" />
+      <xs:element minOccurs="0" name="Freight" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FSR_Summary" nillable="true" type="tns:FSR_Summary" />
+  <xs:complexType name="ArrayOfPURCHASE_TRAVEL_TYPE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PURCHASE_TRAVEL_TYPE" nillable="true" type="tns:PURCHASE_TRAVEL_TYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPURCHASE_TRAVEL_TYPE" nillable="true" type="tns:ArrayOfPURCHASE_TRAVEL_TYPE" />
+  <xs:complexType name="PURCHASE_TRAVEL_TYPE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PURCHASE_TRAVEL_TYPE_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PURCHASE_TRAVEL_TYPE_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PURCHASE_TRAVEL_STD_BOOKING_FEE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PURCHASE_TRAVEL_STD_BOOKING_FEE_DESCRIPTIION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PURCHASE_TRAVEL_TYPE_DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VERSION" type="xs:int" />
+      <xs:element minOccurs="0" name="VERSION_DATETIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ISACTIVE" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GSTINCLUDED" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PURCHASE_TRAVEL_TYPE" nillable="true" type="tns:PURCHASE_TRAVEL_TYPE" />
+  <xs:complexType name="User_CustomQuickLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Link_HTML" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Link_Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Link_Icon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Link_ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User_CustomQuickLink" nillable="true" type="tns:User_CustomQuickLink" />
+  <xs:complexType name="ArrayOfUser_CustomQuickLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User_CustomQuickLink" nillable="true" type="tns:User_CustomQuickLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser_CustomQuickLink" nillable="true" type="tns:ArrayOfUser_CustomQuickLink" />
+  <xs:complexType name="ArrayOfFSR_WO_SUMMARY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FSR_WO_SUMMARY" nillable="true" type="tns:FSR_WO_SUMMARY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFSR_WO_SUMMARY" nillable="true" type="tns:ArrayOfFSR_WO_SUMMARY" />
+  <xs:complexType name="FSR_WO_SUMMARY">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WO_NUMBER" type="xs:int" />
+      <xs:element minOccurs="0" name="COST_CENTER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL_COST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TOTAL_BILL_HOURS" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BUILDING_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EST_TRAVEL_CHARGE" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FSR_WO_SUMMARY" nillable="true" type="tns:FSR_WO_SUMMARY" />
+  <xs:complexType name="ArrayOfUserToil">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserToil" nillable="true" type="tns:UserToil" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserToil" nillable="true" type="tns:ArrayOfUserToil" />
+  <xs:complexType name="UserToil">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserToilID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hours" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoggedByUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoggedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserToil" nillable="true" type="tns:UserToil" />
+  <xs:complexType name="ArrayOfSystemRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SystemRole" nillable="true" type="tns:SystemRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSystemRole" nillable="true" type="tns:ArrayOfSystemRole" />
+  <xs:complexType name="SystemRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="View_SystemRoleApprovalGroupLimits" nillable="true" type="tns:ArrayOfView_SystemRoleApprovalGroupLimit">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="View_SystemRoleServiceDepartments" nillable="true" type="tns:ArrayOfView_SystemRoleServiceDepartment">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="UserRoles" nillable="true" type="tns:ArrayOfUserRole">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="View_SystemRolePrivateInvoices" nillable="true" type="tns:ArrayOfView_SystemRolePrivateInvoice">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemRole" nillable="true" type="tns:SystemRole" />
+  <xs:complexType name="ArrayOfView_SystemRoleApprovalGroupLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="View_SystemRoleApprovalGroupLimit" nillable="true" type="tns:View_SystemRoleApprovalGroupLimit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfView_SystemRoleApprovalGroupLimit" nillable="true" type="tns:ArrayOfView_SystemRoleApprovalGroupLimit" />
+  <xs:complexType name="View_SystemRoleApprovalGroupLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystemRoleApprovalGroupIDLimits" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemApprovalGroupID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ApprovalGroupDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LowLimit" type="xs:decimal" />
+      <xs:element minOccurs="0" name="HighLimit" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="View_SystemRoleApprovalGroupLimit" nillable="true" type="tns:View_SystemRoleApprovalGroupLimit" />
+  <xs:complexType name="ArrayOfView_SystemRoleServiceDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="View_SystemRoleServiceDepartment" nillable="true" type="tns:View_SystemRoleServiceDepartment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfView_SystemRoleServiceDepartment" nillable="true" type="tns:ArrayOfView_SystemRoleServiceDepartment" />
+  <xs:complexType name="View_SystemRoleServiceDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RoleServiceDeptGroupID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceDepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceDepartmentName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="View_SystemRoleServiceDepartment" nillable="true" type="tns:View_SystemRoleServiceDepartment" />
+  <xs:complexType name="ArrayOfUserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRole" nillable="true" type="tns:UserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRole" nillable="true" type="tns:ArrayOfUserRole" />
+  <xs:complexType name="UserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserRoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NovellUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ApproverForActing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRole" nillable="true" type="tns:UserRole" />
+  <xs:complexType name="ArrayOfView_SystemRolePrivateInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="View_SystemRolePrivateInvoice" nillable="true" type="tns:View_SystemRolePrivateInvoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfView_SystemRolePrivateInvoice" nillable="true" type="tns:ArrayOfView_SystemRolePrivateInvoice" />
+  <xs:complexType name="View_SystemRolePrivateInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystemRolePrivateInvoiceID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="CostCentreCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostCentreName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="View_SystemRolePrivateInvoice" nillable="true" type="tns:View_SystemRolePrivateInvoice" />
+  <xs:complexType name="SystemRoleApprovalGroupLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystemRoleApprovalGroupIDLimits" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SystemApprovalGroupID" type="ser:guid" />
+      <xs:element minOccurs="0" name="LowLimit" type="xs:decimal" />
+      <xs:element minOccurs="0" name="HighLimit" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemRoleApprovalGroupLimit" nillable="true" type="tns:SystemRoleApprovalGroupLimit" />
+  <xs:complexType name="ArrayOfCOD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="COD" nillable="true" type="tns:COD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCOD" nillable="true" type="tns:ArrayOfCOD" />
+  <xs:complexType name="COD">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FACILITY" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="COD" nillable="true" type="tns:COD" />
+  <xs:complexType name="ArrayOfSystemApprovalGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SystemApprovalGroup" nillable="true" type="tns:SystemApprovalGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSystemApprovalGroup" nillable="true" type="tns:ArrayOfSystemApprovalGroup" />
+  <xs:complexType name="SystemApprovalGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystemApprovalGroupID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ApprovalGroupDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovalGroupCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemApprovalGroup" nillable="true" type="tns:SystemApprovalGroup" />
+  <xs:complexType name="ArrayOfView_SystemUserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="View_SystemUserRole" nillable="true" type="tns:View_SystemUserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfView_SystemUserRole" nillable="true" type="tns:ArrayOfView_SystemUserRole" />
+  <xs:complexType name="View_SystemUserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NovellUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="View_SystemUserRole" nillable="true" type="tns:View_SystemUserRole" />
+  <xs:complexType name="ArrayOfDataManagerException">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataManagerException" nillable="true" type="tns:DataManagerException" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataManagerException" nillable="true" type="tns:ArrayOfDataManagerException" />
+  <xs:complexType name="DataManagerException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataManagerExceptionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UniqueID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkOrder" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="WorkOrderProcedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkOrderProcedureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueCommittee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HoverForExceptionTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExceptionTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiscDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportedDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Facility" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponsibleCostCentre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsFlagged" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAccepted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Created" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ServiceDeptCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsWO" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ArchivedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ServiceDeptName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataManagerException" nillable="true" type="tns:DataManagerException" />
+  <xs:complexType name="ArrayOfDataManagerExceptionNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataManagerExceptionNote" nillable="true" type="tns:DataManagerExceptionNote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataManagerExceptionNote" nillable="true" type="tns:ArrayOfDataManagerExceptionNote" />
+  <xs:complexType name="DataManagerExceptionNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataManagerExceptionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="HistoryID" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataManagerExceptionNote" nillable="true" type="tns:DataManagerExceptionNote" />
+  <xs:complexType name="ArrayOfDataMangerExceptionsWorkGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataMangerExceptionsWorkGroup" nillable="true" type="tns:DataMangerExceptionsWorkGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataMangerExceptionsWorkGroup" nillable="true" type="tns:ArrayOfDataMangerExceptionsWorkGroup" />
+  <xs:complexType name="DataMangerExceptionsWorkGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceDept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataMangerExceptionsWorkGroup" nillable="true" type="tns:DataMangerExceptionsWorkGroup" />
+  <xs:complexType name="ArrayOfUserDocumentFavourite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDocumentFavourite" nillable="true" type="tns:UserDocumentFavourite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDocumentFavourite" nillable="true" type="tns:ArrayOfUserDocumentFavourite" />
+  <xs:complexType name="UserDocumentFavourite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDocumentFavourite" nillable="true" type="tns:UserDocumentFavourite" />
+</xs:schema>
